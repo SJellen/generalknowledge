@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
+
+const LOCAL_STORAGE_KEY = 'categories'
+
 const Context = React.createContext()
 
 function QuestionContextProvider({ children }) {
@@ -28,6 +31,11 @@ function QuestionContextProvider({ children }) {
     const [gadgets, setGadgets] = useState([])
     const [anime, setAnime] = useState([])
     const [cartoons, setCartoons] = useState([])
+
+    const [shuffledArr, setShuffledArr] = useState([])
+    const [roundOneCategories, setRoundOneCategories] = useState([])
+    const [roundTwoCategories, setRoundTwoCategories] = useState([])
+    const [finalRoundCategory, setFinalRoundCategory] = useState([])
 
     
     
@@ -66,7 +74,17 @@ function QuestionContextProvider({ children }) {
         fetchQuestions(30, setGadgets)
         fetchQuestions(31, setAnime)
         fetchQuestions(32, setCartoons)
+        const randomCategories = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+        if (randomCategories) {
+            setShuffledArr(randomCategories)
+        } else if (randomCategories === null ) {
+            setShuffledArr(getShuffledArr(categoryArr))
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(categoryArr))
+        }
+        
     }, [])
+
+
 
 
     let categoryArr = ["generalKnowledge", "books", "film", "music", "theatre", "tv", "videoGames", "boardGames", "nature", "computers", 
@@ -82,20 +100,17 @@ function QuestionContextProvider({ children }) {
             }
             return newArr
             
-        };
+        }
 
 
-        
-        console.log(getShuffledArr(categoryArr))
+        console.log(shuffledArr)
 
 
     
 
    
     return (
-        <Context.Provider value={{generalKnowledge, books, film, music, theatre, tv, videoGames, boardGames, nature, computers, 
-                                  math, mythology, sports,geography, history, politics, art, celebrities, animals, vehicles, comics,
-                                  gadgets, anime, cartoons}}>
+        <Context.Provider value={{}}>
             { children }
         </Context.Provider>
     )
