@@ -103,7 +103,7 @@ function QuestionContextProvider({ children }) {
         }
 
 
-        console.log(shuffledArr)
+        // console.log(shuffledArr)
 
 
     
