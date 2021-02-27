@@ -1,7 +1,18 @@
 import '../styles/globals.css'
+import Layout from '../components/Layout'
+import {QuestionContextProvider } from '../context/QuestionContext'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <QuestionContextProvider>
+     <Layout >
+        <Component {...pageProps} />
+     </Layout>
+     
+    </QuestionContextProvider>
+    
+  )
+  
 }
 
 export default MyApp
