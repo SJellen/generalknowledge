@@ -9,100 +9,21 @@ const Context = React.createContext()
 
 function QuestionContextProvider({ children }) {
 
-    const [generalKnowledge, setGeneralKnowledge] = useState()
-    const [books, setBooks] = useState()
-    const [film, setFilm] = useState()
-    const [music, setMusic] = useState()
-    // const [theatre, setTheatre] = useState([])
-    const [tv, setTv] = useState()
-    const [videoGames, setVideGames] = useState()
-    const [boardGames, setBoardGames] = useState()
-    const [nature, setNature] = useState()
-    const [computers, setComputers] = useState()
-    const [math, setMath] = useState()
-    const [mythology, setMythology] = useState()
-    const [sports, setSports] = useState()
-    const [geography, setGeography] = useState()
-    const [history, setHistory] = useState()
-    const [politics, setPolitics] = useState()
-    // const [art, setArt] = useState([])
-    const [celebrities, setCelebrities] = useState()
-    const [animals, setAnimals] = useState()
-    const [vehicles, setVehicles] = useState()
-    const [comics, setComics] = useState()
-    // const [gadgets, setGadgets] = useState([])
-    const [anime, setAnime] = useState()
-    const [cartoons, setCartoons] = useState()
-
+   
     const [shuffledArr, setShuffledArr] = useState([])
     const [roundOneCategories, setRoundOneCategories] = useState([])
     const [roundTwoCategories, setRoundTwoCategories] = useState([])
     const [finalRoundCategory, setFinalRoundCategory] = useState([])
 
+    const [finalQuestion, setFinalQuestion] = useState()
+    const [firstRoundQuestions, setFirstRoundQuestions] = useState()
+    const [secondRoundQuestions, setSecondRoundQuestions] = useState()
     
-    
+    const categoryArr = [9,10,11,12, 13,14,15,16,17,18,19,20,21,22,23,24,25,26, 27,28,29,30,31,32]
 
+    // shuffle categories
 
-    const fetchQuestions = async (x, set) => {
-        await fetch(`https://opentdb.com/api.php?amount=50&category=${x}`)
-        .then(res => res.json())
-        .then(data => 
-            set(data.results))
-        .catch(error => console.log(error))    
-    }
-
-    useEffect(() => {
-        fetchQuestions(9, setGeneralKnowledge)
-        fetchQuestions(10, setBooks)
-        fetchQuestions(11, setFilm)
-        fetchQuestions(12, setMusic)
-        // fetchQuestions(13, setTheatre)
-        fetchQuestions(14, setTv)
-        fetchQuestions(15, setVideGames)
-        fetchQuestions(16, setBoardGames)
-        fetchQuestions(17, setNature)
-        fetchQuestions(18, setComputers)
-        fetchQuestions(19, setMath)
-        fetchQuestions(20, setMythology)
-        fetchQuestions(21, setSports)
-        fetchQuestions(22, setGeography)
-        fetchQuestions(23, setHistory)
-        fetchQuestions(24, setPolitics)
-        // fetchQuestions(25, setArt)
-        fetchQuestions(26, setCelebrities)
-        fetchQuestions(27, setAnimals)
-        fetchQuestions(28, setVehicles)
-        fetchQuestions(29, setComics)
-        // fetchQuestions(30, setGadgets)
-        fetchQuestions(31, setAnime)
-        fetchQuestions(32, setCartoons)
-        const randomCategories = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-        if (randomCategories) {
-            setShuffledArr(randomCategories)
-        } else if (randomCategories === null ) {
-            let shuffle = getShuffledArr(categoryArr)
-            setShuffledArr(shuffle)
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(shuffle))
-        }
-
-       
-        
-    }, [])
-
-
-     
-
-    let categoryArr = [generalKnowledge, books, film, music, 
-        // theatre,
-         tv, videoGames, boardGames, nature, computers, 
-        math, mythology, sports,geography, history, politics,
-        //  art,
-          celebrities, animals, vehicles, comics,
-        // gadgets,
-         anime, cartoons]
-
-
-        const getShuffledArr = arr => {
+    const getShuffledArr = arr => {
             const newArr = arr.slice()
             for (let i = newArr.length - 1; i > 0; i--) {
                 const rand = Math.floor(Math.random() * (i + 1));
@@ -111,30 +32,95 @@ function QuestionContextProvider({ children }) {
             return newArr
         }
 
-       
-
-        function categoryCreator() {
-            let tempArr = shuffledArr
-            const firstArr = tempArr.slice(0,6)
-            const secondArr = tempArr.slice(6,12)
-            const finalArr = tempArr.slice(-1)
-            setRoundOneCategories(firstArr)
-            setRoundTwoCategories(secondArr)
-            setFinalRoundCategory(finalArr)
+    // get categories from storage if exist
+    useEffect(() => {
+        const randomCategories = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+        if (randomCategories) {
+            setShuffledArr(randomCategories)
+        } else if (randomCategories === null ) {
+            let shuffle = getShuffledArr(categoryArr)
+            setShuffledArr(shuffle)
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(shuffle))
         }
+    }, [])  
 
-       
+    // get categories for each round
+    function categoryCreator() {
+        let tempArr = shuffledArr
+        const firstArr = tempArr.slice(0,6)
+        const secondArr = tempArr.slice(6,12)
+        const finalArr = tempArr.slice(-1)
+        setRoundOneCategories(firstArr)
+        setRoundTwoCategories(secondArr)
+        setFinalRoundCategory(finalArr)
+    }
 
-        
-
-        useEffect(() => {
+    useEffect(() => {
             categoryCreator()
-        }, [])
-        
+    }, [shuffledArr])     
 
-           
      
 
+
+
+    const fetchFinalQuestion = async (cat) => {
+        await fetch(`https://opentdb.com/api.php?amount=1&category=${cat}&difficulty=hard&type=multiple`)
+            .then(res => res.json())
+            .then(data => 
+                setFinalQuestion(data.results))
+            .catch(error => console.log(error))  
+    }
+
+    useEffect(() => {
+        fetchFinalQuestion(finalRoundCategory[0])
+    }, [finalRoundCategory])
+
+    const fetchFirstRoundQuestions = async (cat) => {
+        await fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&type=multiple`)
+        .then(res => res.json())
+        .then(data => 
+            setFirstRoundQuestions(data.results))
+        .catch(error => console.log(error))    
+    }
+
+    useEffect(() => {
+        fetchFirstRoundQuestions(roundOneCategories[0])
+        fetchFirstRoundQuestions(roundOneCategories[1])
+        fetchFirstRoundQuestions(roundOneCategories[2])
+        fetchFirstRoundQuestions(roundOneCategories[3])
+        fetchFirstRoundQuestions(roundOneCategories[4])
+        fetchFirstRoundQuestions(roundOneCategories[5])
+
+    }, [roundOneCategories])
+
+    const fetchSecondRoundQuestions = async (cat) => {
+        await fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&type=multiple`)
+        .then(res => res.json())
+        .then(data => 
+            setSecondRoundQuestions(data.results))
+        .catch(error => console.log(error))    
+    }
+
+    useEffect(() => {
+        fetchSecondRoundQuestions(roundTwoCategories[0])
+        fetchSecondRoundQuestions(roundTwoCategories[1])
+        fetchSecondRoundQuestions(roundTwoCategories[2])
+        fetchSecondRoundQuestions(roundTwoCategories[3])
+        fetchSecondRoundQuestions(roundTwoCategories[4])
+        fetchSecondRoundQuestions(roundTwoCategories[5])
+
+    }, [roundTwoCategories])    
+
+
+
+    
+
+
+    console.log(finalQuestion, firstRoundQuestions, secondRoundQuestions)
+    
+    
+    
+    // console.log(shuffledArr)
    
     return (
         <Context.Provider value={{}}>
