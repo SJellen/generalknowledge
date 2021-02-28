@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 const LOCAL_STORAGE_KEY = 'categories'
 
 
-
 const Context = React.createContext()
 
 function QuestionContextProvider({ children }) {
@@ -60,9 +59,6 @@ function QuestionContextProvider({ children }) {
     }, [shuffledArr])     
 
      
-
-
-
     const fetchFinalQuestion = async (cat) => {
         await fetch(`https://opentdb.com/api.php?amount=1&category=${cat}&difficulty=hard&type=multiple`)
             .then(res => res.json())
@@ -112,15 +108,6 @@ function QuestionContextProvider({ children }) {
     }, [roundTwoCategories])    
 
 
-
-    
-
-
-    console.log(finalQuestion, firstRoundQuestions, secondRoundQuestions)
-    
-    
-    
-    // console.log(shuffledArr)
    
     return (
         <Context.Provider value={{}}>
