@@ -5,12 +5,17 @@
     color: white;
     position: fixed;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
     
     
 
 }
 
-.h1 {
+.title {
     margin-right: 2.5rem;
-    text-align: end;
+}
+
+.username {
+    margin-left: 2.5rem;
 }

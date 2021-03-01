@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
-import Start from '../gamepages/Start'
+import Start from '../pages/gamepages/Start'
 
 export default function Home() {
   return (
