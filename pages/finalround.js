@@ -8,7 +8,9 @@ export default function FinalRound() {
 
     return (
         <div className={styles.container}>
-            <h1>final round</h1>
+            <div className={styles.parent}>
+                <div className={styles.gridTitle}>Category</div>
+            </div>
         </div>
     )
     
