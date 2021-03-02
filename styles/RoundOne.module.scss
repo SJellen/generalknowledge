@@ -28,6 +28,10 @@
     font-weight: 900;
 }
 
+.gridItem:hover {
+    cursor: pointer;
+}
+
 .gridTitle {
     background-color: blue;
     color: white;
@@ -39,3 +43,4 @@
     justify-content: center;
     align-items: center;
 }
+

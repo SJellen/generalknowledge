@@ -1,10 +1,17 @@
+import React, {useContext, useEffect, useState} from 'react'
+import {Context} from '../context/QuestionContext'
 import Link from 'next/link'
 import styles from '../styles/RoundOne.module.scss'
 
-
+const LOCAL_STORAGE_KEY = 'firstround'
 
 export default function RoundOne() {
 
+    const {firstRoundQuestions} = useContext(Context)
+
+    
+
+    
 
     return (
         <div className={styles.container}>

@@ -105,12 +105,14 @@ function QuestionContextProvider({ children }) {
         fetchSecondRoundQuestions(roundTwoCategories[4])
         fetchSecondRoundQuestions(roundTwoCategories[5])
 
-    }, [roundTwoCategories])    
+    }, [roundTwoCategories])  
+    
+    
 
-
+    console.log(firstRoundQuestions)
    
     return (
-        <Context.Provider value={{}}>
+        <Context.Provider value={{firstRoundQuestions}}>
             { children }
         </Context.Provider>
     )
