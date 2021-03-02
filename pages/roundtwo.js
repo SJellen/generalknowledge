@@ -8,7 +8,44 @@ export default function RoundTwo() {
 
     return (
         <div className={styles.container}>
-            <h1>roundTwo</h1>
+            <div className={styles.parent}>
+                <div className={styles.gridTitle}>Category</div>
+                <div className={styles.gridTitle}>Category</div>
+                <div className={styles.gridTitle}>Category</div>
+                <div className={styles.gridTitle}>Category</div>
+                <div className={styles.gridTitle}>Category</div>
+                <div className={styles.gridTitle}>Category</div>
+                <div className={styles.gridItem}>$400</div>
+                <div className={styles.gridItem}>$400</div>
+                <div className={styles.gridItem}>$400</div>
+                <div className={styles.gridItem}>$400</div>
+                <div className={styles.gridItem}>$400</div>
+                <div className={styles.gridItem}>$400</div>
+                <div className={styles.gridItem}>$800</div>
+                <div className={styles.gridItem}>$800</div>
+                <div className={styles.gridItem}>$800</div>
+                <div className={styles.gridItem}>$800</div>
+                <div className={styles.gridItem}>$800</div>
+                <div className={styles.gridItem}>$800</div>
+                <div className={styles.gridItem}>$1200</div>
+                <div className={styles.gridItem}>$1200</div>
+                <div className={styles.gridItem}>$1200</div>
+                <div className={styles.gridItem}>$1200</div>
+                <div className={styles.gridItem}>$1200</div>
+                <div className={styles.gridItem}>$1200</div>
+                <div className={styles.gridItem}>$1600</div>
+                <div className={styles.gridItem}>$1600</div>
+                <div className={styles.gridItem}>$1600</div>
+                <div className={styles.gridItem}>$1600</div>
+                <div className={styles.gridItem}>$1600</div>
+                <div className={styles.gridItem}>$1600</div>
+                <div className={styles.gridItem}>$2000</div>
+                <div className={styles.gridItem}>$2000</div>
+                <div className={styles.gridItem}>$2000</div>
+                <div className={styles.gridItem}>$2000</div>
+                <div className={styles.gridItem}>$2000</div>
+                <div className={styles.gridItem}>$2000</div>
+            </div>
         </div>
     )
     
