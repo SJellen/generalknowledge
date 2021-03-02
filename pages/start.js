@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {Context} from '../../context/GameContext'
-import styles from '../../styles/Start.module.scss'
+import {Context} from '../context/GameContext'
+import styles from '../styles/Start.module.scss'
 import Link from 'next/link'
 
 // localStorage.clear();
@@ -66,7 +66,7 @@ export default function Start() {
             </div> : ""} 
 
             {
-                    !showInput && !showWordBox ? <div className={styles.roundOneLink}><Link href="/gamepages/roundone" ><a style={{color: "purple"}}>Start</a></Link></div> : ""
+                    !showInput && !showWordBox ? <div className={styles.roundOneLink}><Link href="/roundone" ><a style={{color: "purple"}}>Start</a></Link></div> : ""
             }
 
             
