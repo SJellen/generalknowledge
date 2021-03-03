@@ -146,11 +146,19 @@ function QuestionContextProvider({ children }) {
     }, [roundTwoCategories])  
     
     
-   console.log()
+
+    
+    function categoryCleaner(str) {
+        if (str !== undefined) {
+            return str.replace(/(^\w+:|^)\/\//, '')
+            .replace('Entertainment: ','')
+            
+        }
+    }
     
    
     return (
-        <Context.Provider value={{firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6}}>
+        <Context.Provider value={{firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner}}>
             { children }
         </Context.Provider>
     )
