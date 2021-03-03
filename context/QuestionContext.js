@@ -15,8 +15,23 @@ function QuestionContextProvider({ children }) {
     const [finalRoundCategory, setFinalRoundCategory] = useState([])
 
     const [finalQuestion, setFinalQuestion] = useState()
-    const [firstRoundQuestions, setFirstRoundQuestions] = useState()
-    const [secondRoundQuestions, setSecondRoundQuestions] = useState()
+    // const [firstRoundQuestions, setFirstRoundQuestions] = useState()
+
+    const [firstRoundQuestion1, setFirstRoundQuestion1] = useState()
+    const [firstRoundQuestion2, setFirstRoundQuestion2] = useState()
+    const [firstRoundQuestion3, setFirstRoundQuestion3] = useState()
+    const [firstRoundQuestion4, setFirstRoundQuestion4] = useState()
+    const [firstRoundQuestion5, setFirstRoundQuestion5] = useState()
+    const [firstRoundQuestion6, setFirstRoundQuestion6] = useState()
+
+    // const [secondRoundQuestions, setSecondRoundQuestions] = useState()
+
+    const [secondRoundQuestion1, setSecondRoundQuestion1] = useState()
+    const [secondRoundQuestion2, setSecondRoundQuestion2] = useState()
+    const [secondRoundQuestion3, setSecondRoundQuestion3] = useState()
+    const [secondRoundQuestion4, setSecondRoundQuestion4] = useState()
+    const [secondRoundQuestion5, setSecondRoundQuestion5] = useState()
+    const [secondRoundQuestion6, setSecondRoundQuestion6] = useState()
     
     const categoryArr = [9,10,11,12, 13,14,15,16,17,18,19,20,21,22,23,24,25,26, 27,28,29,30,31,32]
 
@@ -71,48 +86,71 @@ function QuestionContextProvider({ children }) {
         fetchFinalQuestion(finalRoundCategory[0])
     }, [finalRoundCategory])
 
-    const fetchFirstRoundQuestions = async (cat) => {
+    const fetchFirstRoundQuestions = async (cat, set) => {
         await fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&type=multiple`)
         .then(res => res.json())
         .then(data => 
-            setFirstRoundQuestions(data.results))
+            set(data.results))
         .catch(error => console.log(error))    
     }
 
     useEffect(() => {
-        fetchFirstRoundQuestions(roundOneCategories[0])
-        fetchFirstRoundQuestions(roundOneCategories[1])
-        fetchFirstRoundQuestions(roundOneCategories[2])
-        fetchFirstRoundQuestions(roundOneCategories[3])
-        fetchFirstRoundQuestions(roundOneCategories[4])
-        fetchFirstRoundQuestions(roundOneCategories[5])
-
+        if (!firstRoundQuestion1) {
+            fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
+        } else {
+            fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
+        }
+        if (!firstRoundQuestion2) {
+            fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
+        } else {
+            fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
+        }
+        if (!firstRoundQuestion3) {
+            fetchFirstRoundQuestions(roundOneCategories[2], setFirstRoundQuestion3)
+        } else {
+            fetchFirstRoundQuestions(roundOneCategories[2], setFirstRoundQuestion3)
+        }
+        if (!firstRoundQuestion4) {
+            fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
+        } else {
+            fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
+        }
+        if (!firstRoundQuestion5) {
+            fetchFirstRoundQuestions(roundOneCategories[4], setFirstRoundQuestion5)
+        } else {
+            fetchFirstRoundQuestions(roundOneCategories[4], setFirstRoundQuestion5)
+        }
+        if (!firstRoundQuestion6) {
+            fetchFirstRoundQuestions(roundOneCategories[5], setFirstRoundQuestion6)
+        } else {
+            fetchFirstRoundQuestions(roundOneCategories[5], setFirstRoundQuestion6)
+        }
     }, [roundOneCategories])
 
-    const fetchSecondRoundQuestions = async (cat) => {
+    const fetchSecondRoundQuestions = async (cat, set) => {
         await fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&type=multiple`)
         .then(res => res.json())
         .then(data => 
-            setSecondRoundQuestions(data.results))
+            set(data.results))
         .catch(error => console.log(error))    
     }
 
     useEffect(() => {
-        fetchSecondRoundQuestions(roundTwoCategories[0])
-        fetchSecondRoundQuestions(roundTwoCategories[1])
-        fetchSecondRoundQuestions(roundTwoCategories[2])
-        fetchSecondRoundQuestions(roundTwoCategories[3])
-        fetchSecondRoundQuestions(roundTwoCategories[4])
-        fetchSecondRoundQuestions(roundTwoCategories[5])
+        fetchSecondRoundQuestions(roundTwoCategories[0], setSecondRoundQuestion1)
+        fetchSecondRoundQuestions(roundTwoCategories[1], setSecondRoundQuestion2)
+        fetchSecondRoundQuestions(roundTwoCategories[2], setSecondRoundQuestion3)
+        fetchSecondRoundQuestions(roundTwoCategories[3], setSecondRoundQuestion4)
+        fetchSecondRoundQuestions(roundTwoCategories[4], setSecondRoundQuestion5)
+        fetchSecondRoundQuestions(roundTwoCategories[5], setSecondRoundQuestion6)
 
     }, [roundTwoCategories])  
     
     
-
-    console.log(firstRoundQuestions)
+   console.log()
+    
    
     return (
-        <Context.Provider value={{firstRoundQuestions}}>
+        <Context.Provider value={{firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6}}>
             { children }
         </Context.Provider>
     )

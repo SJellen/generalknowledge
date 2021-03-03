@@ -7,9 +7,10 @@ const LOCAL_STORAGE_KEY = 'firstround'
 
 export default function RoundOne() {
 
-    const {firstRoundQuestions} = useContext(Context)
+    const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6} = useContext(Context)
 
-    
+    console.log(firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6)
+
 
     
 
