@@ -3,14 +3,15 @@ import {Context} from '../context/QuestionContext'
 import Link from 'next/link'
 import styles from '../styles/RoundOne.module.scss'
 
+
+// localStorage.clear();
 const LOCAL_STORAGE_KEY = 'firstround'
 
 export default function RoundOne() {
 
-    const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner} = useContext(Context)
+    const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6} = useContext(Context)
 
-    const [currentQuestion, setCurrentQuestion] = useState()
-    const [hide, setHide] = useState(false)
+    
 
     
 
@@ -19,22 +20,50 @@ export default function RoundOne() {
         
     }
 
-    console.log(currentQuestion && currentQuestion.question)
+    
 
     useEffect(() => {
+        const firstRoundCategories = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+       
+        if (firstRoundCategories) {
+            if (firstRoundCategories[0]) {
+                setFirstRoundQuestion1(firstRoundCategories[0])
+            }
+            if (firstRoundCategories[1]) {
+                setFirstRoundQuestion2(firstRoundCategories[1])
+            }
+            if (firstRoundCategories[2]) {
+                setFirstRoundQuestion3(firstRoundCategories[2])
+            }
+            if (firstRoundCategories[3]) {
+                setFirstRoundQuestion4(firstRoundCategories[3])
+            }
+            if (firstRoundCategories[4]) {
+                setFirstRoundQuestion5(firstRoundCategories[4])
+            }
+            if (firstRoundCategories[5]) {
+                setFirstRoundQuestion6(firstRoundCategories[5])
+            }
+  
+        } else if (firstRoundCategories === null) {
+            let categoryArr = [firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3,firstRoundQuestion4,firstRoundQuestion5,firstRoundQuestion6]
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(categoryArr))
+        }
 
     }, [])
+
+    
     
 
     return (
         <div className={styles.container}>
             <div className={styles.parent}>
-                <div className={styles.gridTitle}>{firstRoundQuestion1[0].category && categoryCleaner(firstRoundQuestion1[0].category)}</div>
-                <div className={styles.gridTitle}>{firstRoundQuestion2[0].category && categoryCleaner(firstRoundQuestion2[0].category)}</div>
-                <div className={styles.gridTitle}>{firstRoundQuestion3[0].category && categoryCleaner(firstRoundQuestion3[0].category)}</div>
-                <div className={styles.gridTitle}>{firstRoundQuestion4[0].category && categoryCleaner(firstRoundQuestion4[0].category)}</div>
-                <div className={styles.gridTitle}>{firstRoundQuestion5[0].category && categoryCleaner(firstRoundQuestion5[0].category)}</div>
-                <div className={styles.gridTitle}>{firstRoundQuestion6[0].category && categoryCleaner(firstRoundQuestion6[0].category)}</div>
+                <div className={styles.gridTitle}>{firstRoundQuestion1 && categoryCleaner(firstRoundQuestion1[0]?.category)}</div>
+                <div className={styles.gridTitle}>{firstRoundQuestion2 && categoryCleaner(firstRoundQuestion2[0]?.category)}</div>
+                <div className={styles.gridTitle}>{firstRoundQuestion3 && categoryCleaner(firstRoundQuestion3[0]?.category)}</div>
+                <div className={styles.gridTitle}>{firstRoundQuestion4 && categoryCleaner(firstRoundQuestion4[0]?.category)}</div>
+                <div className={styles.gridTitle}>{firstRoundQuestion5 && categoryCleaner(firstRoundQuestion5[0]?.category)}</div>
+                <div className={styles.gridTitle}>{firstRoundQuestion6 && categoryCleaner(firstRoundQuestion6[0]?.category)}</div>
                 <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[0])}>$200</div>
                 <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[0])}>$200</div>
                 <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[0])}>$200</div>

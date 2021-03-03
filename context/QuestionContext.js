@@ -32,6 +32,8 @@ function QuestionContextProvider({ children }) {
     const [secondRoundQuestion4, setSecondRoundQuestion4] = useState()
     const [secondRoundQuestion5, setSecondRoundQuestion5] = useState()
     const [secondRoundQuestion6, setSecondRoundQuestion6] = useState()
+
+    const [currentQuestion, setCurrentQuestion] = useState()
     
     const categoryArr = [9,10,11,12, 13,14,15,16,17,18,19,20,21,22,23,24,25,26, 27,28,29,30,31,32]
 
@@ -147,7 +149,7 @@ function QuestionContextProvider({ children }) {
     
     
 
-    
+
     function categoryCleaner(str) {
         if (str !== undefined) {
             return str.replace(/(^\w+:|^)\/\//, '')
@@ -158,7 +160,7 @@ function QuestionContextProvider({ children }) {
     
    
     return (
-        <Context.Provider value={{firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner}}>
+        <Context.Provider value={{firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion,setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6}}>
             { children }
         </Context.Provider>
     )
