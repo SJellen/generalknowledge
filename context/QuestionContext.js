@@ -156,6 +156,8 @@ function QuestionContextProvider({ children }) {
             .replace('Entertainment: ','')
             .replace('Knowledge','')
             .replace('Science: ','')
+            .replace('& Manga','')
+            .replace('Japanese ','')
             
         }
     }
