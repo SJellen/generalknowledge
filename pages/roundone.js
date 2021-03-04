@@ -1,15 +1,15 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {Context} from '../context/QuestionContext'
+import {QuestionContext} from '../context/QuestionContext'
 import Link from 'next/link'
 import styles from '../styles/RoundOne.module.scss'
 
 
 // localStorage.clear();
-const LOCAL_STORAGE_KEY = 'firstround'
+// const LOCAL_STORAGE_KEY_FR = 'firstround'
 
 export default function RoundOne() {
 
-    const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6} = useContext(Context)
+    const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6} = useContext(QuestionContext)
 
     
 
@@ -22,35 +22,35 @@ export default function RoundOne() {
 
     
 
-    useEffect(() => {
-        const firstRoundCategories = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+    // useEffect(() => {
+    //     const firstRoundCategories = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_FR))
        
-        if (firstRoundCategories) {
-            if (firstRoundCategories[0]) {
-                setFirstRoundQuestion1(firstRoundCategories[0])
-            }
-            if (firstRoundCategories[1]) {
-                setFirstRoundQuestion2(firstRoundCategories[1])
-            }
-            if (firstRoundCategories[2]) {
-                setFirstRoundQuestion3(firstRoundCategories[2])
-            }
-            if (firstRoundCategories[3]) {
-                setFirstRoundQuestion4(firstRoundCategories[3])
-            }
-            if (firstRoundCategories[4]) {
-                setFirstRoundQuestion5(firstRoundCategories[4])
-            }
-            if (firstRoundCategories[5]) {
-                setFirstRoundQuestion6(firstRoundCategories[5])
-            }
+    //     if (firstRoundCategories) {
+    //         if (firstRoundCategories[0]) {
+    //             setFirstRoundQuestion1(firstRoundCategories[0])
+    //         }
+    //         if (firstRoundCategories[1]) {
+    //             setFirstRoundQuestion2(firstRoundCategories[1])
+    //         }
+    //         if (firstRoundCategories[2]) {
+    //             setFirstRoundQuestion3(firstRoundCategories[2])
+    //         }
+    //         if (firstRoundCategories[3]) {
+    //             setFirstRoundQuestion4(firstRoundCategories[3])
+    //         }
+    //         if (firstRoundCategories[4]) {
+    //             setFirstRoundQuestion5(firstRoundCategories[4])
+    //         }
+    //         if (firstRoundCategories[5]) {
+    //             setFirstRoundQuestion6(firstRoundCategories[5])
+    //         }
   
-        } else if (firstRoundCategories === null) {
-            let categoryArr = [firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3,firstRoundQuestion4,firstRoundQuestion5,firstRoundQuestion6]
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(categoryArr))
-        }
+    //     } else if (firstRoundCategories === null) {
+    //         let categoryArr = [firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3,firstRoundQuestion4,firstRoundQuestion5,firstRoundQuestion6]
+    //         localStorage.setItem(LOCAL_STORAGE_KEY_FR, JSON.stringify(categoryArr))
+    //     }
 
-    }, [])
+    // }, [])
 
     
     

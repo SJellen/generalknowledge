@@ -1,12 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react'
 import styles from '../styles/Header.module.scss'
-import {Context} from '../context/GameContext'
+import {GameContext} from '../context/GameContext'
 
 
 
 export default function Header() {
     
-    const {username} = useContext(Context)
+    const {username} = useContext(GameContext)
        
 
     return (

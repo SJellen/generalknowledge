@@ -1,7 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {Context} from '../context/GameContext'
+import {GameContext} from '../context/GameContext'
 import styles from '../styles/Start.module.scss'
 import Link from 'next/link'
+import { QuestionContext } from '../context/QuestionContext'
 
 // localStorage.clear();
 const LOCAL_STORAGE_KEY = 'username'
@@ -9,13 +10,14 @@ const LOCAL_STORAGE_KEY = 'username'
 
 export default function Start() {
 
-    const {isStart, setIsStart, username, setUsername, setIs} = useContext(Context)
+    const {isStart, setIsStart, username, setUsername, setIs} = useContext(GameContext)
+    const {roundOneCategories, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions } = useContext(QuestionContext)
     const [showInput, setShowInput] = useState(false)
     const [showWordBox, setShowWordBox] = useState(true)
     const [tempUser, setTempUser] = useState('')
 
 
-   
+   console.log(roundOneCategories)
 
 
     function handlePlayButtonClick() {
@@ -35,8 +37,17 @@ export default function Start() {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tempUser))
         setIsStart(false)
         setShowInput(false)
-
+        fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
+        fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
+        fetchFirstRoundQuestions(roundOneCategories[2], setFirstRoundQuestion3)
+        fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
+        fetchFirstRoundQuestions(roundOneCategories[4], setFirstRoundQuestion5)
+        fetchFirstRoundQuestions(roundOneCategories[5], setFirstRoundQuestion6)
     }
+
+    useEffect(() => {
+
+    }, [roundOneCategories])
 
     
     

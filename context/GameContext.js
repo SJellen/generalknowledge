@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 // localStorage.clear();
 const LOCAL_STORAGE_KEY = 'username'
 
-const Context = React.createContext()
+const GameContext = React.createContext()
 
 
 function GameContextProvider({ children }) {
@@ -28,10 +28,10 @@ function GameContextProvider({ children }) {
 
 
     return (
-        <Context.Provider value={{isStart, setIsStart, username, setUsername}}>
+        <GameContext.Provider value={{isStart, setIsStart, username, setUsername}}>
             { children }
-        </Context.Provider>
+        </GameContext.Provider>
     )
 }
 
-export { GameContextProvider, Context}
+export { GameContextProvider, GameContext}
