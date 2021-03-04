@@ -3,10 +3,31 @@
     z-index: 99;
     position: relative;
     bottom: 0;
-    height: 200px;
+    min-height: 225px;
     width: 50%;
-    margin: -7.5rem auto 0 auto;
+    margin: -8.5rem auto 0 auto;
     background-color: black;
     color: white;
     display: flex;
+    flex-direction: column;
+}
+
+.questionContainer {
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    padding: 1rem 3rem;
+}
+
+.choiceContainer {
+    border: 1px solid red;
+    
+}
+
+.list {
+    border: 1px solid green;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
 }
