@@ -154,6 +154,8 @@ function QuestionContextProvider({ children }) {
         if (str !== undefined) {
             return str.replace(/(^\w+:|^)\/\//, '')
             .replace('Entertainment: ','')
+            .replace('Knowledge','')
+            .replace('Science: ','')
             
         }
     }

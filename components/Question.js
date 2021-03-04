@@ -7,7 +7,9 @@ export default function Question() {
 
     const {currentQuestion} = useContext(Context)
 
-    console.log(currentQuestion && currentQuestion.question)
+    
+
+    // console.log(currentQuestion && currentQuestion.question)
 
 
     return (
