@@ -7,7 +7,7 @@ import {Context} from '../context/GameContext'
 export default function Header() {
     
     const {username} = useContext(Context)
-        console.log(username)
+       
 
     return (
         <div className={styles.container}>

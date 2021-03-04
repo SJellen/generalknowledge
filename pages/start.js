@@ -15,7 +15,7 @@ export default function Start() {
     const [tempUser, setTempUser] = useState('')
 
 
-    console.log(username)
+   
 
 
     function handlePlayButtonClick() {
