@@ -1,7 +1,6 @@
 
 .container {
     // background-color: silver;
-    border: 1px solid red;
     margin: 10rem auto 0 auto;
     width: 80%;
     height: 70vh;
@@ -60,9 +59,17 @@
 }
 
 .roundOneLink {
-    border: 1px solid red;
-    width: 100%;
-    text-align: center;
+    background-color: blue;
+    border: 10px solid black;
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    
 }
 
 .playButton {

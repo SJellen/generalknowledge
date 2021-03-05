@@ -57,7 +57,7 @@ export default function Start() {
              <div className={styles.container}>
         { showWordBox ? 
              <div className={styles.wordbox}>
-                <h1>Welcome to General Knowledge.</h1>
+                <h1>Welcome to General Knowledge</h1>
                 <h2>Would you Like to Play?</h2>
                 <button onClick={handlePlayButtonClick} className={styles.playButton}>Play</button>
             </div> : "" }
@@ -80,7 +80,7 @@ export default function Start() {
             </div> : ""} 
 
             {
-                    !showInput && !showWordBox ? <div className={styles.roundOneLink}><Link href="/roundone" ><a style={{color: "purple"}}>Start</a></Link></div> : ""
+                    !showInput && !showWordBox ? <div className={styles.roundOneLink}><Link href="/roundone" style={{textDecoration: "none"}}><a style={{color: "purple"}}>Start</a></Link></div> : ""
             }
 
             

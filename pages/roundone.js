@@ -11,12 +11,14 @@ export default function RoundOne() {
 
     const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6} = useContext(QuestionContext)
 
+   
     
 
     
 
-    function handleClick(e, question) {
+    function handleClick(e, question, cost) {
         setCurrentQuestion(question)
+        console.log(cost)
         
     }
 
@@ -64,36 +66,36 @@ export default function RoundOne() {
                 <div className={styles.gridTitle}>{firstRoundQuestion4 && categoryCleaner(firstRoundQuestion4[0]?.category)}</div>
                 <div className={styles.gridTitle}>{firstRoundQuestion5 && categoryCleaner(firstRoundQuestion5[0]?.category)}</div>
                 <div className={styles.gridTitle}>{firstRoundQuestion6 && categoryCleaner(firstRoundQuestion6[0]?.category)}</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[0])}>$200</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[0])}>$200</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[0])}>$200</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion4[0])}>$200</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion5[0])}>$200</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion6[0])}>$200</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[2])}>$400</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[2])}>$400</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[2])}>$400</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion4[2])}>$400</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion5[2])}>$400</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion6[2])}>$400</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[4])}>$600</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[4])}>$600</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[4])}>$600</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion4[4])}>$600</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion5[4])}>$600</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion6[4])}>$600</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[6])}>$800</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[6])}>$800</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[6])}>$800</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion4[6])}>$800</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion5[6])}>$800</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion6[6])}>$800</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[8])}>$1000</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[8])}>$1000</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[8])}>$1000</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion4[8])}>$1000</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion5[8])}>$1000</div>
-                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion6[8])}>$1000</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[0], 200)}>$200</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[0], 200)}>$200</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[0], 200)}>$200</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion4[0], 200)}>$200</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion5[0], 200)}>$200</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion6[0], 200)}>$200</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[2], 400)}>$400</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[2], 400)}>$400</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[2], 400)}>$400</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion4[2], 400)}>$400</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion5[2], 400)}>$400</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion6[2], 400)}>$400</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[4], 600)}>$600</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[4], 600)}>$600</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[4], 600)}>$600</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion4[4], 600)}>$600</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion5[4], 600)}>$600</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion6[4], 600)}>$600</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[6], 800)}>$800</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[6], 800)}>$800</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[6], 800)}>$800</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion4[6], 800)}>$800</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion5[6], 800)}>$800</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion6[6], 800)}>$800</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion1[8], 1000)}>$1000</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion2[8], 1000)}>$1000</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion3[8], 1000)}>$1000</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion4[8], 1000)}>$1000</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion5[8], 1000)}>$1000</div>
+                <div className={styles.gridItem} onClick={(e) => handleClick(e, firstRoundQuestion6[8], 1000)}>$1000</div>
             </div>
         </div>
     )
