@@ -160,6 +160,7 @@ function QuestionContextProvider({ children }) {
             .replace('Japanese ','')
             .replace('Cartoon & Animations','Animation')
             .replace('Science & Nature','Nature')
+            .replace(' & Theatres','')
         }
     }
 

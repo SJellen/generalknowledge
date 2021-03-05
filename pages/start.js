@@ -58,17 +58,20 @@ export default function Start() {
         { showWordBox ? 
              <div className={styles.wordbox}>
                 <h1>Welcome to General Knowledge.</h1>
-                <h2>A trivia game spanning many categories, would you like to play?</h2>
-                <button onClick={handlePlayButtonClick}>Play</button>
+                <h2>Would you Like to Play?</h2>
+                <button onClick={handlePlayButtonClick} className={styles.playButton}>Play</button>
             </div> : "" }
            
             { showInput ?
                 <div className={styles.inputBox}>
                 <form className={styles.form} onSubmit={handleSubmit}>
-                    <label>Please Enter Your Name
-                    <input type="text" name="name" onChange={handleChange}/>
-                    </label>
-                    <button type="submit">enter</button>
+                    <div className={styles.inputContainer}>
+                      <label>Please Enter Your Name
+                        <input type="text" name="name" onChange={handleChange} className={styles.input}/> 
+                      </label>
+                    </div>
+
+                    <button type="submit" className={styles.startButton}>enter</button>
                     
                 </form>
                 

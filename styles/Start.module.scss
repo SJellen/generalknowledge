@@ -1,6 +1,7 @@
 
 .container {
-    background-color: silver;
+    // background-color: silver;
+    border: 1px solid red;
     margin: 10rem auto 0 auto;
     width: 80%;
     height: 70vh;
@@ -10,37 +11,89 @@
 }
 
 .wordbox {
-    border: 1px solid red;
+    background-color: blue;
+    border: 10px solid black;
     width: 50%;
     height: 300px;
     margin:0 auto;
-    padding-top: 5rem;
+    padding-top: 2rem;
     text-align: center;
-    
-    
+    color: white;
 }
 
 .inputBox {
-    border: 1px solid blue;
+    background-color: blue;
+    border: 10px solid black;
     width: 400px;
+    height: 300px;
     margin: 0 auto;
-    padding-top: 5rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form {
-    border: 1px solid gold;
+    // border: 1px solid gold;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 300px;
     height: 200px;
     margin: 0 auto;
     
 }
 
+.input {
+//    border: 1px solid red; 
+   display: flex;
+   margin: 1rem auto;
+}
+
+.inputContainer {
+    // border: 1px solid gold;
+    display: flex;
+    align-items: center;
+    height: 80px;
+     color: white;
+}
+
 .roundOneLink {
     border: 1px solid red;
     width: 100%;
     text-align: center;
+}
+
+.playButton {
+    background-color: gold;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2rem;
+    width: 100px;
+    height: 30px;
+    
+   
+    
+}
+
+.playButton:hover {
+    filter: brightness(.85);
+    cursor: pointer;
+}
+
+.startButton {
+    background-color: gold;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    width: 100px;
+    height: 30px;
+}
+
+.startButton:hover {
+    filter: brightness(.85);
+    cursor: pointer;
 }
 
 
