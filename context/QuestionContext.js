@@ -34,6 +34,8 @@ function QuestionContextProvider({ children }) {
     const [secondRoundQuestion6, setSecondRoundQuestion6] = useState()
 
     const [currentQuestion, setCurrentQuestion] = useState()
+
+    const [selectedQuestions, setSelectedQuestions] = useState(0)
     
     const categoryArr = [9,10,11,12, 13,14,15,16,17,18,19,20,21,22,23,24,25,26, 27,28,29,30,31,32]
 
@@ -169,6 +171,8 @@ function QuestionContextProvider({ children }) {
             return str.replace(/(^\w+:|^)\/\//, '')
             .replace('&#039;','\'')
             .replace('&#039;','\'')
+            .replace('&#039;','\'')
+            .replace('&#039;','\'')
             .replace('&quot;','"')
             .replace('&quot;','"')
             .replace('&quot;','"')
@@ -176,13 +180,14 @@ function QuestionContextProvider({ children }) {
             .replace('&uuml;','ü')
             .replace('&eacute;','è')
             .replace('&rsquo;','\'')
+            .replace('&pi;','𝜋 ')
         }
     }
     
    
     return (
         <QuestionContext.Provider value={{firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion,setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, getShuffledArr, roundOneCategories,
-        fetchFirstRoundQuestions, questionCleaner}}>
+        fetchFirstRoundQuestions, questionCleaner, selectedQuestions, setSelectedQuestions}}>
             { children }
         </QuestionContext.Provider>
     )
