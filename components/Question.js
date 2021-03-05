@@ -5,7 +5,7 @@ import styles from '../styles/Question.module.scss'
 
 export default function Question() {
 
-    const {currentQuestion, getShuffledArr, questionCleaner} = useContext(QuestionContext)
+    const {currentQuestion, getShuffledArr, questionCleaner, setCurrentQuestion} = useContext(QuestionContext)
 
     const questionArr = currentQuestion && [...currentQuestion.incorrect_answers, currentQuestion.correct_answer]
     const shuffledQuestions = questionArr && getShuffledArr(questionArr)
@@ -13,6 +13,9 @@ export default function Question() {
     
 
     // console.log(questionArr, shuffledQuestions, currentQuestion.correct_answer)
+    function handleClick() {
+        setCurrentQuestion()
+    }
 
 
     return (
@@ -25,10 +28,10 @@ export default function Question() {
             
             <div className={styles.choiceContainer}>
                 <ul className={styles.list}>
-                    <li>{questionCleaner(shuffledQuestions[0])}</li>
-                    <li>{questionCleaner(shuffledQuestions[1])}</li>
-                    <li>{questionCleaner(shuffledQuestions[2])}</li>
-                    <li>{questionCleaner(shuffledQuestions[3])}</li>
+                    <li onClick={handleClick}>{questionCleaner(shuffledQuestions[0])}</li>
+                    <li onClick={handleClick}>{questionCleaner(shuffledQuestions[1])}</li>
+                    <li onClick={handleClick}>{questionCleaner(shuffledQuestions[2])}</li>
+                    <li onClick={handleClick}>{questionCleaner(shuffledQuestions[3])}</li>
                 </ul>
             </div>
         </div> : ''

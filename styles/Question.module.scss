@@ -36,5 +36,13 @@
 
 .list > li {
     // border: 1px solid gold;
+   
+
+}
+
+.list > li:hover {
+    // border: 1px solid gold;
+    color: gray;
+    cursor: pointer;
 
 }
