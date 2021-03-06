@@ -181,6 +181,7 @@ function QuestionContextProvider({ children }) {
             .replace('&eacute;','è')
             .replace('&rsquo;','\'')
             .replace('&pi;','𝜋 ')
+            .replace('&amp;','&')
         }
     }
     

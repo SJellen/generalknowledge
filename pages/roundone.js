@@ -11,7 +11,7 @@ const LOCAL_STORAGE_KEY_FR = 'firstround'
 export default function RoundOne() {
 
     const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6} = useContext(QuestionContext)
-    const {selectedQuestions} = useContext(GameContext)
+    const {selectedQuestions, cost, setCost} = useContext(GameContext)
 
     
 
@@ -22,7 +22,7 @@ export default function RoundOne() {
 
     function handleClick(e, question, cost, id) {
         setCurrentQuestion(question)
-        // console.log(cost, id, question)
+        setCost(cost)
         let x = document.getElementById(id)
         x.innerHTML = ""
         x.style.pointerEvents = "none"
