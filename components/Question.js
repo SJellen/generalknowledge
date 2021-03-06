@@ -1,12 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {QuestionContext} from '../context/QuestionContext'
+import {GameContext} from '../context/GameContext'
 import styles from '../styles/Question.module.scss'
 
 
 export default function Question() {
 
-    const {currentQuestion, getShuffledArr, questionCleaner, setCurrentQuestion, selectedQuestions, setSelectedQuestions} = useContext(QuestionContext)
-
+    const {currentQuestion, getShuffledArr, questionCleaner, setCurrentQuestion} = useContext(QuestionContext)
+    const {selectedQuestions, setSelectedQuestions} = useContext(GameContext)
     const questionArr = currentQuestion && [...currentQuestion.incorrect_answers, currentQuestion.correct_answer]
     const shuffledQuestions = questionArr && getShuffledArr(questionArr)
 
