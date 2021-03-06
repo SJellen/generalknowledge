@@ -21,13 +21,13 @@ export default function Question() {
             setAnswerResult("correct")
             setTimeout(() => {
                 setAnswerResult()
-            }, 1500)
+            }, 750)
         } else {
             setScore(prevScore => prevScore - cost)
             setAnswerResult("incorrect")
             setTimeout(() => {
                 setAnswerResult()
-            }, 1500)
+            }, 750)
         }
         setCurrentQuestion()
         setSelectedQuestions(prevCount => prevCount + 1)

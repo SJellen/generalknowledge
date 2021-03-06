@@ -197,6 +197,7 @@ function QuestionContextProvider({ children }) {
             .replace('&rsquo;','\'')
             .replace('&pi;','𝜋 ')
             .replace('&amp;','&')
+            .replace('&oacute;','õ')
         }
     }
     
