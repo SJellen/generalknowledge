@@ -67,7 +67,12 @@ export default function Start() {
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.inputContainer}>
                       <label>Please Enter Your Name
-                        <input type="text" name="name" onChange={handleChange} className={styles.input}/> 
+                        <input 
+                        type="text" 
+                        name="name" 
+                        maxlength="20"
+                        onChange={handleChange} 
+                        className={styles.input}/> 
                       </label>
                     </div>
 
