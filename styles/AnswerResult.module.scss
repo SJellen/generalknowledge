@@ -1,0 +1,25 @@
+
+
+.container {
+    // border: 1px solid red;
+    position: absolute;
+    top: 30%;
+    text-align: center;
+    width:100%;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.answerResult {
+    // border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, .9);
+    color: white;
+    font-size: 4rem;
+}

@@ -1,6 +1,7 @@
 import Question from '../components/Question'
 import Head from 'next/head'
 import Header from '../components/Header'
+import AnswerResult from './AnswerResult'
 
 export default function Layout({children}) {
     return (
@@ -18,6 +19,7 @@ export default function Layout({children}) {
         <main>
           {children}
         </main>
+        <AnswerResult />
         <Question />
 
       </div>

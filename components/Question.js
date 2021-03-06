@@ -7,7 +7,7 @@ import styles from '../styles/Question.module.scss'
 export default function Question() {
 
     const {currentQuestion, getShuffledArr, questionCleaner, setCurrentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost} = useContext(GameContext)
+    const {selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost, answerResult, setAnswerResult} = useContext(GameContext)
     const questionArr = currentQuestion && [...currentQuestion.incorrect_answers, currentQuestion.correct_answer]
     const shuffledQuestions = questionArr && getShuffledArr(questionArr)
 
@@ -18,8 +18,16 @@ export default function Question() {
         console.log(choice)
         if (choice === currentQuestion.correct_answer) {
             setScore(prevScore => prevScore + cost)
+            setAnswerResult("correct")
+            setTimeout(() => {
+                setAnswerResult()
+            }, 1500)
         } else {
             setScore(prevScore => prevScore - cost)
+            setAnswerResult("incorrect")
+            setTimeout(() => {
+                setAnswerResult()
+            }, 1500)
         }
         setCurrentQuestion()
         setSelectedQuestions(prevCount => prevCount + 1)
