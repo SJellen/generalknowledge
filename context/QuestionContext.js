@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 
 // localStorage.clear();
 const LOCAL_STORAGE_KEY = 'categories'
@@ -7,6 +7,8 @@ const LOCAL_STORAGE_KEY = 'categories'
 const QuestionContext = React.createContext()
 
 function QuestionContextProvider({ children }) {
+
+    
 
    
     const [shuffledArr, setShuffledArr] = useState([])
@@ -93,8 +95,10 @@ function QuestionContextProvider({ children }) {
     const fetchFirstRoundQuestions = async (cat, set) => {
         await fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&type=multiple`)
         .then(res => res.json())
-        .then(data => 
-            set(data.results))
+        .then(data => {
+            let sortedData = categoryFilterDifficulty(data.results)
+            set(sortedData)
+        })   
         .catch(error => console.log(error))    
     }
 
@@ -134,8 +138,10 @@ function QuestionContextProvider({ children }) {
     const fetchSecondRoundQuestions = async (cat, set) => {
         await fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&type=multiple`)
         .then(res => res.json())
-        .then(data => 
-            set(data.results))
+        .then(data => {
+            let sortedData = categoryFilterDifficulty(data.results)
+            set(sortedData)
+        }) 
         .catch(error => console.log(error))    
     }
 
@@ -148,6 +154,15 @@ function QuestionContextProvider({ children }) {
         fetchSecondRoundQuestions(roundTwoCategories[5], setSecondRoundQuestion6)
 
     }, [roundTwoCategories])  
+
+    // sort categories by difficulty
+
+    function categoryFilterDifficulty(arr) {
+        let easyArr = arr?.filter(x => x.difficulty === "easy")
+        let mediumArr = arr?.filter(x => x.difficulty === "medium")
+        let hardArr = arr?.filter(x => x.difficulty === "hard")
+        return [...easyArr, ...mediumArr, ...hardArr]
+    }
     
     
 
@@ -185,10 +200,11 @@ function QuestionContextProvider({ children }) {
         }
     }
     
+
    
     return (
         <QuestionContext.Provider value={{firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion,setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, getShuffledArr, roundOneCategories,
-        fetchFirstRoundQuestions, questionCleaner}}>
+        fetchFirstRoundQuestions, questionCleaner, categoryFilterDifficulty}}>
             { children }
         </QuestionContext.Provider>
     )

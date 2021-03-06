@@ -17,7 +17,7 @@ export default function Start() {
     const [tempUser, setTempUser] = useState('')
 
 
-   console.log(roundOneCategories)
+  
 
 
     function handlePlayButtonClick() {
