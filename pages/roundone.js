@@ -10,19 +10,30 @@ const LOCAL_STORAGE_KEY_FR = 'firstround'
 
 export default function RoundOne() {
 
-    const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions} = useContext(QuestionContext)
+    const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, getShuffledArr,shuffledQuestionsArr, setShuffledQuestionsArr } = useContext(QuestionContext)
     const {selectedQuestions, cost, setCost, setClockStart} = useContext(GameContext)
 
     
    
     function handleTileClick(e, question, cost, id) {
         setCurrentQuestion(question)
+        
         setCost(cost)
         let x = document.getElementById(id)
         x.innerHTML = ""
         x.style.pointerEvents = "none"
         setClockStart(true)
+        
     }
+
+
+    useEffect(() => {
+        const questionArr = currentQuestion && [...currentQuestion.incorrect_answers, currentQuestion.correct_answer]
+        const shuffledQuestions = questionArr && getShuffledArr(questionArr)
+        setShuffledQuestionsArr(shuffledQuestions)
+        console.log(questionArr, shuffledQuestions, shuffledQuestionsArr)
+
+    }, [currentQuestion])
    
 
    

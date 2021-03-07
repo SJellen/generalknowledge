@@ -17,7 +17,7 @@ function GameContextProvider({ children }) {
     const [answerResult, setAnswerResult] = useState()
 
 
-    const START_TIME = 5
+    const START_TIME = 6
     const [timeRemaining, setTimeRemaining]  = useState(START_TIME)
     const [clockStart, setClockStart] = useState(false)
     
