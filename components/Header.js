@@ -11,9 +11,9 @@ export default function Header() {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.username}>{username && username}</h1>
-            <h1>${score ? score : 0}</h1>
-            <h1 className={styles.title}>General Knowledge</h1>
+            <span className={styles.username}>{username && username}</span>
+            <span>${score ? score : 0}</span>
+            <span className={styles.title}>General Knowledge</span>
         </div>
     )
     
