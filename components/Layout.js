@@ -2,6 +2,7 @@ import Question from '../components/Question'
 import Head from 'next/head'
 import Header from '../components/Header'
 import AnswerResult from './AnswerResult'
+import RoundTransitionOne from './RoundTransitionOne'
 
 export default function Layout({children}) {
     return (
@@ -21,6 +22,7 @@ export default function Layout({children}) {
         </main>
         <AnswerResult />
         <Question />
+        <RoundTransitionOne />
 
       </div>
     )

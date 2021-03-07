@@ -58,7 +58,6 @@ export default function Question() {
 
     }, [timeRemaining, clockStart])
 
-    console.log(timeRemaining)
 
 
     return (

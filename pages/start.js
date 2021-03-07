@@ -85,7 +85,7 @@ export default function Start() {
             </div> : ""} 
 
             {
-                    !showInput && !showWordBox ? <div className={styles.roundOneLink}><Link href="/roundone" style={{textDecoration: "none"}}><a style={{color: "purple"}}>Start</a></Link></div> : ""
+                    !showInput && !showWordBox ? <div className={styles.roundOneLink}><Link href="/roundone" style={{textDecoration: "none"}}><a className={styles.beginButton} style={{color: "purple"}}>Start</a></Link></div> : ""
             }
 
             
