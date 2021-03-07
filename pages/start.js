@@ -70,7 +70,7 @@ export default function Start() {
                         <input 
                         type="text" 
                         name="name" 
-                        maxlength="20"
+                        maxLength="20"
                         onChange={handleChange} 
                         className={styles.input}/> 
                       </label>

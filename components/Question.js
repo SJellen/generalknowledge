@@ -7,15 +7,17 @@ import styles from '../styles/Question.module.scss'
 export default function Question() {
 
     const {currentQuestion, getShuffledArr, questionCleaner, setCurrentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost, answerResult, setAnswerResult} = useContext(GameContext)
+    const {selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost, answerResult, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME} = useContext(GameContext)
     const questionArr = currentQuestion && [...currentQuestion.incorrect_answers, currentQuestion.correct_answer]
+    
     const shuffledQuestions = questionArr && getShuffledArr(questionArr)
+    
 
     
 
-    console.log(currentQuestion?.correct_answer)
+    
     function handleClick(choice) {
-        console.log(choice)
+        
         if (choice === currentQuestion.correct_answer) {
             setScore(prevScore => prevScore + cost)
             setAnswerResult("correct")
@@ -32,6 +34,27 @@ export default function Question() {
         setCurrentQuestion()
         setSelectedQuestions(prevCount => prevCount + 1)
     }
+
+    useEffect(() => {
+        if (currentQuestion && timeRemaining && clockStart) {
+            setTimeout(() => {
+                setTimeRemaining(time => time === 0 ? 0 : time -1)
+            }, 1000)
+        } else if (timeRemaining === 0) {
+            setScore(prevScore => prevScore - cost)
+            setAnswerResult("incorrect")
+            setTimeout(() => {
+                setAnswerResult()
+            }, 750)
+            setCurrentQuestion()
+            setSelectedQuestions(prevCount => prevCount + 1)
+            setClockStart(false)
+            setTimeRemaining(START_TIME)
+        }
+
+    }, [timeRemaining, clockStart])
+
+    console.log(timeRemaining)
 
 
     return (

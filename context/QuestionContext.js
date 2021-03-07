@@ -199,6 +199,12 @@ function QuestionContextProvider({ children }) {
             .replace('&pi;','𝜋 ')
             .replace('&amp;','&')
             .replace('&oacute;','õ')
+            .replace('&ldquo;','"')
+            .replace('&ldquo;','"')
+            .replace('&rdquo;','"')
+            .replace('&rdquo;','"')
+            .replace('&hellip;','...')
+            .replace('&ocirc;','ô')
         }
     }
     
