@@ -18,11 +18,42 @@
 .textContainer {
     border: 1px solid red;
     width: 400px;
-    height: auto;
-    padding-top: 10rem;
-    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 auto 0 auto;
     
     
    
 
+}
+
+.beginButton {
+    background-color: gold;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.beginButton:hover {
+    filter: brightness(.85);
+    cursor: pointer;
+}
+
+.roundTwoLink {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    
 }

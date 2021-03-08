@@ -19,7 +19,7 @@
 .questionContainer {
     display: flex;
     justify-content: center;
-    margin-top: 5rem;
+    margin-top: 10rem;
     text-align: left;
     padding: 1rem 3rem;
     width: 80%;
@@ -45,6 +45,7 @@
     line-height: 1.5;
     display: flex;
     justify-content: center;
+    font-weight: 600;
 }
 
 .list > li:hover {
