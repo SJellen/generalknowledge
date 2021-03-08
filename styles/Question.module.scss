@@ -1,44 +1,50 @@
 
 .container {
     z-index: 99;
-    position: relative;
-    bottom: 0;
-    min-height: 225px;
-    width: 100%;
-    margin: -8.5rem auto 0 auto;
+    position: absolute;
+    top: 8rem;
+    left: 0;
+    right: 0;
+    height: 75vh;
+    width: 90%;
+    margin: 0 auto;
     background-color: rgba(0, 0, 0, .9);
     color: white;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(7.5px);
 }
 
 .questionContainer {
-    // border: 1px solid blue;
     display: flex;
     justify-content: center;
+    margin-top: 5rem;
     text-align: left;
     padding: 1rem 3rem;
+    width: 80%;
     
 }
 
 .choiceContainer {
-    // border: 1px solid red;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    
     
 }
 
 .list {
-    // border: 1px solid green;
     list-style: none;
     display: flex;
-    justify-content: space-evenly;
 }
 
 .list > li {
-    // border: 1px solid gold;
     width: 250px;
     margin: 0 auto;
     line-height: 1.5;
+    display: flex;
+    justify-content: center;
 }
 
 .list > li:hover {
