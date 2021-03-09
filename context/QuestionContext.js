@@ -8,8 +8,6 @@ const QuestionContext = React.createContext()
 
 function QuestionContextProvider({ children }) {
 
-    
-
    
     const [shuffledArr, setShuffledArr] = useState([])
     const [roundOneCategories, setRoundOneCategories] = useState([])
@@ -36,6 +34,8 @@ function QuestionContextProvider({ children }) {
     const [secondRoundQuestion6, setSecondRoundQuestion6] = useState()
 
     const [currentQuestion, setCurrentQuestion] = useState()
+
+    const [shuffledQuestionsArr, setShuffledQuestionsArr] = useState()
 
     
     
@@ -168,16 +168,21 @@ function QuestionContextProvider({ children }) {
         }
     }
 
-    const [shuffledQuestionsArr, setShuffledQuestionsArr] = useState()
 
 
-   console.log(finalQuestion)
+    
+
+
+
+
+
+
     
 
    
     return (
         <QuestionContext.Provider value={{firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion,setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, getShuffledArr, roundOneCategories,
-        fetchFirstRoundQuestions, questionCleaner, categoryFilterDifficulty, shuffledQuestionsArr, setShuffledQuestionsArr, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, roundTwoCategories, fetchSecondRoundQuestions, finalRoundCategory, fetchFinalQuestion}}>
+        fetchFirstRoundQuestions, questionCleaner, categoryFilterDifficulty, shuffledQuestionsArr, setShuffledQuestionsArr, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, roundTwoCategories, fetchSecondRoundQuestions, finalRoundCategory, fetchFinalQuestion, secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6}}>
             { children }
         </QuestionContext.Provider>
     )
