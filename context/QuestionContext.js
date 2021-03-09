@@ -88,9 +88,6 @@ function QuestionContextProvider({ children }) {
             .catch(error => console.log(error))  
     }
 
-    useEffect(() => {
-        fetchFinalQuestion(finalRoundCategory[0])
-    }, [finalRoundCategory])
 
     const fetchFirstRoundQuestions = async (cat, set) => {
         await fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&type=multiple`)
@@ -102,58 +99,21 @@ function QuestionContextProvider({ children }) {
         .catch(error => console.log(error))    
     }
 
-    // useEffect(() => {
-    //     if (!firstRoundQuestion1) {
-    //         fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
-    //     } else {
-    //         fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
-    //     }
-    //     if (!firstRoundQuestion2) {
-    //         fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
-    //     } else {
-    //         fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
-    //     }
-    //     if (!firstRoundQuestion3) {
-    //         fetchFirstRoundQuestions(roundOneCategories[2], setFirstRoundQuestion3)
-    //     } else {
-    //         fetchFirstRoundQuestions(roundOneCategories[2], setFirstRoundQuestion3)
-    //     }
-    //     if (!firstRoundQuestion4) {
-    //         fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
-    //     } else {
-    //         fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
-    //     }
-    //     if (!firstRoundQuestion5) {
-    //         fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
-    //     } else {
-    //         fetchFirstRoundQuestions(roundOneCategories[4], setFirstRoundQuestion5)
-    //     }
-    //     if (!firstRoundQuestion6) {
-    //         fetchFirstRoundQuestions(roundOneCategories[5], setFirstRoundQuestion6)
-    //     } else {
-    //         fetchFirstRoundQuestions(roundOneCategories[5], setFirstRoundQuestion6)
-    //     }
-    // }, [roundOneCategories])
+   
 
     const fetchSecondRoundQuestions = async (cat, set) => {
         await fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&type=multiple`)
         .then(res => res.json())
         .then(data => {
+            console.log(data.results)
             let sortedData = categoryFilterDifficulty(data.results)
             set(sortedData)
         }) 
         .catch(error => console.log(error))    
     }
 
-    useEffect(() => {
-        fetchSecondRoundQuestions(roundTwoCategories[0], setSecondRoundQuestion1)
-        fetchSecondRoundQuestions(roundTwoCategories[1], setSecondRoundQuestion2)
-        fetchSecondRoundQuestions(roundTwoCategories[2], setSecondRoundQuestion3)
-        fetchSecondRoundQuestions(roundTwoCategories[3], setSecondRoundQuestion4)
-        fetchSecondRoundQuestions(roundTwoCategories[4], setSecondRoundQuestion5)
-        fetchSecondRoundQuestions(roundTwoCategories[5], setSecondRoundQuestion6)
 
-    }, [roundTwoCategories])  
+    
 
     // sort categories by difficulty
 
@@ -209,12 +169,15 @@ function QuestionContextProvider({ children }) {
     }
 
     const [shuffledQuestionsArr, setShuffledQuestionsArr] = useState()
+
+
+   console.log(finalQuestion)
     
 
    
     return (
         <QuestionContext.Provider value={{firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion,setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, getShuffledArr, roundOneCategories,
-        fetchFirstRoundQuestions, questionCleaner, categoryFilterDifficulty, shuffledQuestionsArr, setShuffledQuestionsArr}}>
+        fetchFirstRoundQuestions, questionCleaner, categoryFilterDifficulty, shuffledQuestionsArr, setShuffledQuestionsArr, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, roundTwoCategories, fetchSecondRoundQuestions, finalRoundCategory, fetchFinalQuestion}}>
             { children }
         </QuestionContext.Provider>
     )

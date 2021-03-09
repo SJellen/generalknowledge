@@ -11,7 +11,7 @@ const LOCAL_STORAGE_KEY = 'username'
 export default function Start() {
 
     const {isStart, setIsStart, username, setUsername, setIs} = useContext(GameContext)
-    const {roundOneCategories, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions } = useContext(QuestionContext)
+    const {roundOneCategories, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, roundTwoCategories,fetchSecondRoundQuestions, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, finalRoundCategory, fetchFinalQuestion} = useContext(QuestionContext)
     const [showInput, setShowInput] = useState(false)
     const [showWordBox, setShowWordBox] = useState(true)
     const [tempUser, setTempUser] = useState('')
@@ -31,7 +31,7 @@ export default function Start() {
         
     }
 
-    function handleSubmit(e) {
+    function handleStartSubmit(e) {
         e.preventDefault()
         setUsername(tempUser)
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tempUser))
@@ -43,11 +43,18 @@ export default function Start() {
         fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
         fetchFirstRoundQuestions(roundOneCategories[4], setFirstRoundQuestion5)
         fetchFirstRoundQuestions(roundOneCategories[5], setFirstRoundQuestion6)
+        fetchSecondRoundQuestions(roundTwoCategories[0], setSecondRoundQuestion1)
+        fetchSecondRoundQuestions(roundTwoCategories[1], setSecondRoundQuestion2)
+        fetchSecondRoundQuestions(roundTwoCategories[2], setSecondRoundQuestion3)
+        fetchSecondRoundQuestions(roundTwoCategories[3], setSecondRoundQuestion4)
+        fetchSecondRoundQuestions(roundTwoCategories[4], setSecondRoundQuestion5)
+        fetchSecondRoundQuestions(roundTwoCategories[5], setSecondRoundQuestion6)
+        fetchFinalQuestion(finalRoundCategory[0])
     }
 
     useEffect(() => {
 
-    }, [roundOneCategories])
+    }, [roundOneCategories, roundTwoCategories, finalRoundCategory])
 
     
     
@@ -64,7 +71,7 @@ export default function Start() {
            
             { showInput ?
                 <div className={styles.inputBox}>
-                <form className={styles.form} onSubmit={handleSubmit}>
+                <form className={styles.form} onSubmit={handleStartSubmit}>
                     <div className={styles.inputContainer}>
                       <label>Please Enter Your Name
                         <input 
