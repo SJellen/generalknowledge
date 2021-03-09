@@ -11,7 +11,7 @@ const LOCAL_STORAGE_KEY_SR = 'secondround'
 export default function RoundTwo() {
 
     const {secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, fetchSecondRoundQuestions, getShuffledArr,shuffledQuestionsArr, setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {selectedQuestions, cost, setCost, setClockStart} = useContext(GameContext)
+    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo} = useContext(GameContext)
 
 
     function handleTileClick(e, question, cost, id) {
@@ -30,10 +30,11 @@ export default function RoundTwo() {
         const shuffledQuestions = questionArr && getShuffledArr(questionArr)
         setShuffledQuestionsArr(shuffledQuestions)
         console.log(questionArr, shuffledQuestions, shuffledQuestionsArr)
+        setIsRoundTwo(true)
 
     }, [currentQuestion])
 
-    console.log(secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6,)
+    
 
 
 
@@ -87,12 +88,12 @@ export default function RoundTwo() {
     return (
         <div className={styles.container}>
             <div className={styles.parent} style={{display: selectedQuestions === 60 ? "none" : "", pointerEvents: currentQuestion ? "none": ''}}>
-                <div className={styles.gridTitle}>Category</div>
-                <div className={styles.gridTitle}>Category</div>
-                <div className={styles.gridTitle}>Category</div>
-                <div className={styles.gridTitle}>Category</div>
-                <div className={styles.gridTitle}>Category</div>
-                <div className={styles.gridTitle}>Category</div>
+                <div className={styles.gridTitle}>{secondRoundQuestion1 && categoryCleaner(secondRoundQuestion1[0]?.category)}</div>
+                <div className={styles.gridTitle}>{secondRoundQuestion2 && categoryCleaner(secondRoundQuestion2[0]?.category)}</div>
+                <div className={styles.gridTitle}>{secondRoundQuestion3 && categoryCleaner(secondRoundQuestion3[0]?.category)}</div>
+                <div className={styles.gridTitle}>{secondRoundQuestion4 && categoryCleaner(secondRoundQuestion4[0]?.category)}</div>
+                <div className={styles.gridTitle}>{secondRoundQuestion5 && categoryCleaner(secondRoundQuestion5[0]?.category)}</div>
+                <div className={styles.gridTitle}>{secondRoundQuestion6 && categoryCleaner(secondRoundQuestion6[0]?.category)}</div>
                 <div className={styles.gridItem}>$400</div>
                 <div className={styles.gridItem}>$400</div>
                 <div className={styles.gridItem}>$400</div>

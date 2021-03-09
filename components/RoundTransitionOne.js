@@ -8,29 +8,16 @@ import Link from 'next/link'
 
 export default function RoundTransitionOne() {
 
-    const {selectedQuestions, score} = useContext(GameContext)
-    const {roundTwoCategories,fetchSecondRoundQuestions, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6} = useContext(QuestionContext)
-
-    
-    
+    const {selectedQuestions, score, isRoundTwo, setIsRoundTwo} = useContext(GameContext)
 
     function handleRoundTwoClick() {
-        fetchSecondRoundQuestions(roundTwoCategories[0], setSecondRoundQuestion1)
-        fetchSecondRoundQuestions(roundTwoCategories[1], setSecondRoundQuestion2)
-        fetchSecondRoundQuestions(roundTwoCategories[2], setSecondRoundQuestion3)
-        fetchSecondRoundQuestions(roundTwoCategories[3], setSecondRoundQuestion4)
-        fetchSecondRoundQuestions(roundTwoCategories[4], setSecondRoundQuestion5)
-        fetchSecondRoundQuestions(roundTwoCategories[5], setSecondRoundQuestion6)
+        setIsRoundTwo(true)
     }
 
-    useEffect(() => {
-    }, [roundTwoCategories])
-
-    
-
+  
 
     return (
-        <div  style={{display: selectedQuestions === 30 ? "block" : "none"}} className={styles.container}>
+        <div  style={{display: selectedQuestions === 30 && !isRoundTwo ? "block": "none"}} className={styles.container}>
             <div className={styles.textContainer}>
                 <h1>End of Round One.</h1>
                 <h2>Score: ${score}</h2>

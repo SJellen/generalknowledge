@@ -4,7 +4,11 @@ import styles from '../styles/RoundTransition.module.scss'
 
 export default function RoundTransitionTwo() {
 
-    const {selectedQuestions, score} = useContext(GameContext)
+    const {selectedQuestions, score, setIsRoundTwo} = useContext(GameContext)
+
+
+    
+
 
 
     return (
