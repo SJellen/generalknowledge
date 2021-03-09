@@ -94,36 +94,36 @@ export default function RoundTwo() {
                 <div className={styles.gridTitle}>{secondRoundQuestion4 && categoryCleaner(secondRoundQuestion4[0]?.category)}</div>
                 <div className={styles.gridTitle}>{secondRoundQuestion5 && categoryCleaner(secondRoundQuestion5[0]?.category)}</div>
                 <div className={styles.gridTitle}>{secondRoundQuestion6 && categoryCleaner(secondRoundQuestion6[0]?.category)}</div>
-                <div className={styles.gridItem}>$400</div>
-                <div className={styles.gridItem}>$400</div>
-                <div className={styles.gridItem}>$400</div>
-                <div className={styles.gridItem}>$400</div>
-                <div className={styles.gridItem}>$400</div>
-                <div className={styles.gridItem}>$400</div>
-                <div className={styles.gridItem}>$800</div>
-                <div className={styles.gridItem}>$800</div>
-                <div className={styles.gridItem}>$800</div>
-                <div className={styles.gridItem}>$800</div>
-                <div className={styles.gridItem}>$800</div>
-                <div className={styles.gridItem}>$800</div>
-                <div className={styles.gridItem}>$1200</div>
-                <div className={styles.gridItem}>$1200</div>
-                <div className={styles.gridItem}>$1200</div>
-                <div className={styles.gridItem}>$1200</div>
-                <div className={styles.gridItem}>$1200</div>
-                <div className={styles.gridItem}>$1200</div>
-                <div className={styles.gridItem}>$1600</div>
-                <div className={styles.gridItem}>$1600</div>
-                <div className={styles.gridItem}>$1600</div>
-                <div className={styles.gridItem}>$1600</div>
-                <div className={styles.gridItem}>$1600</div>
-                <div className={styles.gridItem}>$1600</div>
-                <div className={styles.gridItem}>$2000</div>
-                <div className={styles.gridItem}>$2000</div>
-                <div className={styles.gridItem}>$2000</div>
-                <div className={styles.gridItem}>$2000</div>
-                <div className={styles.gridItem}>$2000</div>
-                <div className={styles.gridItem}>$2000</div>
+                <div className={styles.gridItem} id="sr1" onClick={(e) => handleTileClick(e, secondRoundQuestion1[5], 400, "sr1")} >$400</div>
+                <div className={styles.gridItem} id="sr2" onClick={(e) => handleTileClick(e, secondRoundQuestion2[5], 400, "sr2")} >$400</div>
+                <div className={styles.gridItem} id="sr3" onClick={(e) => handleTileClick(e, secondRoundQuestion3[5], 400, "sr3")} >$400</div>
+                <div className={styles.gridItem} id="sr4" onClick={(e) => handleTileClick(e, secondRoundQuestion4[5], 400, "sr4")} >$400</div>
+                <div className={styles.gridItem} id="sr5" onClick={(e) => handleTileClick(e, secondRoundQuestion5[5], 400, "sr5")} >$400</div>
+                <div className={styles.gridItem} id="sr6" onClick={(e) => handleTileClick(e, secondRoundQuestion6[5], 400, "sr6")} >$400</div>
+                <div className={styles.gridItem} id="sr7" onClick={(e) => handleTileClick(e, secondRoundQuestion1[6], 800, "sr7")} >$800</div>
+                <div className={styles.gridItem} id="sr8" onClick={(e) => handleTileClick(e, secondRoundQuestion2[6], 800, "sr8")} >$800</div>
+                <div className={styles.gridItem} id="sr9" onClick={(e) => handleTileClick(e, secondRoundQuestion3[6], 800, "sr9")} >$800</div>
+                <div className={styles.gridItem} id="sr10" onClick={(e) => handleTileClick(e, secondRoundQuestion4[6], 800, "sr10")} >$800</div>
+                <div className={styles.gridItem} id="sr11" onClick={(e) => handleTileClick(e, secondRoundQuestion5[6], 800, "sr11")} >$800</div>
+                <div className={styles.gridItem} id="sr12" onClick={(e) => handleTileClick(e, secondRoundQuestion6[6], 800, "sr12")} >$800</div>
+                <div className={styles.gridItem} id="sr13" onClick={(e) => handleTileClick(e, secondRoundQuestion1[7], 1200, "sr13")} >$1200</div>
+                <div className={styles.gridItem} id="sr14" onClick={(e) => handleTileClick(e, secondRoundQuestion2[7], 1200, "sr14")} >$1200</div>
+                <div className={styles.gridItem} id="sr15" onClick={(e) => handleTileClick(e, secondRoundQuestion3[7], 1200, "sr15")} >$1200</div>
+                <div className={styles.gridItem} id="sr16" onClick={(e) => handleTileClick(e, secondRoundQuestion4[7], 1200, "sr16")} >$1200</div>
+                <div className={styles.gridItem} id="sr17" onClick={(e) => handleTileClick(e, secondRoundQuestion5[7], 1200, "sr17")} >$1200</div>
+                <div className={styles.gridItem} id="sr18" onClick={(e) => handleTileClick(e, secondRoundQuestion6[7], 1200, "sr18")} >$1200</div>
+                <div className={styles.gridItem} id="sr19" onClick={(e) => handleTileClick(e, secondRoundQuestion1[8], 1600, "sr19")} >$1600</div>
+                <div className={styles.gridItem} id="sr20" onClick={(e) => handleTileClick(e, secondRoundQuestion2[8], 1600, "sr20")} >$1600</div>
+                <div className={styles.gridItem} id="sr21" onClick={(e) => handleTileClick(e, secondRoundQuestion3[8], 1600, "sr21")} >$1600</div>
+                <div className={styles.gridItem} id="sr22" onClick={(e) => handleTileClick(e, secondRoundQuestion4[8], 1600, "sr22")} >$1600</div>
+                <div className={styles.gridItem} id="sr23" onClick={(e) => handleTileClick(e, secondRoundQuestion5[8], 1600, "sr23")} >$1600</div>
+                <div className={styles.gridItem} id="sr24" onClick={(e) => handleTileClick(e, secondRoundQuestion6[8], 1600, "sr24")} >$1600</div>
+                <div className={styles.gridItem} id="sr25" onClick={(e) => handleTileClick(e, secondRoundQuestion1[9], 2000, "sr25")} >$2000</div>
+                <div className={styles.gridItem} id="sr26" onClick={(e) => handleTileClick(e, secondRoundQuestion2[9], 2000, "sr26")} >$2000</div>
+                <div className={styles.gridItem} id="sr27" onClick={(e) => handleTileClick(e, secondRoundQuestion3[9], 2000, "sr27")} >$2000</div>
+                <div className={styles.gridItem} id="sr28" onClick={(e) => handleTileClick(e, secondRoundQuestion4[9], 2000, "sr28")} >$2000</div>
+                <div className={styles.gridItem} id="sr29" onClick={(e) => handleTileClick(e, secondRoundQuestion5[9], 2000, "sr29")} >$2000</div>
+                <div className={styles.gridItem} id="sr30" onClick={(e) => handleTileClick(e, secondRoundQuestion6[9], 2000, "sr30")} >$2000</div>
             </div>
         </div>
     )
