@@ -18,7 +18,7 @@ function GameContextProvider({ children }) {
     const [isRoundTwo, setIsRoundTwo] = useState(false)
 
 
-    const START_TIME = 6
+    const START_TIME = 8
     const [timeRemaining, setTimeRemaining]  = useState(START_TIME)
     const [clockStart, setClockStart] = useState(false)
     

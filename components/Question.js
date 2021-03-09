@@ -58,7 +58,7 @@ export default function Question() {
 
     }, [timeRemaining, clockStart])
 
-
+   
 
     return (
         <div>
@@ -68,7 +68,7 @@ export default function Question() {
                     <h2>{currentQuestion && questionCleaner(currentQuestion.question)}</h2>
                 </div>
             
-            <div className={styles.choiceContainer}>
+            <div className={styles.choiceContainer} style={{display: timeRemaining <= 5 ? "block" : 'none'}}>
                 <ul className={styles.list}>
                     <li onClick={(e) => handleClick(questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[0]))}>{questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[0])}</li>
                     <li onClick={(e) => handleClick(questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[1]))}>{questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[1])}</li>
