@@ -11,7 +11,7 @@ const LOCAL_STORAGE_KEY = 'username'
 export default function Start() {
 
     const {isStart, setIsStart, username, setUsername, setIs} = useContext(GameContext)
-    const {roundOneCategories, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, roundTwoCategories,fetchSecondRoundQuestions, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, finalRoundCategory, fetchFinalQuestion} = useContext(QuestionContext)
+    const {roundOneCategories, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, roundTwoCategories,fetchSecondRoundQuestions, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, finalRoundCategory, fetchFinalQuestion, finalQuestion} = useContext(QuestionContext)
     const [showInput, setShowInput] = useState(false)
     const [showWordBox, setShowWordBox] = useState(true)
     const [tempUser, setTempUser] = useState('')
@@ -53,7 +53,7 @@ export default function Start() {
     }
 
     useEffect(() => {
-
+        console.log(finalQuestion)
     }, [roundOneCategories, roundTwoCategories, finalRoundCategory])
 
     

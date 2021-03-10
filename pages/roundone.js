@@ -31,7 +31,7 @@ export default function RoundOne() {
         const questionArr = currentQuestion && [...currentQuestion.incorrect_answers, currentQuestion.correct_answer]
         const shuffledQuestions = questionArr && getShuffledArr(questionArr)
         setShuffledQuestionsArr(shuffledQuestions)
-        console.log(questionArr, shuffledQuestions, shuffledQuestionsArr)
+        
 
     }, [currentQuestion])
    

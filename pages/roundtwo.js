@@ -29,7 +29,6 @@ export default function RoundTwo() {
         const questionArr = currentQuestion && [...currentQuestion.incorrect_answers, currentQuestion.correct_answer]
         const shuffledQuestions = questionArr && getShuffledArr(questionArr)
         setShuffledQuestionsArr(shuffledQuestions)
-        console.log(questionArr, shuffledQuestions, shuffledQuestionsArr)
         setIsRoundTwo(true)
 
     }, [currentQuestion])
