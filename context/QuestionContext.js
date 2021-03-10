@@ -105,7 +105,6 @@ function QuestionContextProvider({ children }) {
         await fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&type=multiple`)
         .then(res => res.json())
         .then(data => {
-            console.log(data.results)
             let sortedData = categoryFilterDifficulty(data.results)
             set(sortedData)
         }) 
