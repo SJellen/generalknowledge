@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
 // localStorage.clear();
-const LOCAL_STORAGE_KEY = 'username'
+const LOCAL_STORAGE_KEY_USER = 'username'
+const LOCAL_STORAGE_KEY_QC = 'qcount'
 
 const GameContext = React.createContext()
 
@@ -11,7 +12,7 @@ function GameContextProvider({ children }) {
 
     const [isStart, setIsStart] = useState(true)
     const [username, setUsername] = useState('')
-    const [selectedQuestions, setSelectedQuestions] = useState(60)
+    const [selectedQuestions, setSelectedQuestions] = useState(0)
     const [score, setScore] = useState(0)
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
@@ -24,13 +25,21 @@ function GameContextProvider({ children }) {
     const [clockStart, setClockStart] = useState(false)
     
 
-
+    // username storage
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+        const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_USER))
         if (user) {
             setUsername(user)
         }
 
+    }, [])
+
+    // selected question count storage
+    useEffect(() => {
+        const questionCount = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_QC))
+        if (questionCount) {
+            setSelectedQuestions(questionCount)
+        }
     }, [])
 
     

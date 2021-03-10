@@ -3,6 +3,7 @@ import {QuestionContext} from '../context/QuestionContext'
 import {GameContext} from '../context/GameContext'
 import styles from '../styles/Question.module.scss'
 
+const LOCAL_STORAGE_KEY_QC = 'qcount'
 
 export default function Question() {
 
@@ -10,11 +11,7 @@ export default function Question() {
     const {selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost, answerResult, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME} = useContext(GameContext)
     
 
-
   
-
-    
-
     
     function handleClick(choice) {
         
@@ -57,6 +54,15 @@ export default function Question() {
         }
 
     }, [timeRemaining, clockStart])
+
+
+    useEffect(() => {
+        const questionCount = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_QC))
+        if (questionCount) {
+            setSelectedQuestions(questionCount)
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY_QC, JSON.stringify(selectedQuestions))
+    }, [selectedQuestions])
 
    
 

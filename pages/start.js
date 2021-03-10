@@ -65,7 +65,7 @@ export default function Start() {
         { showWordBox ? 
              <div className={styles.wordbox}>
                 <h1>Welcome to General Knowledge</h1>
-                <h2>Would you Like to Play?</h2>
+                
                 <button onClick={handlePlayButtonClick} className={styles.playButton}>Play</button>
             </div> : "" }
            
@@ -83,7 +83,7 @@ export default function Start() {
                       </label>
                     </div>
 
-                    <button type="submit" className={styles.startButton}>enter</button>
+                    <button type="submit" className={styles.startButton}>Enter</button>
                     
                 </form>
                 
