@@ -8,7 +8,7 @@ const LOCAL_STORAGE_KEY_FR = 'finalround'
 
 export default function FinalRound() {
 
-    const {finalQuestion} = useContext(QuestionContext)
+    const {finalQuestion, categoryCleaner} = useContext(QuestionContext)
 
     useEffect(() => {
             console.log(finalQuestion)
