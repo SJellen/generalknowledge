@@ -10,7 +10,9 @@ export default function Header() {
        
 
     return (
-        <div className={styles.container} style={{display: isStart || showInput ? "none" : ''}}>
+        <div className={styles.container} 
+        // style={{display: isStart || showInput ? "none" : ''}}
+        >
             <span className={styles.username}>{username && username}</span>
             <span>${score ? score : 0}</span>
             <span className={styles.title}>General Knowledge</span>

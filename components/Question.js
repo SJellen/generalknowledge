@@ -62,7 +62,7 @@ export default function Question() {
             setSelectedQuestions(questionCount)
         }
         localStorage.setItem(LOCAL_STORAGE_KEY_QC, JSON.stringify(selectedQuestions))
-    }, [])
+    }, [selectedQuestions])
 
    
 
@@ -72,6 +72,7 @@ export default function Question() {
              <div className={styles.container}>
                 <div className={styles.questionContainer}>
                     <h2>{currentQuestion && questionCleaner(currentQuestion.question)}</h2>
+                    <span className={styles.timer} style={{visibility: timeRemaining <= 5 ? "visible" : 'hidden'}}>{timeRemaining}</span>
                 </div>
             
             <div className={styles.choiceContainer} style={{display: timeRemaining <= 5 ? "block" : 'none'}}>
