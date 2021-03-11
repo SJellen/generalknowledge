@@ -3,17 +3,32 @@
     // background-color: silver;
     margin: 7.5rem auto 0 auto;
     width: 90%;
-    height: auto;
+    height: 75vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    // align-items: center;
     background-color: blue;
     border: 10px solid black;
+    justify-content: center;
 }
 
 .wordbox {
     text-shadow: 2px 2px 2px black;
     width: 100%;
-    height: 75vh;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.wordbox2 {
+    text-shadow: 2px 2px 2px black;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -26,12 +41,10 @@
 .inputBox {
     text-shadow: 1px 1px 1px black;
     width: 100%;
-    height: 75vh;
+    height: auto;
     margin:0 auto;
-    padding-top: 2rem;
     text-align: center;
     color: white;
-    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,7 +98,7 @@
     margin-top: 2rem;
     width: 100px;
     height: 30px;
-    
+    box-shadow:  1.5px 1.5px 1.5px black;
    
     
 }
@@ -102,6 +115,7 @@
     margin-top: 1rem;
     width: 100px;
     height: 30px;
+    box-shadow:  1.5px 1.5px 1.5px black;
 }
 
 .startButton:hover {
@@ -110,6 +124,8 @@
 }
 
 .beginButton {
+    text-shadow: none;
+    color: black;
     background-color: gold;
     border: none;
     border-radius: 5px;
@@ -120,6 +136,7 @@
     justify-content: center;
     align-items: center;
     color: white;
+    box-shadow:  1.5px 1.5px 1.5px black;
 }
 
 .beginButton:hover {
