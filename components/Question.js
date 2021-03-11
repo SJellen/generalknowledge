@@ -62,7 +62,7 @@ export default function Question() {
             setSelectedQuestions(questionCount)
         }
         localStorage.setItem(LOCAL_STORAGE_KEY_QC, JSON.stringify(selectedQuestions))
-    }, [selectedQuestions])
+    }, [])
 
    
 
