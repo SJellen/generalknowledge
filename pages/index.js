@@ -4,7 +4,7 @@ import Start from '../pages/start'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
     
      <Start />
     
