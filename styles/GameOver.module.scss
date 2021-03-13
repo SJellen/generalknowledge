@@ -1,0 +1,64 @@
+
+
+.container {
+    margin: 7.5rem auto 0 auto;
+    width: 90%;
+    height: auto;
+    background-color: blue;
+    
+    color: white;
+    border-radius: 25px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    
+    
+}
+
+.textContainer {
+    border: 10px solid black;
+    background-color: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    width: 100%;
+    height: 76vh;
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    
+    
+    
+   
+
+}
+
+
+.beginButton {
+    background-color: gold;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.beginButton:hover {
+    filter: brightness(.85);
+    cursor: pointer;
+}
+
+.roundTwoLink {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    
+}

@@ -16,7 +16,7 @@ export default function RoundTransitionTwo() {
 
 
     return (
-        <div  style={{display: selectedQuestions === 60 && !isRoundThree ? "block" : "none"}} className={styles.container}>
+        <div  style={{display: selectedQuestions === 60 && !isRoundThree && score >= 0 ? "block" : "none"}} className={styles.container}>
             <div className={styles.textContainer}>
                 <h1>End of Round Two.</h1>
                 <h2>Score: ${score}</h2>

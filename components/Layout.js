@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import AnswerResult from './AnswerResult'
 import RoundTransitionOne from './RoundTransitionOne'
 import RoundTransitionTwo from './RoundTransitionTwo'
+import GameOver from './GameOver'
 
 export default function Layout({children}) {
     return (
@@ -25,7 +26,7 @@ export default function Layout({children}) {
         <Question />
         <RoundTransitionOne />
         <RoundTransitionTwo />
-
+        <GameOver />
       </div>
     )
   }
