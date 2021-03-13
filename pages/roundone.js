@@ -6,9 +6,6 @@ import styles from '../styles/RoundOne.module.scss'
 import useRoundOneLogic from '../logic/useRoundOneLogic'
 
 
-// localStorage.clear();
-// const LOCAL_STORAGE_KEY_FR = 'firstround'
-
 export default function RoundOne() {
 
     const {categoryArr, handleTileClick} = useRoundOneLogic()
