@@ -10,7 +10,8 @@ export default function GameOver() {
 
     function handleEndClick() {
         setSelectedQuestions(0)
-        localStorage.clear();
+        localStorage.clear()
+        forceUpdate()
     }
 
     return (
@@ -18,9 +19,12 @@ export default function GameOver() {
         style={{display: score < 0 && selectedQuestions === 30 || score < 0 && selectedQuestions === 60 ? "block": "none"}}
         >
             <div className={styles.textContainer}>
-                <h1>
+                <div>
+                   <h1 className={styles.textWord}>
                     Game over. You need a score greater than $0 to advance to the next round.
-                </h1>
+                </h1> 
+                </div>
+                
                 <div className={styles.roundTwoLink}><Link href="/" style={{textDecoration: "none"}}><a className={styles.beginButton} style={{color: "black"}}
                 onClick={handleEndClick}
                 >End Game</a></Link></div>
