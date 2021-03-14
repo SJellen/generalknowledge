@@ -10,7 +10,7 @@ const LOCAL_STORAGE_KEY = 'username'
 
 export default function Start() {
 
-    const {isStart, setIsStart, username, setUsername, setIs, showInput, setShowInput} = useContext(GameContext)
+    const {isStart, setIsStart, username, setUsername, setIs, showInput, setShowInput, player2, setPlayer2} = useContext(GameContext)
     const {roundOneCategories, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, roundTwoCategories,fetchSecondRoundQuestions, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, finalRoundCategory, fetchFinalQuestion, finalQuestion} = useContext(QuestionContext)
     
     const [tempUser, setTempUser] = useState('')
@@ -40,10 +40,12 @@ export default function Start() {
         fetchSecondRoundQuestions(roundTwoCategories[4], setSecondRoundQuestion5)
         fetchSecondRoundQuestions(roundTwoCategories[5], setSecondRoundQuestion6)
         fetchFinalQuestion(finalRoundCategory[0])
+         setPlayer2("I'm a computer")
     }
 
     function handleStartGameClick() {
         setIsStart(false)
+       
     }
 
     
