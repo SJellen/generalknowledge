@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 // localStorage.clear();
 const LOCAL_STORAGE_KEY_USER = 'username'
 const LOCAL_STORAGE_KEY_QC = 'qcount'
+const LOCAL_STORAGE_KEY_P2 = 'player2'
+const LOCAL_STORAGE_KEY_P3 = 'player3'
 
 const GameContext = React.createContext()
 
@@ -39,6 +41,14 @@ function GameContextProvider({ children }) {
         const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_USER))
         if (user) {
             setUsername(user)
+        }
+        const player2 = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_P2))
+        if (player2) {
+            setPlayer2(player2)
+        }
+        const player3 = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_P3))
+        if (player3) {
+            setPlayer3(player3)
         }
 
     }, [])
