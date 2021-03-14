@@ -68,3 +68,26 @@
     cursor: pointer;
 
 }
+
+.passContainer {
+    
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 5rem;
+}
+
+.passButton {
+    width: 150px;
+    height: 50px;
+    font-size: 1.25rem;
+    background-color: gold;
+    border: none;
+    border-radius: 7.5px;
+}
+
+.passButton:hover {
+    cursor: pointer;
+    background-color: rgba(255, 215, 0, .8);
+}

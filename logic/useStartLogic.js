@@ -10,7 +10,7 @@ const LOCAL_STORAGE_KEY_P3 = 'player3'
 
 export default function useStartLogic() {
 
-    const {setIsStart, setUsername, setShowInput,  setPlayer2, setPlayer3} = useContext(GameContext)
+    const {setIsStart, setUsername, setShowInput,  setPlayer2, setPlayer3, setCurrentTurn, username} = useContext(GameContext)
     const {roundOneCategories, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, roundTwoCategories,fetchSecondRoundQuestions, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, finalRoundCategory, fetchFinalQuestion} = useContext(QuestionContext)
     
     const [tempUser, setTempUser] = useState('')
@@ -61,9 +61,10 @@ export default function useStartLogic() {
         getUniqueUsers()
     }
 
-
+    console.log(username)
     function handleStartGameClick() {
         setIsStart(false)
+        setCurrentTurn(username)
         
     }
 

@@ -8,7 +8,7 @@ const LOCAL_STORAGE_KEY_QC = 'qcount'
 export default function useQuestionLogic() {
 
     const {currentQuestion,  setCurrentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, setSelectedQuestions, setScore, cost, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME} = useContext(GameContext)
+    const {selectedQuestions, setSelectedQuestions, setScore, cost, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, currentTurn, setCurrentTurn, player2, player3} = useContext(GameContext)
     
 
   
@@ -25,6 +25,7 @@ export default function useQuestionLogic() {
         } else {
             setScore(prevScore => prevScore - cost)
             setAnswerResult("incorrect")
+            setCurrentTurn(player2)
             setTimeout(() => {
                 setAnswerResult()
             }, 750)
@@ -34,6 +35,13 @@ export default function useQuestionLogic() {
         setCurrentQuestion()
         setSelectedQuestions(prevCount => prevCount + 1)
         
+    }
+
+    function handlePassClick() {
+        setCurrentTurn(player2)
+        setClockStart(false)
+        setTimeRemaining(START_TIME)
+
     }
 
     useEffect(() => {
@@ -64,6 +72,6 @@ export default function useQuestionLogic() {
         localStorage.setItem(LOCAL_STORAGE_KEY_QC, JSON.stringify(selectedQuestions))
     }, [selectedQuestions])
 
-    return {handleClick}
+    return {handleClick, handlePassClick}
     
 }

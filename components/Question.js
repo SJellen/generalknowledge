@@ -10,12 +10,17 @@ export default function Question() {
     const {currentQuestion, questionCleaner, shuffledQuestionsArr} = useContext(QuestionContext)
     const {timeRemaining} = useContext(GameContext)
 
-    const {handleClick} = useQuestionLogic()
+    const {handleClick, handlePassClick} = useQuestionLogic()
+
+    
     
     return (
         <div>
              { currentQuestion  ?
              <div className={styles.container}>
+                <div className={styles.passContainer} style={{visibility: timeRemaining <= 5 ? "hidden" : 'visible'}}>
+                    <button className={styles.passButton} onClick={handlePassClick}>Pass</button>
+                </div>
                 <div className={styles.questionContainer}>
                     <h2>{currentQuestion && questionCleaner(currentQuestion.question)}</h2>
                     <span className={styles.timer} style={{visibility: timeRemaining <= 5 ? "visible" : 'hidden'}}>{timeRemaining}</span>
