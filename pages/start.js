@@ -41,7 +41,7 @@ export default function Start() {
         fetchSecondRoundQuestions(roundTwoCategories[5], setSecondRoundQuestion6)
         fetchFinalQuestion(finalRoundCategory[0])
         setPlayer2("cpu1")
-        setPlayer3("cpu3")
+        setPlayer3("cpu2")
     }
 
 

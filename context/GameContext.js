@@ -27,7 +27,9 @@ function GameContextProvider({ children }) {
 
 
     const [player2, setPlayer2] = useState()
+    const [player2Score, setPlayer2Score] = useState(0)
     const [player3, setPlayer3] = useState()
+    const [player3Score, setPlayer3Score] = useState(0)
 
 
     
@@ -55,7 +57,7 @@ function GameContextProvider({ children }) {
 
 
     return (
-        <GameContext.Provider value={{isStart, setIsStart, username, setUsername, selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost, answerResult, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, isRoundTwo, setIsRoundTwo, isRoundThree, setIsRoundThree, showInput, setShowInput, player2, setPlayer2, player3, setPlayer3 }}>
+        <GameContext.Provider value={{isStart, setIsStart, username, setUsername, selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost, answerResult, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, isRoundTwo, setIsRoundTwo, isRoundThree, setIsRoundThree, showInput, setShowInput, player2, setPlayer2, player3, setPlayer3, player2Score, setPlayer2Score, player3Score, setPlayer3Score }}>
             { children }
         </GameContext.Provider>
     )
