@@ -18,10 +18,18 @@
     margin-right: 2.5rem;
 }
 
+.playerContainer {
+    width: auto;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
 .username {
     margin-left: 2.5rem;
 }
 
 .score {
     font-weight: 600;
+    margin-left: 1.5rem;
 }
