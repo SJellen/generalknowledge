@@ -12,7 +12,7 @@ export default function Question() {
 
     const {handleClick, handlePassClick} = useQuestionLogic()
 
-    console.log(currentTurn, username)    
+       
     
     return (
         <div>

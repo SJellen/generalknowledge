@@ -6,6 +6,7 @@ import {computerNamesList} from '../data/computerNames'
 const LOCAL_STORAGE_KEY_USER = 'username'
 const LOCAL_STORAGE_KEY_P2 = 'player2'
 const LOCAL_STORAGE_KEY_P3 = 'player3'
+const LOCAL_STORAGE_KEY_TURN = 'turn'
 
 
 export default function useStartLogic() {
@@ -61,10 +62,12 @@ export default function useStartLogic() {
         getUniqueUsers()
     }
 
-    console.log(username)
+    
     function handleStartGameClick() {
         setIsStart(false)
+        localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
         setCurrentTurn(username)
+
         
     }
 

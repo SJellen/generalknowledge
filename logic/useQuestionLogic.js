@@ -4,6 +4,7 @@ import {GameContext} from '../context/GameContext'
 
 
 const LOCAL_STORAGE_KEY_QC = 'qcount'
+const LOCAL_STORAGE_KEY_TURN = 'turn'
 
 export default function useQuestionLogic() {
 
@@ -38,6 +39,7 @@ export default function useQuestionLogic() {
     }
 
     function handlePassClick() {
+        localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
         setCurrentTurn(player2)
         setClockStart(false)
         setTimeRemaining(START_TIME)
@@ -71,6 +73,24 @@ export default function useQuestionLogic() {
         }
         localStorage.setItem(LOCAL_STORAGE_KEY_QC, JSON.stringify(selectedQuestions))
     }, [selectedQuestions])
+
+
+
+    
+    function passOrPlay() {
+        return Math.floor(Math.random() * 2) === 0 ? "pass" : "play"
+    }
+
+    console.log(passOrPlay())
+
+
+
+    useEffect(() => {
+        if (currentTurn === player2) {
+
+        }
+
+    }, [currentTurn])
 
     return {handleClick, handlePassClick}
     

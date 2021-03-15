@@ -5,6 +5,7 @@ const LOCAL_STORAGE_KEY_USER = 'username'
 const LOCAL_STORAGE_KEY_QC = 'qcount'
 const LOCAL_STORAGE_KEY_P2 = 'player2'
 const LOCAL_STORAGE_KEY_P3 = 'player3'
+const LOCAL_STORAGE_KEY_TURN = 'turn'
 
 const GameContext = React.createContext()
 
@@ -41,7 +42,10 @@ function GameContextProvider({ children }) {
 
     // username storage
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_USER))
+        const path = window.location.pathname
+        
+        if (path !== '/') {
+            const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_USER))
         if (user) {
             setUsername(user)
         }
@@ -54,6 +58,9 @@ function GameContextProvider({ children }) {
             setPlayer3(player3)
         }
 
+        }
+        
+
     }, [])
 
     // selected question count storage
@@ -63,6 +70,16 @@ function GameContextProvider({ children }) {
             setSelectedQuestions(questionCount)
         }
     }, [selectedQuestions])
+
+    // get current turn
+    useEffect(() => {
+        const turn = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_TURN))
+        if (currentTurn) {
+            setCurrentTurn(turn)
+        }
+       
+
+    }, [currentTurn])
 
     
 
