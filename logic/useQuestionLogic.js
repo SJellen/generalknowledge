@@ -61,7 +61,7 @@ export default function useQuestionLogic() {
             setTimeRemaining(START_TIME)
         }
 
-    }, [timeRemaining, clockStart])
+    }, [timeRemaining, clockStart, currentTurn])
 
 
     useEffect(() => {
