@@ -26,10 +26,11 @@ export default function useQuestionLogic() {
         } else {
             setScore(prevScore => prevScore - cost)
             setAnswerResult("incorrect")
-            setCurrentTurn(player2)
+            // setCurrentTurn(player2)
             setTimeout(() => {
                 setAnswerResult()
             }, 750)
+            passToPlayer2()
         }
         setClockStart(false)
         setTimeRemaining(START_TIME)
