@@ -10,7 +10,7 @@ const LOCAL_STORAGE_KEY_FR = 'firstround'
 export default function useRoundOneLogic() {
 
     const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, getShuffledArr,setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {setCost, setClockStart} = useContext(GameContext)
+    const {setCost, setClockStart, currentTurn} = useContext(GameContext)
     const [categoryArr, setCategoryArr] = useState()
 
     
@@ -89,6 +89,11 @@ export default function useRoundOneLogic() {
         setCategoryArr([firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6])
         
     }, [firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6])
+
+
+    useEffect(() => {
+
+    }, [currentTurn])
 
 
 

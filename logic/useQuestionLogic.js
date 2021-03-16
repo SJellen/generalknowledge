@@ -9,7 +9,7 @@ const LOCAL_STORAGE_KEY_TURN = 'turn'
 export default function useQuestionLogic() {
 
     const {currentQuestion,  setCurrentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, setSelectedQuestions, setScore, cost, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, currentTurn, setCurrentTurn, player2, player3} = useContext(GameContext)
+    const {selectedQuestions, setSelectedQuestions, setScore, cost, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, currentTurn, setCurrentTurn, player2, player3, setPlayer2Score, setPlayer3Score, username} = useContext(GameContext)
     
 
   
@@ -39,11 +39,12 @@ export default function useQuestionLogic() {
     }
 
     function handlePassClick() {
-        localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
-        setCurrentTurn(player2)
+        // localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
+        // setCurrentTurn(player2)
         setClockStart(false)
         setTimeRemaining(START_TIME)
 
+        passToPlayer2()
     }
 
     useEffect(() => {
@@ -63,7 +64,7 @@ export default function useQuestionLogic() {
             setTimeRemaining(START_TIME)
         }
 
-    }, [timeRemaining, clockStart, currentTurn])
+    }, [timeRemaining, clockStart])
 
 
     useEffect(() => {
@@ -81,17 +82,95 @@ export default function useQuestionLogic() {
         return Math.floor(Math.random() * 2) === 0 ? "pass" : "play"
     }
 
-    console.log(passOrPlay())
+    function computerAnswersQuestion() {
+        let move = Math.floor(Math.random() * 100)
+        return move % 2 === 0 || move % 3 === 0 || move % 5 === 0 ? "correct" : "incorrect"
+        
+    }
+
+
+    function passToPlayer2() {
+            
+            let move = passOrPlay()
+            console.log(move)
+            
+            if (move === "play") {
+                localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
+                setCurrentTurn(player2)
+                
+                let answer = computerAnswersQuestion()
+                if (answer === "correct") {
+                    setPlayer2Score(prevScore => prevScore + cost)
+                    setCurrentQuestion()
+                    setSelectedQuestions(prevCount => prevCount + 1)
+                } else {
+                    localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
+                    setCurrentTurn(player3)
+                    setPlayer2Score(prevScore => prevScore - cost)
+                    
+                    let move = passOrPlay()
+                    console.log(move)
+                    
+                    if (move === "play") {
+                        let answer = computerAnswersQuestion()
+
+                        if (answer === "correct") {
+                        setPlayer3Score(prevScore => prevScore + cost)
+                        setCurrentQuestion()
+                        setSelectedQuestions(prevCount => prevCount + 1)
+                        } else {
+                            setPlayer3Score(prevScore => prevScore - cost)
+                            setCurrentTurn(username)
+                        }
+
+                    } else {
+                        setCurrentTurn(username)
+                        setCurrentQuestion()
+                        setSelectedQuestions(prevCount => prevCount + 1)
+                    }
+                }
+
+
+            } else {
+                localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
+                setCurrentTurn(player3)
+
+                let move = passOrPlay()
+                console.log(move)
+                if (move === "play") {
+                    // setCurrentTurn(player3)
+                    let answer = computerAnswersQuestion()
+
+                    if (answer === "correct") {
+                    setPlayer3Score(prevScore => prevScore + cost)
+                    setCurrentQuestion()
+                    setSelectedQuestions(prevCount => prevCount + 1)
+                } else {
+                    setPlayer3Score(prevScore => prevScore - cost)
+                    setCurrentQuestion()
+                    setSelectedQuestions(prevCount => prevCount + 1)
+                    setCurrentTurn(username)
+                }
+
+                } else {
+                    setCurrentTurn(username)
+                    setCurrentQuestion()
+                    setSelectedQuestions(prevCount => prevCount + 1)
+                }
+
+                }
+    
+       
+    }
+
+
+ 
 
 
 
-    useEffect(() => {
-        if (currentTurn === player2) {
 
-        }
+    
 
-    }, [currentTurn])
-
-    return {handleClick, handlePassClick}
+    return {handleClick, handlePassClick, passToPlayer2}
     
 }
