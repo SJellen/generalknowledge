@@ -93,7 +93,7 @@ export default function useQuestionLogic() {
     function passToPlayer2() {
             
             let move = passOrPlay()
-            console.log(move)
+            // console.log(move)
             
             if (move === "play") {
                 localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
@@ -110,7 +110,7 @@ export default function useQuestionLogic() {
                     setPlayer2Score(prevScore => prevScore - cost)
                     
                     let move = passOrPlay()
-                    console.log(move)
+                    // console.log(move)
                     
                     if (move === "play") {
                         let answer = computerAnswersQuestion()
@@ -137,7 +137,7 @@ export default function useQuestionLogic() {
                 setCurrentTurn(player3)
 
                 let move = passOrPlay()
-                console.log(move)
+                // console.log(move)
                 if (move === "play") {
                     // setCurrentTurn(player3)
                     let answer = computerAnswersQuestion()

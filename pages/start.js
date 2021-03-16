@@ -41,7 +41,7 @@ export default function Start() {
                 {
                         !showInput ? 
                         <div className={styles.wordbox2}>
-                            <h1 >Welcome {username}.<br></br> Your opponents today are:<br></br> {player2} and {player3}.<br></br>
+                            <h1 >Welcome <span className={styles.usernames}>{username}</span>.<br></br> Your opponents today are:<br></br> <span className={styles.usernames}>{player2}</span> and <span className={styles.usernames}>{player3}</span>.<br></br>
                              Let's play!</h1>
                         <Link href="/roundone" style={{textDecoration: "none"}}><a className={styles.beginButton} type="submit" style={{color: "black"}} onClick={handleStartGameClick}>Start</a></Link>
                         </div> : ""
