@@ -146,12 +146,12 @@ export default function useQuestionLogic() {
                     setPlayer3Score(prevScore => prevScore + cost)
                     setCurrentQuestion()
                     setSelectedQuestions(prevCount => prevCount + 1)
-                } else {
+                    } else {
                     setPlayer3Score(prevScore => prevScore - cost)
                     setCurrentQuestion()
                     setSelectedQuestions(prevCount => prevCount + 1)
                     setCurrentTurn(username)
-                }
+                    }
 
                 } else {
                     setCurrentTurn(username)

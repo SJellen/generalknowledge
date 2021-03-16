@@ -11,7 +11,7 @@ export default function RoundTwo() {
     const {categoryArr, handleTileClick} = useRoundTwoLogic()
 
     const {categoryCleaner, currentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions} = useContext(GameContext)
+    const {selectedQuestions, currentTurn, username} = useContext(GameContext)
     
 
 
@@ -29,31 +29,31 @@ export default function RoundTwo() {
             <div 
                 className={styles.gridItem} 
                 id={index}
-                style={{pointerEvents: cat && cat[2] === '' ? "none" : '' }} 
+                style={{pointerEvents: cat && cat[2] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
                 onClick={(e) => handleTileClick(e, cat[2], 400, index, 2)}>{cat && cat[2] !== '' ? "$400" : ''}
             </div>
             <div 
                 className={styles.gridItem} 
                 id={index}
-                style={{pointerEvents: cat && cat[4] === '' ? "none" : '' }} 
+                style={{pointerEvents: cat && cat[4] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
                 onClick={(e) => handleTileClick(e, cat[4], 800, index, 4)}>{cat && cat[4] !== '' ? "$800" : ''}
             </div>
             <div 
                 className={styles.gridItem} 
                 id={index}
-                style={{pointerEvents: cat && cat[5] === '' ? "none" : '' }} 
+                style={{pointerEvents: cat && cat[5] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
                 onClick={(e) => handleTileClick(e, cat[5], 1200, index, 5)}>{cat && cat[5] !== '' ? "$1200" : ''}
             </div>
             <div 
                 className={styles.gridItem} 
                 id={index}
-                style={{pointerEvents: cat && cat[6] === '' ? "none" : '' }} 
+                style={{pointerEvents: cat && cat[6] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
                 onClick={(e) => handleTileClick(e, cat[6], 1600, index, 4)}>{cat && cat[6] !== '' ? "$1600" : ''}
             </div>
             <div 
                 className={styles.gridItem} 
                 id={index}
-                style={{pointerEvents: cat && cat[7] === '' ? "none" : '' }} 
+                style={{pointerEvents: cat && cat[7] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
                 onClick={(e) => handleTileClick(e, cat[7], 2000, index, 7)}>{cat && cat[7] !== '' ? "$2000" : ''}
             </div>
         </div>
