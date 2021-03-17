@@ -51,6 +51,7 @@ export default function useQuestionLogic() {
 
     function handlePlayClick() {
         setClockStart(true)
+        
     }
 
     useEffect(() => {
@@ -180,6 +181,6 @@ export default function useQuestionLogic() {
 
     
 
-    return {handleClick, handlePassClick, passToPlayer2}
+    return {handleClick, handlePassClick, passToPlayer2, handlePlayClick}
     
 }
