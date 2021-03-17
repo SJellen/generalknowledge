@@ -11,13 +11,15 @@ export default function RoundOne() {
     const {categoryArr, handleTileClick} = useRoundOneLogic()
 
     const {categoryCleaner, currentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, currentTurn, username} = useContext(GameContext)
+    const {selectedQuestions, currentTurn, username, cost} = useContext(GameContext)
 
     useEffect(() => {
     }, [categoryArr])
 
 
-    
+    useEffect(() => {
+        // console.log(cost, selectedQuestions)
+    }, [cost, selectedQuestions])
 
 
     const categories = categoryArr && categoryArr.map((cat, index) => (
