@@ -9,20 +9,18 @@ const LOCAL_STORAGE_KEY_TURN = 'turn'
 export default function useQuestionLogic() {
 
     const {currentQuestion,  setCurrentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, setSelectedQuestions, setScore, cost, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, currentTurn, setCurrentTurn, player2, player3, setPlayer2Score, setPlayer3Score, username} = useContext(GameContext)
+    const {selectedQuestions, setSelectedQuestions, setScore, cost, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, currentTurn, setCurrentTurn, player2, player3, setPlayer2Score, setPlayer3Score, username, computerQuestionPicker} = useContext(GameContext)
     
 
-  
+    // player1 click on question answer
     
     function handleClick(choice) {
-        
         if (choice === currentQuestion.correct_answer) {
             setScore(prevScore => prevScore + cost)
             setAnswerResult("correct")
             setTimeout(() => {
                 setAnswerResult()
-            }, 750)
-            
+            }, 750)    
         } else {
             setScore(prevScore => prevScore - cost)
             setAnswerResult("incorrect")
@@ -35,9 +33,10 @@ export default function useQuestionLogic() {
         setClockStart(false)
         setTimeRemaining(START_TIME)
         setCurrentQuestion()
-        setSelectedQuestions(prevCount => prevCount + 1)
-        
+        setSelectedQuestions(prevCount => prevCount + 1)   
     }
+
+    // player1 click to pass question 
 
     function handlePassClick() {
         // localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
@@ -46,6 +45,12 @@ export default function useQuestionLogic() {
         setTimeRemaining(START_TIME)
 
         passToPlayer2()
+    }
+
+    // player1 click to play a cpu selected question
+
+    function handlePlayClick() {
+        setClockStart(true)
     }
 
     useEffect(() => {
@@ -104,6 +109,7 @@ export default function useQuestionLogic() {
                     setPlayer2Score(prevScore => prevScore + cost)
                     setCurrentQuestion()
                     setSelectedQuestions(prevCount => prevCount + 1)
+                    // computerQuestionPicker()
                 } else {
                     localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
                     setCurrentTurn(player3)
@@ -119,6 +125,7 @@ export default function useQuestionLogic() {
                         setPlayer3Score(prevScore => prevScore + cost)
                         setCurrentQuestion()
                         setSelectedQuestions(prevCount => prevCount + 1)
+                        // computerQuestionPicker()
                         } else {
                             setPlayer3Score(prevScore => prevScore - cost)
                             setCurrentTurn(username)
@@ -146,6 +153,7 @@ export default function useQuestionLogic() {
                     setPlayer3Score(prevScore => prevScore + cost)
                     setCurrentQuestion()
                     setSelectedQuestions(prevCount => prevCount + 1)
+                    // computerQuestionPicker()
                     } else {
                     setPlayer3Score(prevScore => prevScore - cost)
                     setCurrentQuestion()
@@ -167,7 +175,7 @@ export default function useQuestionLogic() {
 
  
 
-
+    
 
 
     

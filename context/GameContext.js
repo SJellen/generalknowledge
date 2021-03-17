@@ -28,6 +28,9 @@ function GameContextProvider({ children }) {
     const [timeRemaining, setTimeRemaining]  = useState(START_TIME)
     const [clockStart, setClockStart] = useState(false)
 
+    
+
+
 
     const [player2, setPlayer2] = useState()
     const [player2Score, setPlayer2Score] = useState(0)
@@ -36,6 +39,8 @@ function GameContextProvider({ children }) {
 
 
     const [currentTurn, setCurrentTurn] = useState()
+
+    
 
 
     

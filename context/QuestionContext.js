@@ -125,7 +125,7 @@ function QuestionContextProvider({ children }) {
     
     
 
-
+    
     function categoryCleaner(str) {
         if (str !== undefined) {
             return str.replace(/(^\w+:|^)\/\//, '')
