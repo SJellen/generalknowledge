@@ -8,11 +8,10 @@ import useQuestionLogic from '../logic/useQuestionLogic'
 export default function Question() {
 
     const {currentQuestion, questionCleaner, shuffledQuestionsArr} = useContext(QuestionContext)
-    const {timeRemaining, username, currentTurn} = useContext(GameContext)
+    const {timeRemaining, username, currentTurn, showButtons} = useContext(GameContext)
 
     const {handleClick, handlePassClick, handlePlayClick} = useQuestionLogic()
 
-   console.log(currentTurn)
        
     
     return (
@@ -20,10 +19,10 @@ export default function Question() {
              { currentQuestion  ?
              <div className={styles.container}>
                 <div className={styles.buttonContainer}>
-                    <div className={styles.passContainer} style={{visibility: timeRemaining >= 9 ? "visible" : 'hidden'}}>
+                    <div className={styles.passContainer} style={{visibility: showButtons ? "visible" : 'hidden'}}>
                         <button className={styles.passButton} onClick={handlePassClick}>Pass</button>
                     </div>
-                    <div className={styles.playContainer} style={{visibility: timeRemaining >= 9  ? "visible" : 'hidden'}}>
+                    <div className={styles.playContainer} style={{visibility: showButtons  ? "visible" : 'hidden'}}>
                         <button className={styles.playButton} onClick={handlePlayClick}>Play</button>
                     </div>
                
