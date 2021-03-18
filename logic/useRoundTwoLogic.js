@@ -12,9 +12,9 @@ export default function useRoundTwoLogic() {
 
 
     const {secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, fetchSecondRoundQuestions, getShuffledArr,shuffledQuestionsArr, setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, categoryArr, setCategoryArr} = useContext(GameContext)
+    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo} = useContext(GameContext)
     
-    // const [categoryArr, setCategoryArr] = useState()
+    const [categoryArr, setCategoryArr] = useState()
 
     // handle second round tile click
     function handleTileClick(e, question, questionCost, categoryIndex,index,) {
