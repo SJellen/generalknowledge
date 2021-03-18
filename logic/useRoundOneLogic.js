@@ -5,17 +5,19 @@ import {GameContext} from '../context/GameContext'
 
 // localStorage.clear();
 const LOCAL_STORAGE_KEY_FR = 'firstround'
+const LOCAL_STORAGE_KEY_FR_CA = 'frcategoryArr'
 
 
 export default function useRoundOneLogic() {
 
     const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, getShuffledArr,setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {setCost, setClockStart, currentTurn, username, cost} = useContext(GameContext)
+    const {setCost, setClockStart, currentTurn, username, cost, setShowButtons} = useContext(GameContext)
     const [categoryArr, setCategoryArr] = useState()
 
     
     // handle click on the board by player1
     function handleTileClick(e, question, questionCost, categoryIndex,index,) {
+        setShowButtons(true)
         setCurrentQuestion(question)
         setCost(questionCost)
         categoryArr[categoryIndex][index] = ""
@@ -87,7 +89,7 @@ export default function useRoundOneLogic() {
        setCategoryArr([...categoryArr])
        setCost(question === 0 ? 200 : question === 1 ? 400 : question === 2 ? 600 : question === 3 ? 800 : 1000)
        
-       console.log(currentQuestion)
+    //    console.log(currentQuestion)
    }
 
 
@@ -99,7 +101,11 @@ export default function useRoundOneLogic() {
 
     useEffect(() => {
         if (currentQuestion === undefined && currentTurn !== username) {
-            computerQuestionPicker()
+            setTimeout(() => {
+                setShowButtons(true)
+                computerQuestionPicker()
+            }, 1000)
+            
             // couldnt i set the new array here? 
             
             
@@ -109,6 +115,16 @@ export default function useRoundOneLogic() {
         // console.log(currentQuestion, cost)
 
     }, [currentTurn, currentQuestion])
+
+
+    // useEffect(() => {
+    //     const firstRoundCa = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_FR_CA))
+    //     if (firstRoundCa) {
+    //         setCategoryArr(firstRoundCa)
+    //     } else {
+    //         localStorage.setItem(LOCAL_STORAGE_KEY_FR_CA, JSON.stringify(categoryArr && categoryArr))
+    //     }
+    // }, [categoryArr])
 
 
 
