@@ -24,7 +24,7 @@ function GameContextProvider({ children }) {
     const [isRoundThree, setIsRoundThree] = useState(false)
 
 
-    const START_TIME = 8
+    const START_TIME = 11
     const [timeRemaining, setTimeRemaining]  = useState(START_TIME)
     const [clockStart, setClockStart] = useState(false)
 
@@ -39,6 +39,8 @@ function GameContextProvider({ children }) {
 
 
     const [currentTurn, setCurrentTurn] = useState()
+
+    
 
     
 
@@ -88,7 +90,7 @@ function GameContextProvider({ children }) {
 
     
 
-
+    console.log(selectedQuestions)
 
 
     return (

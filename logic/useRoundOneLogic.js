@@ -20,7 +20,7 @@ export default function useRoundOneLogic() {
         setCost(questionCost)
         categoryArr[categoryIndex][index] = ""
         setCategoryArr([...categoryArr])
-        setClockStart(true)
+        // setClockStart(true)
     }
 
 
@@ -83,6 +83,8 @@ export default function useRoundOneLogic() {
        }
        while (categoryArr?.[category][question] === "")
        setCurrentQuestion(categoryArr[category][question])
+       categoryArr[category][question] = ""
+       setCategoryArr([...categoryArr])
        setCost(question === 0 ? 200 : question === 1 ? 400 : question === 2 ? 600 : question === 3 ? 800 : 1000)
        
        console.log(currentQuestion)
@@ -104,7 +106,7 @@ export default function useRoundOneLogic() {
         }
 
         
-        console.log(currentQuestion, cost)
+        // console.log(currentQuestion, cost)
 
     }, [currentTurn, currentQuestion])
 

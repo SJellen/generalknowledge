@@ -12,11 +12,7 @@ export default function Question() {
 
     const {handleClick, handlePassClick, handlePlayClick} = useQuestionLogic()
 
-   
-   console.log(timeRemaining, currentTurn)
-   useEffect(() => {
-
-   }, [currentTurn, username])
+   console.log(currentTurn)
        
     
     return (
@@ -24,10 +20,10 @@ export default function Question() {
              { currentQuestion  ?
              <div className={styles.container}>
                 <div className={styles.buttonContainer}>
-                    <div className={styles.passContainer} style={{visibility: timeRemaining <= 5 && currentTurn === username ? 'hidden' : 'visible'}}>
+                    <div className={styles.passContainer} style={{visibility: timeRemaining >= 9 ? "visible" : 'hidden'}}>
                         <button className={styles.passButton} onClick={handlePassClick}>Pass</button>
                     </div>
-                    <div className={styles.playContainer} style={{visibility: timeRemaining <= 5 || currentTurn !== username ? "visible" : 'hidden'}}>
+                    <div className={styles.playContainer} style={{visibility: timeRemaining >= 9  ? "visible" : 'hidden'}}>
                         <button className={styles.playButton} onClick={handlePlayClick}>Play</button>
                     </div>
                
@@ -37,7 +33,7 @@ export default function Question() {
                     <span className={styles.timer} style={{visibility: timeRemaining <= 5 ? "visible" : 'hidden'}}>{timeRemaining}</span>
                 </div>
             
-            <div className={styles.choiceContainer} style={{display: timeRemaining <= 5 ? "block" : 'none'}}>
+            <div className={styles.choiceContainer} style={{display: timeRemaining <= 9 && currentTurn === username ? "block" : 'none'}}>
                 <ul className={styles.list}>
                     <li onClick={(e) => handleClick(questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[0]))}>{questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[0])}</li>
                     <li onClick={(e) => handleClick(questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[1]))}>{questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[1])}</li>
