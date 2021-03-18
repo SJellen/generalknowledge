@@ -32,7 +32,7 @@ export default function Question() {
                     <span className={styles.timer} style={{visibility: timeRemaining <= 5 ? "visible" : 'hidden'}}>{timeRemaining}</span>
                 </div>
             
-            <div className={styles.choiceContainer} style={{display: timeRemaining <= 9 && currentTurn === username ? "block" : 'none'}}>
+            <div className={styles.choiceContainer} style={{display: !showButtons && currentTurn === username ? "block" : 'none'}}>
                 <ul className={styles.list}>
                     <li onClick={(e) => handleClick(questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[0]))}>{questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[0])}</li>
                     <li onClick={(e) => handleClick(questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[1]))}>{questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[1])}</li>
