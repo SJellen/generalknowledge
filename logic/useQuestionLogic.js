@@ -18,6 +18,7 @@ export default function useQuestionLogic() {
         if (choice === currentQuestion.correct_answer) {
             setScore(prevScore => prevScore + cost)
             setAnswerResult("correct")
+            // setSelectedQuestions(prevCount => prevCount + 1)   
             setTimeout(() => {
                 setAnswerResult()
             }, 750)    
@@ -33,7 +34,7 @@ export default function useQuestionLogic() {
         setClockStart(false)
         setTimeRemaining(START_TIME)
         setCurrentQuestion()
-        setSelectedQuestions(prevCount => prevCount + 1)   
+        // setSelectedQuestions(prevCount => prevCount + 1)   
     }
 
     // player1 click to pass question 
@@ -44,6 +45,7 @@ export default function useQuestionLogic() {
         setClockStart(false)
         setTimeRemaining(START_TIME)
         setShowButtons(false)
+        setSelectedQuestions(prevCount => prevCount + 1)   
         if (currentTurn !== username) {
             passToCurrentTurn()
         } else {
@@ -57,6 +59,7 @@ export default function useQuestionLogic() {
     function handlePlayClick() {
         localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
         setCurrentTurn(username)
+        setSelectedQuestions(prevCount => prevCount + 1)   
         setShowButtons(false)
         setTimeRemaining(START_TIME)
         setClockStart(true)
@@ -108,19 +111,19 @@ export default function useQuestionLogic() {
     // player1 is current turn
 
     function passToPlayer2() {
-            console.log("passtoplayer2")
+            // console.log("passtoplayer2")
             let move = passOrPlay()
             // console.log(move)
             
             if (move === "play") {
                 localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
                 setCurrentTurn(player2)
-                console.log(currentTurn)
+                // console.log(currentTurn)
                 let answer = computerAnswersQuestion()
                 if (answer === "correct") {
                     setPlayer2Score(prevScore => prevScore + cost)
                     setCurrentQuestion()
-                    setSelectedQuestions(prevCount => prevCount + 1)
+                    // setSelectedQuestions(prevCount => prevCount + 1)
                     // computerQuestionPicker()
                 } else {
                     localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
@@ -128,7 +131,7 @@ export default function useQuestionLogic() {
                     setPlayer2Score(prevScore => prevScore - cost)
                     
                     let move = passOrPlay()
-                    console.log(move)
+                    // console.log(move)
                     
                     if (move === "play") {
                         let answer = computerAnswersQuestion()
@@ -136,7 +139,7 @@ export default function useQuestionLogic() {
                         if (answer === "correct") {
                         setPlayer3Score(prevScore => prevScore + cost)
                         setCurrentQuestion()
-                        setSelectedQuestions(prevCount => prevCount + 1)
+                        // setSelectedQuestions(prevCount => prevCount + 1)
                         // computerQuestionPicker()
                         } else {
                             setPlayer3Score(prevScore => prevScore - cost)
@@ -147,7 +150,7 @@ export default function useQuestionLogic() {
                     } else {
                         setCurrentTurn(username)
                         setCurrentQuestion()
-                        setSelectedQuestions(prevCount => prevCount + 1)
+                        // setSelectedQuestions(prevCount => prevCount + 1)
                     }
                 }
 
@@ -165,19 +168,19 @@ export default function useQuestionLogic() {
                     if (answer === "correct") {
                     setPlayer3Score(prevScore => prevScore + cost)
                     setCurrentQuestion()
-                    setSelectedQuestions(prevCount => prevCount + 1)
+                    // setSelectedQuestions(prevCount => prevCount + 1)
                     // computerQuestionPicker()
                     } else {
                     setPlayer3Score(prevScore => prevScore - cost)
                     setCurrentQuestion()
-                    setSelectedQuestions(prevCount => prevCount + 1)
+                    // setSelectedQuestions(prevCount => prevCount + 1)
                     setCurrentTurn(username)
                     }
 
                 } else {
                     setCurrentTurn(username)
                     setCurrentQuestion()
-                    setSelectedQuestions(prevCount => prevCount + 1)
+                    // setSelectedQuestions(prevCount => prevCount + 1)
                 }
 
                 }
@@ -189,17 +192,17 @@ export default function useQuestionLogic() {
     // player1 is not current turn
 
     function passToCurrentTurn() {
-        console.log("passtocurrenmturn")
+        // console.log("passtocurrenmturn")
 
         if (currentTurn === player2) {
             let move = passOrPlay()
-            console.log(move)
+            // console.log(move)
             if (move === "play") {
                 let answer = computerAnswersQuestion()
                 if (answer === "correct") {
                     setPlayer2Score(prevScore => prevScore + cost)
                     setCurrentQuestion()
-                    setSelectedQuestions(prevCount => prevCount + 1)
+                    // setSelectedQuestions(prevCount => prevCount + 1)
                     // computerQuestionPicker()
                 } else {
                     setPlayer2Score(prevScore => prevScore - cost)
@@ -216,7 +219,7 @@ export default function useQuestionLogic() {
                         if (answer === "correct") {
                         setPlayer3Score(prevScore => prevScore + cost)
                         setCurrentQuestion()
-                        setSelectedQuestions(prevCount => prevCount + 1)
+                        // setSelectedQuestions(prevCount => prevCount + 1)
                         // computerQuestionPicker()
                         } else {
                             setPlayer3Score(prevScore => prevScore - cost)
@@ -229,7 +232,7 @@ export default function useQuestionLogic() {
                         localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
                         setCurrentTurn(player2)
                         setCurrentQuestion()
-                        setSelectedQuestions(prevCount => prevCount + 1)
+                        // setSelectedQuestions(prevCount => prevCount + 1)
                     }
                 }
 
@@ -244,7 +247,7 @@ export default function useQuestionLogic() {
                     if (answer === "correct") {
                         setPlayer3Score(prevScore => prevScore + cost)
                         setCurrentQuestion()
-                        setSelectedQuestions(prevCount => prevCount + 1)
+                        // setSelectedQuestions(prevCount => prevCount + 1)
                     } else {
                         setPlayer3Score(prevScore => prevScore - cost)
                             localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
@@ -255,7 +258,7 @@ export default function useQuestionLogic() {
                     localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
                     setCurrentTurn(player2)
                     setCurrentQuestion()
-                    setSelectedQuestions(prevCount => prevCount + 1)
+                    // setSelectedQuestions(prevCount => prevCount + 1)
 
                 }
 
@@ -269,7 +272,7 @@ export default function useQuestionLogic() {
                 if (answer === "correct") {
                     setPlayer3Score(prevScore => prevScore + cost)
                     setCurrentQuestion()
-                    setSelectedQuestions(prevCount => prevCount + 1)
+                    // setSelectedQuestions(prevCount => prevCount + 1)
                     // computerQuestionPicker()
                 } else {
                     localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
@@ -285,7 +288,7 @@ export default function useQuestionLogic() {
                         if (answer === "correct") {
                         setPlayer2Score(prevScore => prevScore + cost)
                         setCurrentQuestion()
-                        setSelectedQuestions(prevCount => prevCount + 1)
+                        // setSelectedQuestions(prevCount => prevCount + 1)
                         // computerQuestionPicker()
                         } else {
                             setPlayer2Score(prevScore => prevScore - cost)
@@ -298,7 +301,7 @@ export default function useQuestionLogic() {
                         localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
                         setCurrentTurn(username)
                         setCurrentQuestion()
-                        setSelectedQuestions(prevCount => prevCount + 1)
+                        // setSelectedQuestions(prevCount => prevCount + 1)
                     }
                 }
 
@@ -313,7 +316,7 @@ export default function useQuestionLogic() {
                     if (answer === "correct") {
                         setPlayer2Score(prevScore => prevScore + cost)
                         setCurrentQuestion()
-                        setSelectedQuestions(prevCount => prevCount + 1)
+                        // setSelectedQuestions(prevCount => prevCount + 1)
                     } else {
                         setPlayer2Score(prevScore => prevScore - cost)
                             localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
@@ -324,7 +327,7 @@ export default function useQuestionLogic() {
                     localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
                     setCurrentTurn(player3)
                     setCurrentQuestion()
-                    setSelectedQuestions(prevCount => prevCount + 1)
+                    // setSelectedQuestions(prevCount => prevCount + 1)
 
                 }
 

@@ -48,7 +48,7 @@ export default function RoundTwo() {
                 className={styles.gridItem} 
                 id={index}
                 style={{pointerEvents: cat && cat[6] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
-                onClick={(e) => handleTileClick(e, cat[6], 1600, index, 4)}>{cat && cat[6] !== '' ? "$1600" : ''}
+                onClick={(e) => handleTileClick(e, cat[6], 1600, index, 6)}>{cat && cat[6] !== '' ? "$1600" : ''}
             </div>
             <div 
                 className={styles.gridItem} 
