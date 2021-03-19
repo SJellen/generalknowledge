@@ -11,7 +11,7 @@ const LOCAL_STORAGE_KEY_FR_CA = 'frcategoryArr'
 export default function useRoundOneLogic() {
 
     const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, getShuffledArr,setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {setCost, setClockStart, currentTurn, username, cost, setShowButtons} = useContext(GameContext)
+    const {setCost, setClockStart, currentTurn, username, cost, setShowButtons, selectedQuestions} = useContext(GameContext)
     const [categoryArr, setCategoryArr] = useState()
 
     
@@ -100,35 +100,18 @@ export default function useRoundOneLogic() {
 
 
     useEffect(() => {
-        if (currentQuestion === undefined && currentTurn !== username) {
+        if (currentQuestion === undefined && currentTurn !== username && selectedQuestions !== 30) {
             setTimeout(() => {
                 setShowButtons(true)
                 computerQuestionPicker()
             }, 1000)
-            
-            // couldnt i set the new array here? 
-            
-            
+   
         }
-
-        
-        // console.log(currentQuestion, cost)
 
     }, [currentTurn, currentQuestion])
 
 
-    // useEffect(() => {
-    //     const firstRoundCa = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_FR_CA))
-    //     if (firstRoundCa) {
-    //         setCategoryArr(firstRoundCa)
-    //     } else {
-    //         localStorage.setItem(LOCAL_STORAGE_KEY_FR_CA, JSON.stringify(categoryArr && categoryArr))
-    //     }
-    // }, [categoryArr])
-
-
-
-
+  
 
 
     return {categoryArr,handleTileClick}
