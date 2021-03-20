@@ -17,9 +17,7 @@ export default function RoundOne() {
     }, [categoryArr])
 
 
-    // useEffect(() => {
-    //     // console.log(cost, selectedQuestions)
-    // }, [cost, selectedQuestions])
+
 
 
     const categories = categoryArr && categoryArr.map((cat, index) => (

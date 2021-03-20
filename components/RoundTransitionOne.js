@@ -8,16 +8,16 @@ import Link from 'next/link'
 
 export default function RoundTransitionOne() {
 
-    const {selectedQuestions, score, player2Score, player3Score, username,player2, player3,  isRoundTwo, setIsRoundTwo, setCurrentTurn} = useContext(GameContext)
+    const {selectedQuestions, score, player2Score, player3Score, username,player2, player3,  isRoundTwo, setIsRoundTwo, setCurrentTurn, currentTurn} = useContext(GameContext)
 
 
-    useEffect(() => {
-        
-    })
+
+
+    
 
     function handleRoundTwoClick() {
 
-        setCurrentTurn(username)
+       
         setIsRoundTwo(true)
         
     }

@@ -47,7 +47,7 @@ function GameContextProvider({ children }) {
     
 
     
-    console.log(cost)
+    
 
     
 
@@ -91,6 +91,17 @@ function GameContextProvider({ children }) {
        
 
     }, [currentTurn])
+
+
+
+    useEffect(() => {
+        if (selectedQuestions === 30) {
+            localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
+            setCurrentTurn(username)
+        }
+        
+
+    },[selectedQuestions])
 
     
 
