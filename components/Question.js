@@ -12,7 +12,7 @@ export default function Question() {
 
     const {handleClick, handlePassClick, handlePlayClick} = useQuestionLogic()
 
-       
+    
     
     return (
         <div>

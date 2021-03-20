@@ -47,7 +47,7 @@ function GameContextProvider({ children }) {
     
 
     
-
+    console.log(cost)
 
     
 

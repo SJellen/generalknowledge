@@ -339,7 +339,7 @@ export default function useQuestionLogic() {
 
  
 
-    console.log(currentTurn, selectedQuestions)
+    console.log(selectedQuestions)
 
 
     
