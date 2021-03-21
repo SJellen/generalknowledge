@@ -16,10 +16,7 @@ export default function RoundTransitionOne() {
     
 
     function handleRoundTwoClick() {
-
-       
         setIsRoundTwo(true)
-        
     }
 
   

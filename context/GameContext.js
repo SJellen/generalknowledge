@@ -95,11 +95,10 @@ function GameContextProvider({ children }) {
 
 
     useEffect(() => {
-        if (selectedQuestions === 30) {
+        if (selectedQuestions === 30 || selectedQuestions === 60) {
             localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
             setCurrentTurn(username)
         }
-        
 
     },[selectedQuestions])
 

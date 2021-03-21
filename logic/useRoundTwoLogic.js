@@ -39,13 +39,6 @@ export default function useRoundTwoLogic() {
     }, [currentQuestion])
 
 
-    // useEffect(() => {
-
-    // }, [categoryArr2])
-
-    
-
-
 
     // get second round questions from storage
     useEffect(() => {
@@ -105,11 +98,8 @@ export default function useRoundTwoLogic() {
     categoryArr2[category][question] = ""
     setCategoryArr2([...categoryArr2])
     setCost(question === 1 ? 400 : question === 2 ? 800 : question === 3 ? 1200 : question === 4 ? 1600 : 2000)
-    
- //    console.log(currentQuestion)
+ 
 }
-
-
 
 
 
@@ -128,8 +118,7 @@ export default function useRoundTwoLogic() {
 
 
     useEffect(() => {
-       
-        
+   
             if (currentQuestion === undefined && currentTurn !== username && selectedQuestions !== 60 && selectedQuestions !== 30) {
             
             setTimeout(() => {
@@ -137,9 +126,6 @@ export default function useRoundTwoLogic() {
                 computerQuestionPicker2()
             }, 1000)
    
-      
-
-
         }
         
 

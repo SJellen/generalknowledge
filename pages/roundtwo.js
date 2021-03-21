@@ -19,7 +19,7 @@ export default function RoundTwo() {
    
 
     useEffect(() => {
-        console.log(categoryArr2)
+       
     }, [categoryArr2])
     
 
