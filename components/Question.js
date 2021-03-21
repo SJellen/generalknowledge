@@ -8,7 +8,7 @@ import useQuestionLogic from '../logic/useQuestionLogic'
 export default function Question() {
 
     const {currentQuestion, questionCleaner, shuffledQuestionsArr} = useContext(QuestionContext)
-    const {timeRemaining, username, currentTurn, showButtons} = useContext(GameContext)
+    const {timeRemaining, username, currentTurn, showButtons, player2Move, setPlayer2Move, player3Move, setPlayer3Move, player2, player3} = useContext(GameContext)
 
     const {handleClick, handlePassClick, handlePlayClick} = useQuestionLogic()
 
@@ -39,6 +39,12 @@ export default function Question() {
                     <li onClick={(e) => handleClick(questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[2]))}>{questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[2])}</li>
                     <li onClick={(e) => handleClick(questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[3]))}>{questionCleaner(shuffledQuestionsArr && shuffledQuestionsArr[3])}</li>
                 </ul>
+            </div>
+
+
+            <div className={styles.computerMovesContainer}>
+                <h2>{player2Move && player2} {player2Move && player2Move}</h2>
+                <h2>{player3Move && player3} {player3Move && player3Move}</h2>
             </div>
         </div> : ''
         }
