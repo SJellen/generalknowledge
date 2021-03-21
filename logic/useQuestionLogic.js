@@ -43,6 +43,7 @@ export default function useQuestionLogic() {
     function handlePassClick() {
         // localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
         // setCurrentTurn(player2)
+
         setClockStart(false)
         setTimeRemaining(START_TIME)
         setShowButtons(false)
@@ -130,8 +131,9 @@ export default function useQuestionLogic() {
                     
                     setPlayer2Score(prevScore => prevScore + cost)
                     setTimeout(() => {
-                        setCurrentQuestion()
+                        setPlayer3Move()
                         setPlayer2Move()
+                        setCurrentQuestion()
                     }, 1000)
                     
                     // setSelectedQuestions(prevCount => prevCount + 1)
@@ -174,9 +176,10 @@ export default function useQuestionLogic() {
                                 setPlayer3Move()
                                 setPlayer2Move()
                                 setCurrentQuestion()
+                                setCurrentTurn(username)
                             }, 1000)
                             // setCurrentQuestion()
-                            setCurrentTurn(username)
+                            
                         }
 
                     } else {
@@ -185,10 +188,11 @@ export default function useQuestionLogic() {
                             setPlayer3Move()
                             setPlayer2Move()
                             setCurrentQuestion()
+                            setCurrentTurn(username)
                         }, 1000)
                         // setPlayer3Move()
                         // setPlayer2Move()
-                        setCurrentTurn(username)
+                        
                         // setCurrentQuestion()
                         // setSelectedQuestions(prevCount => prevCount + 1)
                     }
@@ -229,10 +233,11 @@ export default function useQuestionLogic() {
                             setPlayer3Move()
                             setPlayer2Move()
                             setCurrentQuestion()
+                            setCurrentTurn(username)
                         }, 1000)
                         // setCurrentQuestion()
                         // setSelectedQuestions(prevCount => prevCount + 1)
-                        setCurrentTurn(username)
+                        
                     }
 
                 } else {
@@ -241,8 +246,9 @@ export default function useQuestionLogic() {
                         setPlayer3Move()
                         setPlayer2Move()
                         setCurrentQuestion()
+                        setCurrentTurn(username)
                     }, 1000)
-                    setCurrentTurn(username)
+                    
                     // setCurrentQuestion()
                     // setSelectedQuestions(prevCount => prevCount + 1)
                 }
@@ -262,13 +268,24 @@ export default function useQuestionLogic() {
             let move = passOrPlay()
             // console.log(move)
             if (move === "play") {
+                setPlayer2Move("play")
                 let answer = computerAnswersQuestion()
                 if (answer === "correct") {
+                    setTimeout(() => {
+                        setPlayer2Move("correct")
+                    }, 750)
                     setPlayer2Score(prevScore => prevScore + cost)
-                    setCurrentQuestion()
+                    setTimeout(() => {
+                        setPlayer3Move()
+                        setPlayer2Move()
+                        setCurrentQuestion()
+                    }, 1000)
                     // setSelectedQuestions(prevCount => prevCount + 1)
                     // computerQuestionPicker()
                 } else {
+                    setTimeout(() => {
+                        setPlayer2Move("incorrect")
+                    }, 750)
                     setPlayer2Score(prevScore => prevScore - cost)
                     localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
                     setCurrentTurn(player3)
@@ -278,50 +295,94 @@ export default function useQuestionLogic() {
                     // console.log(move)
                     
                     if (move === "play") {
+                        setPlayer3Move("play")
                         let answer = computerAnswersQuestion()
 
                         if (answer === "correct") {
-                        setPlayer3Score(prevScore => prevScore + cost)
-                        setCurrentQuestion()
+                            setTimeout(() => {
+                                setPlayer3Move("correct")
+                            }, 750)
+                            setPlayer3Score(prevScore => prevScore + cost)
+                            setTimeout(() => {
+                                setPlayer3Move()
+                                setPlayer2Move()
+                                setCurrentQuestion()
+                            }, 1000)
                         // setSelectedQuestions(prevCount => prevCount + 1)
                         // computerQuestionPicker()
                         } else {
+                            setTimeout(() => {
+                                setPlayer3Move("incorrect")
+                            }, 750)
                             setPlayer3Score(prevScore => prevScore - cost)
+                            setTimeout(() => {
+                                setPlayer3Move()
+                                setPlayer2Move()
+                                setCurrentQuestion()
+                            }, 1000)
                             localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
                             setCurrentTurn(player2)
                             setCurrentQuestion()
                         }
 
                     } else {
+                        setPlayer3Move("pass")
                         localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
                         setCurrentTurn(player2)
-                        setCurrentQuestion()
+                        setTimeout(() => {
+                            setPlayer3Move()
+                            setPlayer2Move()
+                            setCurrentQuestion()
+                        }, 1000)
+                        // setCurrentQuestion()
                         // setSelectedQuestions(prevCount => prevCount + 1)
                     }
                 }
 
             } else {
+                setPlayer2Move("pass")
                 localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
                 setCurrentTurn(player3)
 
                 let move = passOrPlay()
 
                 if (move === "play") {
+                    setPlayer3Move("play")
                     let answer = computerAnswersQuestion()
                     if (answer === "correct") {
+                        setTimeout(() => {
+                            setPlayer3Move("correct")
+                        }, 750)
                         setPlayer3Score(prevScore => prevScore + cost)
-                        setCurrentQuestion()
+                        setTimeout(() => {
+                            setPlayer3Move()
+                            setPlayer2Move()
+                            setCurrentQuestion()
+                        }, 1000)
                         // setSelectedQuestions(prevCount => prevCount + 1)
                     } else {
+                        setTimeout(() => {
+                            setPlayer3Move("incorrect")
+                        }, 750)
                         setPlayer3Score(prevScore => prevScore - cost)
                             localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
                             setCurrentTurn(player2)
-                            setCurrentQuestion()
+                            setTimeout(() => {
+                                setPlayer3Move()
+                                setPlayer2Move()
+                                setCurrentQuestion()
+                            }, 1000)
                     }
                 } else {
+                    setPlayer3Move("pass")
                     localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
                     setCurrentTurn(player2)
-                    setCurrentQuestion()
+                    setTimeout(() => {
+                        setPlayer3Move()
+                        setPlayer2Move()
+                        setCurrentQuestion()
+                    }, 1000)
+                    
                     // setSelectedQuestions(prevCount => prevCount + 1)
 
                 }
@@ -332,65 +393,122 @@ export default function useQuestionLogic() {
             let move = passOrPlay()
             
             if (move === "play") {
+                setPlayer3Move("play")
                 let answer = computerAnswersQuestion()
                 if (answer === "correct") {
+                    setTimeout(() => {
+                        setPlayer3Move("correct")
+                    }, 750)
                     setPlayer3Score(prevScore => prevScore + cost)
-                    setCurrentQuestion()
+                    setTimeout(() => {
+                        setPlayer3Move()
+                        setPlayer2Move()
+                        setCurrentQuestion()
+                    }, 1000)
                     // setSelectedQuestions(prevCount => prevCount + 1)
                     // computerQuestionPicker()
                 } else {
+                    setPlayer3Score(prevScore => prevScore - cost)
+                    setTimeout(() => {
+                        setPlayer3Move("incorrect")
+                    }, 750)
                     localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
                     setCurrentTurn(player2)
-                    setPlayer3Score(prevScore => prevScore - cost)
+                    
+                    
                     
                     let move = passOrPlay()
                     // console.log(move)
                     
                     if (move === "play") {
+                        setPlayer2Move("play")
                         let answer = computerAnswersQuestion()
 
                         if (answer === "correct") {
-                        setPlayer2Score(prevScore => prevScore + cost)
-                        setCurrentQuestion()
+                            setTimeout(() => {
+                                setPlayer2Move("correct")
+                            }, 750)
+                            setPlayer2Score(prevScore => prevScore + cost)
+                            setTimeout(() => {
+                                setPlayer3Move()
+                                setPlayer2Move()
+                                setCurrentQuestion()
+                            }, 1000)
                         // setSelectedQuestions(prevCount => prevCount + 1)
                         // computerQuestionPicker()
                         } else {
+                            setTimeout(() => {
+                                setPlayer2Move("incorrect")
+                            }, 750)
                             setPlayer2Score(prevScore => prevScore - cost)
-                            localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
-                            setCurrentTurn(username)
-                            setCurrentQuestion()
+                            
+                            setTimeout(() => {
+                                setPlayer3Move()
+                                setPlayer2Move()
+                                setCurrentQuestion()
+                                localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
+                                setCurrentTurn(username)
+                            }, 1000)
+                            
                         }
 
                     } else {
-                        localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
-                        setCurrentTurn(username)
-                        setCurrentQuestion()
+                        setPlayer2Move("pass")
+                        
+                        setTimeout(() => {
+                            setPlayer3Move()
+                            setPlayer2Move()
+                            setCurrentQuestion()
+                            localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
+                            setCurrentTurn(username)
+                        }, 1000)
                         // setSelectedQuestions(prevCount => prevCount + 1)
                     }
                 }
 
             } else {
+                setPlayer3Move("pass")
                 localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
                 setCurrentTurn(player2)
 
                 let move = passOrPlay()
 
                 if (move === "play") {
+                    setPlayer2Move("play")
                     let answer = computerAnswersQuestion()
                     if (answer === "correct") {
+                        setTimeout(() => {
+                            setPlayer2Move("correct")
+                        }, 750)
                         setPlayer2Score(prevScore => prevScore + cost)
-                        setCurrentQuestion()
+                        setTimeout(() => {
+                            setPlayer3Move()
+                            setPlayer2Move()
+                            setCurrentQuestion()
+                        }, 1000)
                         // setSelectedQuestions(prevCount => prevCount + 1)
                     } else {
+                        setTimeout(() => {
+                            setPlayer2Move("incorrect")
+                        }, 750)
                         setPlayer2Score(prevScore => prevScore - cost)
                             localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
                             setCurrentTurn(player3)
-                            setCurrentQuestion()
+                            setTimeout(() => {
+                                setPlayer3Move()
+                                setPlayer2Move()
+                                setCurrentQuestion()
+                            }, 1000)
                     }
                 } else {
+                    setPlayer2Move("pass")
                     localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
                     setCurrentTurn(player3)
-                    setCurrentQuestion()
+                    setTimeout(() => {
+                        setPlayer3Move()
+                        setPlayer2Move()
+                        setCurrentQuestion()
+                    }, 1000)
                     // setSelectedQuestions(prevCount => prevCount + 1)
 
                 }

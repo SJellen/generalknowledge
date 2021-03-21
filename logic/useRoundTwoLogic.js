@@ -13,7 +13,7 @@ export default function useRoundTwoLogic() {
 
 
     const {secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, fetchSecondRoundQuestions, getShuffledArr,shuffledQuestionsArr, setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, currentTurn, username, setShowButtons, setCurrentTurn} = useContext(GameContext)
+    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, currentTurn, username, setShowButtons, setCurrentTurn, setPlayer2Move, setPlayer3Move} = useContext(GameContext)
 
     
     
@@ -122,6 +122,8 @@ export default function useRoundTwoLogic() {
             if (currentQuestion === undefined && currentTurn !== username && selectedQuestions !== 60 && selectedQuestions !== 30) {
             
             setTimeout(() => {
+                // setPlayer2Move()
+                // setPlayer3Move()
                 setShowButtons(true)
                 computerQuestionPicker2()
             }, 1000)

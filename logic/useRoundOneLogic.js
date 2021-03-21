@@ -12,7 +12,7 @@ const LOCAL_STORAGE_KEY_SR = 'secondround'
 export default function useRoundOneLogic() {
 
     const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, getShuffledArr,setShuffledQuestionsArr, secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, fetchSecondRoundQuestions,} = useContext(QuestionContext)
-    const {setCost, setClockStart, currentTurn, username, cost, setShowButtons, selectedQuestions} = useContext(GameContext)
+    const {setCost, setClockStart, currentTurn, username, cost, setShowButtons, selectedQuestions,  setPlayer2Move, setPlayer3Move} = useContext(GameContext)
     const [categoryArr, setCategoryArr] = useState()
     // const [categoryArr2, setCategoryArr2] = useState()
 
@@ -104,6 +104,8 @@ export default function useRoundOneLogic() {
     useEffect(() => {
         if (currentQuestion === undefined && currentTurn !== username && selectedQuestions != 30) {
             setTimeout(() => {
+                // setPlayer2Move()
+                // setPlayer3Move()
                 setShowButtons(true)
                 computerQuestionPicker()
             }, 1000)
