@@ -18,7 +18,6 @@ export default function useQuestionLogic() {
         if (choice === currentQuestion.correct_answer) {
             setScore(prevScore => prevScore + cost)
             setAnswerResult("correct")
-            // setSelectedQuestions(prevCount => prevCount + 1)
             setCurrentQuestion()   
             setTimeout(() => {
                 setAnswerResult()
@@ -26,7 +25,6 @@ export default function useQuestionLogic() {
         } else {
             setScore(prevScore => prevScore - cost)
             setAnswerResult("incorrect")
-            // setCurrentTurn(player2)
             setTimeout(() => {
                 setAnswerResult()
             }, 750)
@@ -34,16 +32,11 @@ export default function useQuestionLogic() {
         }
         setClockStart(false)
         setTimeRemaining(START_TIME)
-        
-        // setSelectedQuestions(prevCount => prevCount + 1)   
     }
 
     // player1 click to pass question 
 
     function handlePassClick() {
-        // localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player2))
-        // setCurrentTurn(player2)
-
         setClockStart(false)
         setTimeRemaining(START_TIME)
         setShowButtons(false)
@@ -53,7 +46,6 @@ export default function useQuestionLogic() {
         } else {
             passToPlayer2()
         }
-        
     }
 
     // player1 click to play a cpu selected question
