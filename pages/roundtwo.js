@@ -37,31 +37,31 @@ export default function RoundTwo() {
                 className={styles.gridItem} 
                 id={index}
                 style={{pointerEvents: cat && cat[1] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
-                onClick={(e) => handleTileClick2(e, cat[1], 400, index, 1)}>{cat && cat[2] !== '' ? "$400" : ''}
+                onClick={(e) => handleTileClick2(e, cat[1], 400, index, 1)}>{cat && cat[1] !== '' ? "$400" : ''}
             </div>
             <div 
                 className={styles.gridItem} 
                 id={index}
                 style={{pointerEvents: cat && cat[2] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
-                onClick={(e) => handleTileClick2(e, cat[2], 800, index, 2)}>{cat && cat[4] !== '' ? "$800" : ''}
+                onClick={(e) => handleTileClick2(e, cat[2], 800, index, 2)}>{cat && cat[2] !== '' ? "$800" : ''}
             </div>
             <div 
                 className={styles.gridItem} 
                 id={index}
                 style={{pointerEvents: cat && cat[3] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
-                onClick={(e) => handleTileClick2(e, cat[3], 1200, index, 3)}>{cat && cat[5] !== '' ? "$1200" : ''}
+                onClick={(e) => handleTileClick2(e, cat[3], 1200, index, 3)}>{cat && cat[3] !== '' ? "$1200" : ''}
             </div>
             <div 
                 className={styles.gridItem} 
                 id={index}
                 style={{pointerEvents: cat && cat[4] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
-                onClick={(e) => handleTileClick2(e, cat[4], 1600, index, 4)}>{cat && cat[6] !== '' ? "$1600" : ''}
+                onClick={(e) => handleTileClick2(e, cat[4], 1600, index, 4)}>{cat && cat[4] !== '' ? "$1600" : ''}
             </div>
             <div 
                 className={styles.gridItem} 
                 id={index}
                 style={{pointerEvents: cat && cat[5] === '' ? "none" : currentTurn !== username ? "none" : '' }} 
-                onClick={(e) => handleTileClick2(e, cat[5], 2000, index, 5)}>{cat && cat[7] !== '' ? "$2000" : ''}
+                onClick={(e) => handleTileClick2(e, cat[5], 2000, index, 5)}>{cat && cat[5] !== '' ? "$2000" : ''}
             </div>
         </div>
     ))
