@@ -10,6 +10,7 @@ export default function Header() {
 
 
     useEffect(() => {
+        console.log(currentTurn)
     }, [currentTurn])
        
     
@@ -50,7 +51,7 @@ export default function Header() {
                     style={{color: currentTurn === player3 ? "rgb(235, 214, 94)" : ""}}>
                     ${player3Score ? player3Score : 0}</span>
             </div>
-            <span className={styles.title}>General Knowledge</span>
+            <span className={styles.title} style={{display: currentTurn !== undefined ? 'none' : ''}}>General Knowledge</span>
         </div>
     )
     
