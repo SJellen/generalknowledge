@@ -8,9 +8,9 @@ export default function AnswerResult() {
     const {answerResult,selectedQuestions} = useContext(GameContext)
     return (
         <div className={styles.container} 
-             style={{display: answerResult === "correct" && selectedQuestions !== 30 && selectedQuestions !== 60 ? "" : answerResult === "incorrect" && selectedQuestions !== 30 && selectedQuestions !== 60 ? "" : 'none'}}>
+             style={{display: answerResult === "Correct" && selectedQuestions !== 30 && selectedQuestions !== 60 ? "" : answerResult === "Incorrect" && selectedQuestions !== 30 && selectedQuestions !== 60 ? "" : 'none'}}>
             <span className={styles.answerResult}>
-                {answerResult === "correct" ? "Correct" : answerResult === "incorrect" ? "Incorrect" : ''}
+                {answerResult === "Correct" ? "Correct" : answerResult === "Incorrect" ? "Incorrect" : ''}
             </span>
         </div>
     )

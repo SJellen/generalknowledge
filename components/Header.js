@@ -6,7 +6,7 @@ import {GameContext} from '../context/GameContext'
 
 export default function Header() {
     
-    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move,} = useContext(GameContext)
+    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove} = useContext(GameContext)
 
 
     useEffect(() => {
@@ -31,7 +31,7 @@ export default function Header() {
                     ${score ? score : 0}</span>  
                 </div>
                 <div className={styles.playerMove}>
-                    {player3Move && player3Move}
+                    {userMove && userMove}
                 </div>
             </div>
            
