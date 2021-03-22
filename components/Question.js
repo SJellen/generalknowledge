@@ -42,10 +42,10 @@ export default function Question() {
             </div>
 
 
-            <div className={styles.computerMovesContainer}>
+            {/* <div className={styles.computerMovesContainer}>
                 <h2>{player2Move && player2} {player2Move && player2Move}</h2>
                 <h2>{player3Move && player3} {player3Move && player3Move}</h2>
-            </div>
+            </div> */}
         </div> : ''
         }
         </div>

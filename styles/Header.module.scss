@@ -15,10 +15,16 @@
 }
 
 .title {
-    margin-right: 2.5rem;
+    // margin-right: 2.5rem;
 }
 
 .playerContainer {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+}
+
+.playerTile {
     width: auto;
     display: flex;
     // justify-content: space-evenly;
@@ -27,7 +33,16 @@
     padding: .75rem;
     border-radius: 10px;
     text-shadow: 2px 2px 2px black;
-    
+    border: 1px solid red;
+}
+
+.playerMove {
+    width: 100px;
+    margin-left: 1rem;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
