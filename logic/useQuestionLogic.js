@@ -45,6 +45,7 @@ export default function useQuestionLogic() {
         } else {
             setScore(prevScore => prevScore - cost)
             setAnswerResult("Incorrect")
+            setUserMove("Incorrect")
             setTimeout(() => {
                 setAnswerResult()
             }, 750)
