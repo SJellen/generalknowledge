@@ -6,6 +6,7 @@ import useRoundOneLogic from '../logic/useRoundOneLogic'
 
 // localStorage.clear();
 const LOCAL_STORAGE_KEY_SR = 'secondround'
+const LOCAL_STORAGE_KEY_TURN = 'turn'
 
 
 
@@ -13,7 +14,7 @@ export default function useRoundTwoLogic() {
 
 
     const {secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, fetchSecondRoundQuestions, getShuffledArr,shuffledQuestionsArr, setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, currentTurn, username, setShowButtons, setCurrentTurn, setPlayer2Move, setPlayer3Move} = useContext(GameContext)
+    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, currentTurn, username, setShowButtons, setCurrentTurn, setPlayer2Move, setPlayer3Move, setSelectedQuestions} = useContext(GameContext)
 
     
     
@@ -21,12 +22,14 @@ export default function useRoundTwoLogic() {
 
     // handle second round tile click
     function handleTileClick2(e, question, questionCost, categoryIndex,index,) {
+        
         setShowButtons(true)
         setCurrentQuestion(question)
         setCost(questionCost)
+        // setSelectedQuestions(prevCount => prevCount + 1)
         categoryArr2[categoryIndex][index] = ""
         setCategoryArr2([...categoryArr2])
-        setClockStart(true)
+        // setClockStart(true)
     }
 
     // shuffle second round correct and incorrect answers
@@ -120,18 +123,25 @@ export default function useRoundTwoLogic() {
     useEffect(() => {
    
             if (currentQuestion === undefined && currentTurn !== username && selectedQuestions !== 60 && selectedQuestions !== 30) {
-            
             setTimeout(() => {
-                // setPlayer2Move()
-                // setPlayer3Move()
                 setShowButtons(true)
                 computerQuestionPicker2()
+                // setSelectedQuestions(prevCount => prevCount + 1)
             }, 1000)
-   
+            
         }
         
 
     }, [currentTurn, currentQuestion])
+
+
+    // useEffect(() => {
+    //     if (selectedQuestions === 30 || selectedQuestions === 60) {
+    //         localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
+    //         setCurrentTurn(username)
+    //     }
+
+    // },[selectedQuestions])
 
 
 

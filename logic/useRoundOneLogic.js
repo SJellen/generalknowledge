@@ -5,13 +5,14 @@ import {GameContext} from '../context/GameContext'
 
 // localStorage.clear();
 const LOCAL_STORAGE_KEY_FR = 'firstround'
+const LOCAL_STORAGE_KEY_TURN = 'turn'
 
 
 
 export default function useRoundOneLogic() {
 
     const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, getShuffledArr,setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {setCost, currentTurn, username,  setShowButtons, selectedQuestions} = useContext(GameContext)
+    const {setCost, currentTurn, username,  setShowButtons, selectedQuestions, setSelectedQuestions} = useContext(GameContext)
     const [categoryArr, setCategoryArr] = useState()
     
 
@@ -21,6 +22,7 @@ export default function useRoundOneLogic() {
         setShowButtons(true)
         setCurrentQuestion(question)
         setCost(questionCost)
+        // setSelectedQuestions(prevCount => prevCount + 1)
         categoryArr[categoryIndex][index] = ""
         setCategoryArr([...categoryArr])
         // setClockStart(true)
@@ -102,14 +104,26 @@ export default function useRoundOneLogic() {
 
     useEffect(() => {
         if (currentQuestion === undefined && currentTurn !== username && selectedQuestions != 30) {
+            
             setTimeout(() => {
                 setShowButtons(true)
                 computerQuestionPicker()
+                // setSelectedQuestions(prevCount => prevCount + 1)
             }, 1000)
-   
         }
-
+        
     }, [currentTurn, currentQuestion])
+
+    // useEffect(() => {
+    //     if (selectedQuestions === 30 || selectedQuestions === 60) {
+    //         localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
+    //         setCurrentTurn(username)
+    //     }
+
+    // },[selectedQuestions])
+
+
+   
 
   
 
