@@ -109,7 +109,7 @@ function GameContextProvider({ children }) {
     },[selectedQuestions])
 
    
-    
+    console.log(selectedQuestions)
 
 
     return (
