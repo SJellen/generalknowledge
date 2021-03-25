@@ -56,3 +56,24 @@
     color: white;
     
 }
+
+.bidBox {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    border: 1px solid red;
+}
+
+.bidBox > h2 {
+    border: 1px solid green;
+    width: 33%;
+}
+
+.bidBox > form {
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center ;
+    border: 1px solid green;
+    width: 33%;
+}
