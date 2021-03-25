@@ -12,20 +12,22 @@ export default function FinalRound() {
     const {finalQuestion, categoryCleaner, setCurrentQuestion, currentQuestion, setShuffledQuestionsArr, getShuffledArr} = useContext(QuestionContext)
     const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo} = useContext(GameContext)
 
+    
+
     useEffect(() => {
             console.log(finalQuestion)
     }, [finalQuestion])
 
-    function handleTileClick(e, question, cost, id) {
-        setCurrentQuestion(question)
+    // function handleTileClick(e, question, cost, id) {
+    //     setCurrentQuestion(question)
         
-        setCost(cost)
-        let x = document.getElementById(id)
-        x.innerHTML = ""
-        x.style.pointerEvents = "none"
-        setClockStart(true)
+    //     setCost(cost)
+    //     let x = document.getElementById(id)
+    //     x.innerHTML = ""
+    //     x.style.pointerEvents = "none"
+    //     setClockStart(true)
         
-    }
+    // }
 
     useEffect(() => {
         const questionArr = currentQuestion && [...currentQuestion.incorrect_answers, currentQuestion.correct_answer]
@@ -40,8 +42,8 @@ export default function FinalRound() {
 
 
     return (
-        <div className={styles.container}>
-            <div className={styles.parent}>
+        <div className={styles.container}style={{display: selectedQuestions === 61 ? "none" : "", pointerEvents: currentQuestion ? "none": ''}}>
+            <div className={styles.parent} >
                 <div className={styles.gridTitle} id="finalr" onClick={(e) => handleTileClick(e, finalQuestion[0], 1, "finalr")}>{finalQuestion && categoryCleaner(finalQuestion[0]?.category)}</div>
             </div>
         </div>

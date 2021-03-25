@@ -49,10 +49,10 @@ export default function useQuestionLogic() {
             }, 750)    
         } else {
             setScore(prevScore => prevScore - cost)
-            setAnswerResult("Incorrect")
+            // setAnswerResult("Incorrect")
             setUserMove("Incorrect")
             setTimeout(() => {
-                setAnswerResult()
+                // setAnswerResult()
             }, 750)
             passToPlayer2()
         }
