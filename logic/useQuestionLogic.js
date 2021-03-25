@@ -25,22 +25,27 @@ export default function useQuestionLogic() {
     // clears visual moves
 
     function moveResetter() {
+        setSelectedQuestions(prevCount => prevCount + 1)
+        localStorage.setItem(LOCAL_STORAGE_KEY_QC, JSON.stringify(selectedQuestions))
         setPlayer3Move()
         setPlayer2Move()
         setUserMove()
         setCurrentQuestion()
+        
     }
     
 
     // player1 click on question answer
     
     function handleClick(choice) {
+        // setSelectedQuestions(prevCount => prevCount + 1)
         if (choice === currentQuestion.correct_answer) {
             setScore(prevScore => prevScore + cost)
             setAnswerResult("Correct")
-            setCurrentQuestion()   
+            moveResetter()
             setTimeout(() => {
                 setAnswerResult()
+                 
             }, 750)    
         } else {
             setScore(prevScore => prevScore - cost)
@@ -62,12 +67,13 @@ export default function useQuestionLogic() {
         setClockStart(false)
         setTimeRemaining(START_TIME)
         setShowButtons(false)
-        setSelectedQuestions(prevCount => prevCount + 1)   
+        // setSelectedQuestions(prevCount => prevCount + 1)   
         if (currentTurn !== username) {
             passToCurrentTurn()
         } else {
             passToPlayer2()
         }
+        // setSelectedQuestions(prevCount => prevCount + 1)
     }
 
     // player1 click to play a cpu selected question
@@ -76,7 +82,7 @@ export default function useQuestionLogic() {
         turnStorageSetter(username)
         // localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
         // setCurrentTurn(username)
-        setSelectedQuestions(prevCount => prevCount + 1)   
+        // setSelectedQuestions(prevCount => prevCount + 1)   
         setShowButtons(false)
         setTimeRemaining(START_TIME)
         setClockStart(true)
@@ -91,12 +97,18 @@ export default function useQuestionLogic() {
             }, 1000)
         } else if (timeRemaining === 0) {
             setScore(prevScore => prevScore - cost)
+            setUserMove("Incorrect")
             setAnswerResult("Incorrect")
             setTimeout(() => {
                 setAnswerResult()
             }, 750)
-            setCurrentQuestion()
-            setSelectedQuestions(prevCount => prevCount + 1)
+            if (currentTurn !== username) {
+                passToCurrentTurn()
+            } else {
+                passToPlayer2()
+            }
+            
+            // setSelectedQuestions(prevCount => prevCount + 1)
             setClockStart(false)
             setTimeRemaining(START_TIME)
         }
@@ -208,6 +220,7 @@ export default function useQuestionLogic() {
 
 
             } else {
+                
                 turnStorageSetter(player3)
                 // localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(player3))
                 // setCurrentTurn(player3)
@@ -238,7 +251,7 @@ export default function useQuestionLogic() {
                         setPlayer3Score(prevScore => prevScore - cost)
                         setTimeout(() => {
                             moveResetter()
-                            setCurrentTurn(username)
+                            turnStorageSetter(username)
                         }, 1000)
                         // setCurrentQuestion()
                         // setSelectedQuestions(prevCount => prevCount + 1)
@@ -249,7 +262,7 @@ export default function useQuestionLogic() {
                     setPlayer3Move("Pass")
                     setTimeout(() => {
                         moveResetter()
-                        setCurrentTurn(username)
+                        turnStorageSetter(username)
                     }, 1000)
                     
                     // setCurrentQuestion()
@@ -509,6 +522,12 @@ export default function useQuestionLogic() {
  
 
     // console.log(selectedQuestions)
+
+    useEffect(() => {
+        console.log(player2Move !== undefined ? player2Move : '')
+        console.log(player3Move !== undefined ? player3Move : '')
+        console.log(userMove !== undefined ? userMove : "")
+    }, [player3Move, player2Move, userMove])
 
 
     

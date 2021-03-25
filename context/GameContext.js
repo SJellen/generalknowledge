@@ -109,7 +109,9 @@ function GameContextProvider({ children }) {
     },[selectedQuestions])
 
    
-    console.log(selectedQuestions)
+
+   
+    console.log("question Count",selectedQuestions, "currentTurn", currentTurn)
 
 
     return (
