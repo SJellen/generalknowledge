@@ -2,22 +2,17 @@ import React, {useContext, useEffect, useState} from 'react'
 import {GameContext} from '../context/GameContext'
 import styles from '../styles/FinalRoundTransition.module.scss'
 import Link from 'next/link'
+import uswFinalRoundTransitionLogic from '../logic/useFinalRoundTransitionLogic'
+import useFinalRoundTransitionLogic from '../logic/useFinalRoundTransitionLogic'
 
 export default function FinalRoundTransition() {
 
     const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager} = useContext(GameContext)
+
+    const {handleChange, handleWagerSubmit, showFinalLink} = useFinalRoundTransitionLogic()
     
 
 
-    // function handleRoundTwoClick() {
-    //     setIsRoundTwo(false)
-    //     setIsRoundThree(true)
-    // }  
-    
-    function handleChange(e) {
-        let wager = e.target.value
-        setUserWager(wager)
-    }
 
 
 
@@ -28,10 +23,10 @@ export default function FinalRoundTransition() {
                 <div className={styles.bidBox}>
                    <h2>{username}</h2>
                    <h2>${score}</h2>
-                   <form>
+                   <form onSubmit={handleWagerSubmit}>
                        <label htmlFor="bid" >Wager ${userWager}</label>
                        <input type="range" id="wager" name="wager" min="1" max={score} onChange={(e) => handleChange(e)}/>
-                       <input type="submit"></input>
+                       <input type="submit" ></input>
                    </form>
                 </div>
                 <div className={styles.bidBox}>
@@ -46,10 +41,12 @@ export default function FinalRoundTransition() {
                 </div>
                 
                 
-               
+               { showFinalLink ? 
                 <div className={styles.roundTwoLink}><Link href="/finalround" style={{textDecoration: "none"}}><a className={styles.beginButton} style={{color: "black"}}
                 // onClick={handleRoundTwoClick}
-                >Start Final</a></Link></div>
+                >Start Final</a></Link></div> : ''
+               }
+                
             </div>
             
         </div>
