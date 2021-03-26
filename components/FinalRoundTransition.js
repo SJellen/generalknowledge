@@ -5,8 +5,8 @@ import Link from 'next/link'
 
 export default function FinalRoundTransition() {
 
-    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree} = useContext(GameContext)
-    const [userWager, setUserWager] = useState(0)
+    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager} = useContext(GameContext)
+    
 
 
     // function handleRoundTwoClick() {
@@ -15,7 +15,8 @@ export default function FinalRoundTransition() {
     // }  
     
     function handleChange(e) {
-        setUserWager(e.target.value)
+        let wager = e.target.value
+        setUserWager(wager)
     }
 
 
