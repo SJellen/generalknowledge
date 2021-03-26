@@ -17,7 +17,7 @@ function GameContextProvider({ children }) {
     const [showInput, setShowInput] = useState(true)
     const [username, setUsername] = useState('')
     const [selectedQuestions, setSelectedQuestions] = useState(61)
-    const [score, setScore] = useState(90000)
+    const [score, setScore] = useState(9005)
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
     const [isRoundTwo, setIsRoundTwo] = useState(false)
@@ -35,9 +35,9 @@ function GameContextProvider({ children }) {
 
 
     const [player2, setPlayer2] = useState()
-    const [player2Score, setPlayer2Score] = useState(900)
+    const [player2Score, setPlayer2Score] = useState(9000)
     const [player3, setPlayer3] = useState()
-    const [player3Score, setPlayer3Score] = useState(1900)
+    const [player3Score, setPlayer3Score] = useState(7900)
 
 
     const [currentTurn, setCurrentTurn] = useState()
