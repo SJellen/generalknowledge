@@ -50,7 +50,7 @@ export default function FinalRoundTransition() {
                 
                 
                { showFinalLink ? 
-                <div className={styles.roundTwoLink}><a className={styles.beginButton} style={{color: "black"}} onClick={handleStartClick()}
+                <div className={styles.roundTwoLink}><a className={styles.beginButton} style={{color: "black"}} onClick={handleStartClick}
                 // onClick={handleRoundTwoClick}
                 >Start Final</a></div> : ""
                }
