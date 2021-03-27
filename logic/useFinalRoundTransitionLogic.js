@@ -30,7 +30,7 @@ export default function useFinalRoundTransitionLogic() {
                     setPlayer2Wager(player2Score)
                 }
             }
-        } else if (player2Score === lowScore) {
+        } else if (player2Score === lowScore && (player2Score * 2) <= highScore) {
             setPlayer2Wager(player2Score)
         } else if ((player2Score * 2) <= highScore) {
             setPlayer2Wager(player2Score)
@@ -51,7 +51,7 @@ export default function useFinalRoundTransitionLogic() {
                     setPlayer3Wager(player3Score)
                 } 
             }
-        } else if (player3Score === lowScore) {
+        } else if (player3Score === lowScore && (player3Score * 2) <= highScore) {
             setPlayer3Wager(player3Score)
         } else if ((player3Score * 2) <= highScore) {
             setPlayer3Wager(player3Score)

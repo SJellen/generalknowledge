@@ -48,6 +48,29 @@
     cursor: pointer;
 }
 
+
+.submitButton {
+    background-color: gold;
+    border: none;
+    border-radius: 5px;
+    padding: .25rem 1rem;
+    // margin-top: 1rem;
+    // width: 100px;
+    // height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.submitButton:hover {
+    filter: brightness(.85);
+    cursor: pointer;
+}
+
+
+
+
 .roundTwoLink {
     margin: 0 auto;
     display: flex;
@@ -57,15 +80,35 @@
     
 }
 
+.title {
+    letter-spacing: 2px;
+}
+
 .bidBox {
     display: flex;
     justify-content: space-between;
     width: 90%;
-    border: 1px solid red;
+    margin: .5rem auto;
+    border: 1px solid gold;
+    background-color: rgba(0, 0, 0, .75);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
 }
 
-.bidBox > h2 {
-    border: 1px solid green;
+.bidBoxTop {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: .5rem auto;
+    border: 1px solid gold;
+    background-color: black;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    letter-spacing: 2.5px;
+}
+
+.bidBox > h2, .bidBoxTop > h2 {
+    // border: 1px solid green;
     width: 33%;
 }
 
@@ -74,6 +117,6 @@
     // flex-direction: column;
     justify-content: space-evenly;
     align-items: center ;
-    border: 1px solid green;
+    // border: 1px solid green;
     width: 33%;
 }

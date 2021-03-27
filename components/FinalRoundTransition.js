@@ -19,8 +19,8 @@ export default function FinalRoundTransition() {
     return (
         <div  style={{display: selectedQuestions === 61 ? "block" : "none"}} className={styles.container}>
             <div className={styles.textContainer}>
-                <h1>Please Enter A Wager</h1>
-                <div className={styles.bidBox}>
+                <h1 className={styles.title}>Please Enter A Wager</h1>
+                <div className={styles.bidBoxTop}>
                     <h2>Player</h2>
                     <h2>Score</h2>
                     <h2>Wager</h2>
@@ -32,7 +32,7 @@ export default function FinalRoundTransition() {
                     <form onSubmit={handleWagerSubmit}>
                        <label htmlFor="bid" >Wager ${tempWager}</label>
                        <input type="range" id="wager" name="wager" min="1" max={score} onChange={(e) => handleChange(e)}/>
-                       <input type="submit" ></input>
+                       <input type="submit" className={styles.submitButton}></input>
                    </form>
 
                    }
