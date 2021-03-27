@@ -9,7 +9,7 @@ export default function useFinalRoundTransitionLogic() {
     const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager} = useContext(GameContext)
 
     const [showFinalLink, setShowFinalLink] = useState(false)
-    const [tempWager, setTempWager] = useState()
+    const [tempWager, setTempWager] = useState(1)
 
     const sortedArr = [score, player2Score, player3Score].sort((a,b) => {
                 return a-b
@@ -80,6 +80,9 @@ export default function useFinalRoundTransitionLogic() {
         setTimeout(() => {
             computerWagerPlayer3()
         }, 1500)
+        setTimeout(() => {
+            setShowFinalLink(true)
+        }, 3000)
 
         
         

@@ -21,6 +21,11 @@ export default function FinalRoundTransition() {
             <div className={styles.textContainer}>
                 <h1>Please Enter A Wager</h1>
                 <div className={styles.bidBox}>
+                    <h2>Player</h2>
+                    <h2>Score</h2>
+                    <h2>Wager</h2>
+                </div>
+                <div className={styles.bidBox}>
                    <h2>{username}</h2>
                    <h2>${score}</h2>
                    { userWager ? <h2>{`$${userWager}`}</h2> : 
@@ -48,7 +53,7 @@ export default function FinalRoundTransition() {
                { showFinalLink ? 
                 <div className={styles.roundTwoLink}><Link href="/finalround" style={{textDecoration: "none"}}><a className={styles.beginButton} style={{color: "black"}}
                 // onClick={handleRoundTwoClick}
-                >Start Final</a></Link></div> : ''
+                >Start Final</a></Link></div> : ""
                }
                 
             </div>
