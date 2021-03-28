@@ -6,7 +6,7 @@ import {GameContext} from '../context/GameContext'
 
 export default function Header() {
     
-    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove} = useContext(GameContext)
+    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions} = useContext(GameContext)
 
 
    
@@ -15,7 +15,7 @@ export default function Header() {
 
 
     return (
-        <div className={styles.container} >
+        <div className={styles.container} style={{height: selectedQuestions === 63 ? "100%" : ''}}>
             <div className={styles.playerContainer}>
                 <div 
                     className={styles.playerTile} 
