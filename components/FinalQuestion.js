@@ -19,14 +19,14 @@ export default function FinalQuestion() {
 
 
     function computerAnswersQuestion() {
-        let move = Math.floor(Math.random() * 100)
-        return move % 2 === 0 || move % 3 === 0 || move % 5 === 0 ? "Correct" : "Incorrect"
+        let move = Math.floor(Math.random() * 1000)
+        return move % 2 === 0 || move % 5 === 0  ? "Correct" : "Incorrect"
         
     }
 
     function computerPlayersAnswers() {
-        const player2Answer = computerAnswersQuestion()
-        const player3Answer = computerAnswersQuestion()
+        let player2Answer = computerAnswersQuestion()
+        let player3Answer = computerAnswersQuestion()
         setTimeout(() => {
             if (player2Answer === "Correct") {
                         setPlayer2Score(prevScore => prevScore + player2Wager)
