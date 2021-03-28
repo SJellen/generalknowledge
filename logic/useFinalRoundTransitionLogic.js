@@ -67,7 +67,7 @@ export default function useFinalRoundTransitionLogic() {
 
 
     function handleChange(e) {
-        let wager = e.target.value
+        let wager = parseInt(e.target.value)
         setTempWager(wager)
     }
 
