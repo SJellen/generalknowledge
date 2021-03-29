@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react'
-import styles from '../styles/Header.module.scss'
+import styles from '../styles/FinalScoreScreen.module.scss'
 import {GameContext} from '../context/GameContext'
 
 
 
-export default function Header() {
+export default function FinalScoreScreen() {
     
     const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions} = useContext(GameContext)
 
@@ -15,7 +15,7 @@ export default function Header() {
 
 
     return (
-        <div className={styles.container} style={{display: selectedQuestions === 63 ? "none" : ''}}>
+        <div className={styles.container} style={{display: selectedQuestions === 63 ? "" : 'none'}}>
             <div className={styles.playerContainer}>
                 <div 
                     className={styles.playerTile} 
