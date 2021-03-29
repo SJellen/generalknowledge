@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {GameContext} from '../context/GameContext'
 import styles from '../styles/Start.module.scss'
 import Link from 'next/link'
@@ -9,6 +9,8 @@ import useStartLogic from '../logic/useStartLogic'
 
 
 export default function Start() {
+
+    
 
     const {handleChange, handleStartSubmit, handleStartGameClick} = useStartLogic()
 

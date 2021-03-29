@@ -14,23 +14,7 @@ function QuestionContextProvider({ children }) {
     const [roundTwoCategories, setRoundTwoCategories] = useState([])
     const [finalRoundCategory, setFinalRoundCategory] = useState([])
 
-    const [finalQuestion, setFinalQuestion] = useState(
-        
-        [
-          {
-            "category": "Entertainment: Books",
-            "type": "multiple",
-            "difficulty": "hard",
-            "question": "In the Harry Potter universe, who does Draco Malfoy end up marrying?",
-            "correct_answer": "Astoria Greengrass",
-            "incorrect_answers": [
-              "Pansy Parkinson",
-              "Millicent Bulstrode",
-              "Hermione Granger"
-            ]
-          }
-        ]
-      )
+    const [finalQuestion, setFinalQuestion] = useState()
     // const [firstRoundQuestions, setFirstRoundQuestions] = useState()
 
     const [firstRoundQuestion1, setFirstRoundQuestion1] = useState()
@@ -71,6 +55,7 @@ function QuestionContextProvider({ children }) {
 
     // get categories from storage if exist
     useEffect(() => {
+        localStorage.clear()
         const randomCategories = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
         if (randomCategories) {
             setShuffledArr(randomCategories)
