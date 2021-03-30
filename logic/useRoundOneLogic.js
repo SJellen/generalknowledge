@@ -6,6 +6,7 @@ import {GameContext} from '../context/GameContext'
 // localStorage.clear();
 const LOCAL_STORAGE_KEY_FR = 'firstround'
 const LOCAL_STORAGE_KEY_TURN = 'turn'
+const LOCAL_STORAGE_KEY_QC = 'qcount'
 
 
 
@@ -105,11 +106,13 @@ export default function useRoundOneLogic() {
     useEffect(() => {
         if (currentQuestion === undefined && currentTurn !== username && selectedQuestions != 30) {
             
-            setTimeout(() => {
+            const timeout = setTimeout(() => {
                 setShowButtons(true)
                 computerQuestionPicker()
                 // setSelectedQuestions(prevCount => prevCount + 1)
             }, 1000)
+
+            return () => clearTimeout(timeout)
         }
         
     }, [currentTurn, currentQuestion])
@@ -121,6 +124,13 @@ export default function useRoundOneLogic() {
     //     }
 
     // },[selectedQuestions])
+
+    // useEffect(() => {
+    //     const questionCount = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_QC))
+    //     if (questionCount) {
+    //         setSelectedQuestions(questionCount)
+    //     }
+    // }, [selectedQuestions])
 
 
    

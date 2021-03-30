@@ -15,21 +15,6 @@ export default function FinalRound() {
     
 
     useEffect(() => {
-            console.log(finalQuestion[0])
-    }, [finalQuestion])
-
-    // function handleTileClick(e, question, cost, id) {
-    //     setCurrentQuestion(question)
-        
-    //     setCost(cost)
-    //     let x = document.getElementById(id)
-    //     x.innerHTML = ""
-    //     x.style.pointerEvents = "none"
-    //     setClockStart(true)
-        
-    // }
-
-    useEffect(() => {
         const questionArr = finalQuestion && [...finalQuestion[0].incorrect_answers, finalQuestion[0].correct_answer]
         
         const shuffledQuestions = questionArr && getShuffledArr(questionArr)

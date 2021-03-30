@@ -7,6 +7,7 @@ import useRoundOneLogic from '../logic/useRoundOneLogic'
 // localStorage.clear();
 const LOCAL_STORAGE_KEY_SR = 'secondround'
 const LOCAL_STORAGE_KEY_TURN = 'turn'
+const LOCAL_STORAGE_KEY_QC = 'qcount'
 
 
 
@@ -123,11 +124,13 @@ export default function useRoundTwoLogic() {
     useEffect(() => {
    
             if (currentQuestion === undefined && currentTurn !== username && selectedQuestions !== 60 && selectedQuestions !== 30) {
-            setTimeout(() => {
+            const timeout = setTimeout(() => {
                 setShowButtons(true)
                 computerQuestionPicker2()
                 // setSelectedQuestions(prevCount => prevCount + 1)
             }, 1000)
+
+            return () => clearTimeout(timeout)
             
         }
         
@@ -142,6 +145,13 @@ export default function useRoundTwoLogic() {
     //     }
 
     // },[selectedQuestions])
+
+    // useEffect(() => {
+    //     const questionCount = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_QC))
+    //     if (questionCount) {
+    //         setSelectedQuestions(questionCount)
+    //     }
+    // }, [selectedQuestions])
 
 
 

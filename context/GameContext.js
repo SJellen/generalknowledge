@@ -16,35 +16,25 @@ function GameContextProvider({ children }) {
     const [isStart, setIsStart] = useState(true)
     const [showInput, setShowInput] = useState(true)
     const [username, setUsername] = useState('')
-    const [selectedQuestions, setSelectedQuestions] = useState(60)
-    const [score, setScore] = useState(9005)
+    const [selectedQuestions, setSelectedQuestions] = useState(0)
+    const [score, setScore] = useState(0)
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
     const [isRoundTwo, setIsRoundTwo] = useState(false)
     const [isRoundThree, setIsRoundThree] = useState(false)
 
-
-
-
     const START_TIME = 11
     const [timeRemaining, setTimeRemaining]  = useState(START_TIME)
     const [clockStart, setClockStart] = useState(false)
 
-    
-
-
-
     const [player2, setPlayer2] = useState()
-    const [player2Score, setPlayer2Score] = useState(9000)
+    const [player2Score, setPlayer2Score] = useState(0)
     const [player3, setPlayer3] = useState()
-    const [player3Score, setPlayer3Score] = useState(7900)
+    const [player3Score, setPlayer3Score] = useState(0)
 
 
     const [currentTurn, setCurrentTurn] = useState()
-
     const [showButtons, setShowButtons] = useState(true)
-
-
 
     const [userMove, setUserMove] = useState()
     const [player2Move, setPlayer2Move] = useState()
@@ -54,17 +44,11 @@ function GameContextProvider({ children }) {
     const [player2Wager, setPlayer2Wager] = useState()
     const [player3Wager, setPlayer3Wager] = useState()
 
-    
-
-    
-    
-
-    
+   
 
     // username storage
     useEffect(() => {
         const path = window.location.pathname
-        
         if (path !== '/') {
             const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_USER))
         if (user) {
@@ -78,19 +62,26 @@ function GameContextProvider({ children }) {
         if (player3) {
             setPlayer3(player3)
         }
-
         }
-        
-
     }, [])
 
     // selected question count storage
+    
+
     useEffect(() => {
         const questionCount = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_QC))
         if (questionCount) {
             setSelectedQuestions(questionCount)
         }
     }, [selectedQuestions])
+
+
+    // useEffect(() => {
+    //     localStorage.setItem(LOCAL_STORAGE_KEY_QC, JSON.stringify(selectedQuestions))
+        
+    // }, [selectedQuestions])
+
+
 
     // get current turn
     useEffect(() => {
@@ -115,7 +106,7 @@ function GameContextProvider({ children }) {
    
 
    
-    console.log("question Count",selectedQuestions, "currentTurn", currentTurn)
+    console.log("question Count",selectedQuestions)
 
 
     return (
