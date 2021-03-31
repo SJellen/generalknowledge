@@ -53,7 +53,7 @@ export default function useFinalQuestionLogic() {
         } else {
             setUserMove("InCorrect")
             setScore(prevScore => prevScore - userWager)
-            setAnswerResult("Incorrect")
+            // setAnswerResult("Incorrect")
             setUserMove("Incorrect")
         }
 

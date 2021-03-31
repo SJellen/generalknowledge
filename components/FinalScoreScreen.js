@@ -6,8 +6,7 @@ import {GameContext} from '../context/GameContext'
 
 export default function FinalScoreScreen() {
     
-    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions} = useContext(GameContext)
-
+    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, setUserMove, setPlayer2Move, setPlayer3Move} = useContext(GameContext)
 
    
        
@@ -16,10 +15,9 @@ export default function FinalScoreScreen() {
 
     return (
         <div className={styles.container} style={{display: selectedQuestions === 63 ? "" : 'none'}}>
-            <div className={styles.playerContainer}>
+            <div className={styles.playerContainer} >
                 <div 
-                    className={styles.playerTile} 
-                    style={{visibility: username ? "visible" : "hidden"}}>
+                    className={styles.playerTile} >
                 <span 
                     className={styles.username} 
                     style={{color: currentTurn === username ? "rgb(235, 214, 94)" : ""}}>{username && username}</span>
@@ -33,10 +31,9 @@ export default function FinalScoreScreen() {
                 </div>
             </div>
            
-            <div className={styles.playerContainer}>
+            <div className={styles.playerContainer} >
                 <div 
-                    className={styles.playerTile} 
-                    style={{visibility: player2 ? "visible" : "hidden"}}>
+                    className={styles.playerTile} >
                 <span 
                     className={styles.username} 
                     style={{color: currentTurn === player2 ? "rgb(235, 214, 94)" : ""}}>{player2 && player2}</span>
@@ -51,10 +48,8 @@ export default function FinalScoreScreen() {
                 </div>
             </div>
 
-            <div className={styles.playerContainer}>
-                <div 
-                    className={styles.playerTile} 
-                    style={{visibility: player3 ? "visible" : "hidden"}}>
+            <div className={styles.playerContainer} >
+                <div className={styles.playerTile}>
                     <span 
                         className={styles.username} 
                         style={{color: currentTurn === player3 ? "rgb(235, 214, 94)" : ""}}>{player3 && player3}</span>
