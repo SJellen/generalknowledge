@@ -8,7 +8,31 @@ export default function FinalScoreScreen() {
     
     const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, setUserMove, setPlayer2Move, setPlayer3Move} = useContext(GameContext)
 
-   
+    const [lowScore, setLowScore] = useState()
+    const [middleScore, setMiddleScore] = useState()
+    const [highScore, setHighScore] = useState()
+
+    
+
+
+
+    function handleFinalScore() {
+        const sortedArr = [score, player2Score, player3Score].sort((a,b) => {
+            return a-b
+        })
+        setLowScore(sortedArr[0])
+        setMiddleScore(sortedArr[1])
+        setHighScore(sortedArr[2])
+    }
+
+    function clearPlayerMoves() {
+        setUserMove()
+        setPlayer2Move()
+        setPlayer3Move()
+    }
+    
+    
+    
        
     
 
