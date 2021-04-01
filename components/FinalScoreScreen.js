@@ -8,34 +8,6 @@ export default function FinalScoreScreen() {
     
     const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, setUserMove, setPlayer2Move, setPlayer3Move} = useContext(GameContext)
 
-    const [lowScore, setLowScore] = useState()
-    const [middleScore, setMiddleScore] = useState()
-    const [highScore, setHighScore] = useState()
-
-    
-
-
-
-    function handleFinalScore() {
-        const sortedArr = [score, player2Score, player3Score].sort((a,b) => {
-            return a-b
-        })
-        setLowScore(sortedArr[0])
-        setMiddleScore(sortedArr[1])
-        setHighScore(sortedArr[2])
-    }
-
-    function clearPlayerMoves() {
-        setUserMove()
-        setPlayer2Move()
-        setPlayer3Move()
-    }
-    
-    
-    
-       
-    
-
 
     return (
         <div className={styles.container} style={{display: selectedQuestions === 63 ? "" : 'none'}}>
@@ -43,11 +15,9 @@ export default function FinalScoreScreen() {
                 <div 
                     className={styles.playerTile} >
                 <span 
-                    className={styles.username} 
-                    style={{color: currentTurn === username ? "rgb(235, 214, 94)" : ""}}>{username && username}</span>
+                    className={styles.username} >{username && username}</span>
                 <span 
-                    className={styles.score} 
-                    style={{color: currentTurn === username ? "rgb(235, 214, 94)" : ""}}>
+                    className={styles.score} >
                     ${score ? score : 0}</span>  
                 </div>
                 <div className={styles.playerMove}>
@@ -59,11 +29,9 @@ export default function FinalScoreScreen() {
                 <div 
                     className={styles.playerTile} >
                 <span 
-                    className={styles.username} 
-                    style={{color: currentTurn === player2 ? "rgb(235, 214, 94)" : ""}}>{player2 && player2}</span>
+                    className={styles.username}>{player2 && player2}</span>
                 <span 
-                    className={styles.score} 
-                    style={{color: currentTurn === player2 ? "rgb(235, 214, 94)" : ""}}>
+                    className={styles.score}>
                     ${player2Score ? player2Score : 0}</span> 
                     
                 </div>
@@ -75,11 +43,9 @@ export default function FinalScoreScreen() {
             <div className={styles.playerContainer} >
                 <div className={styles.playerTile}>
                     <span 
-                        className={styles.username} 
-                        style={{color: currentTurn === player3 ? "rgb(235, 214, 94)" : ""}}>{player3 && player3}</span>
+                        className={styles.username}>{player3 && player3}</span>
                     <span 
-                        className={styles.score} 
-                        style={{color: currentTurn === player3 ? "rgb(235, 214, 94)" : ""}}>
+                        className={styles.score} >
                         ${player3Score ? player3Score : 0}</span>
                 </div>
                 <div className={styles.playerMove}>
