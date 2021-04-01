@@ -19,8 +19,9 @@ export default function useFinalRoundTransitionLogic() {
 
 
     function computerWagerPlayer2() {
-        
-        if (player2Score === highScore) {
+       if (player2Score === score && player2Score === player3Score) {
+            setPlayer2Wager(Math.floor(Math.random() * player2Score))
+        } else if (player2Score === highScore) {
             if (player2Score - (score * 2) >= 0 && player2Score - (player3Score * 2) >= 0) {
                 setPlayer2Wager(1)
             } else {
@@ -37,11 +38,14 @@ export default function useFinalRoundTransitionLogic() {
         } else {
             setPlayer2Wager(Math.floor(Math.random() * player2Score))
         }
+        
+        
     }
 
     function computerWagerPlayer3() {
-        
-        if (player3Score === highScore) {
+        if (player3Score === score && player3Score === player2Score) {
+            setPlayer3Wager(Math.floor(Math.random() * player3Score))
+        } else if (player3Score === highScore) {
             if (player3Score - (score * 2) >= 0 && player3Score - (player2Score * 2) >= 0) {
                 setPlayer3Wager(1)
             } else {
