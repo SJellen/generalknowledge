@@ -59,6 +59,12 @@ export default function useFinalQuestionLogic() {
 
         setClockStart(false)
         setTimeRemaining(START_TIME)
+        setTimeout(() => {
+            setUserMove()
+            setPlayer2Move()
+            setPlayer3Move()
+
+        }, 5000)
     }
     
     
