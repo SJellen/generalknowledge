@@ -15,7 +15,7 @@ export default function Header() {
 
 
     return (
-        <div className={styles.container} style={{display: selectedQuestions === 63 ? "none" : ''}}>
+        <div className={styles.container} style={{display: selectedQuestions >= 63 ? "none" : ''}}>
             <div className={styles.playerContainer}>
                 <div 
                     className={styles.playerTile} 

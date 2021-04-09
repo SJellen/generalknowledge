@@ -8,6 +8,7 @@ import FinalRoundTransition from './FinalRoundTransition'
 import FinalQuestion from './FinalQuestion'
 import FinalScoreScreen from './FinalScoreScreen'
 import GameOver from './GameOver'
+import FinalScreen from './FinalScreen'
 
 export default function Layout({children}) {
     return (
@@ -32,6 +33,7 @@ export default function Layout({children}) {
         <FinalRoundTransition />
         <FinalQuestion />
         <FinalScoreScreen />
+        <FinalScreen />
         <GameOver />
       </div>
     )

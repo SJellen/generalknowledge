@@ -1,0 +1,27 @@
+
+
+.container {
+    margin: 5rem auto 0 auto;
+    width: 90%;
+    height: auto;
+    background-color: blue;
+    color: white;
+    border-radius: 25px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.textContainer {
+    border: 10px solid black;
+    background-color: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    width: 100%;
+    height: 76vh;
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

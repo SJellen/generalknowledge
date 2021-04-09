@@ -64,7 +64,10 @@ export default function useFinalQuestionLogic() {
             setPlayer2Move()
             setPlayer3Move()
 
-        }, 5000)
+        }, 3000)
+        setTimeout(() => {
+            setSelectedQuestions(prevState => prevState + 1)
+        }, 2500)
     }
     
     
