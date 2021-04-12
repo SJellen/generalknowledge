@@ -10,10 +10,29 @@ export default function FinalScreen() {
     return (
         <div  style={{display: selectedQuestions === 64 ? "" : 'none'}} className={styles.container}>
                      <div className={styles.textContainer}>
-                
-                    <h2>Player</h2>
-                    <h2>Score</h2>
-                    <h2>Wager</h2>
+                     <h1 className={styles.title}>Final Score</h1>
+                     <div className={styles.bidBoxTop}>
+                        <h2>Player ones win or lose or tie statement goes here</h2>
+                        
+                     </div>
+                     <div className={styles.bidBox}>
+                        <h2>1st</h2>
+                        <h2>Player</h2>
+                        <h2>Score</h2>
+                     </div>
+                     <div className={styles.bidBox}>
+                        <h2>2nd</h2>
+                        <h2>Player</h2>
+                        <h2>Score</h2>
+                     </div>
+                     <div className={styles.bidBox}>
+                        <h2>3rd</h2>
+                        <h2>Player</h2>
+                        <h2>Score</h2>
+
+                     </div>
+                    
+                    
                 </div>
                
         </div>
