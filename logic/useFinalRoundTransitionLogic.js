@@ -11,11 +11,15 @@ export default function useFinalRoundTransitionLogic() {
     const [showFinalLink, setShowFinalLink] = useState(false)
     const [tempWager, setTempWager] = useState(1)
 
+    const [firstPlace, setFirstPlace] = useState()
+    const [secondPlace, setSecondPlace] = useState()
+    const [thirdPlace, setThirdPlace] = useState()
+
     const sortedArr = [score, player2Score, player3Score].sort((a,b) => {
                 return a-b
         })
     
-    let highScore = sortedArr[2], lowScore = sortedArr[0], middleScore = sortedArr[1]
+    let  lowScore = sortedArr[0], middleScore = sortedArr[1], highScore = sortedArr[2]
 
 
     function computerWagerPlayer2() {
@@ -37,9 +41,7 @@ export default function useFinalRoundTransitionLogic() {
             setPlayer2Wager(player2Score)
         } else {
             setPlayer2Wager(Math.floor(Math.random() * player2Score))
-        }
-        
-        
+        } 
     }
 
     function computerWagerPlayer3() {
@@ -93,6 +95,16 @@ export default function useFinalRoundTransitionLogic() {
     function handleStartClick() {
         setSelectedQuestions(prevState => prevState + 1)
     }
+
+    useEffect(() => {
+        if (selectedQuestions === 64) {
+           console.log(score, player2Score, player3Score, sortedArr)
+           
+
+        }
+        
+ 
+     }, [selectedQuestions])
 
 
 
