@@ -69,3 +69,30 @@
     // border: 1px solid green;
     width: 33%;
 }
+
+.endLink {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    
+}
+
+.endButton {
+    background-color: gold;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.endButton:hover {
+    filter: brightness(.85);
+    cursor: pointer;
+}

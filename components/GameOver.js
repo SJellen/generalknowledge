@@ -9,9 +9,12 @@ export default function GameOver() {
 
 
     function handleEndClick() {
-        setSelectedQuestions(0)
-        localStorage.clear()
-        forceUpdate()
+       
+            setSelectedQuestions(0)
+            localStorage.clear()
+            forceUpdate()
+       
+        
     }
 
     return (

@@ -16,8 +16,8 @@ function GameContextProvider({ children }) {
     const [isStart, setIsStart] = useState(true)
     const [showInput, setShowInput] = useState(true)
     const [username, setUsername] = useState('')
-    const [selectedQuestions, setSelectedQuestions] = useState(60)
-    const [score, setScore] = useState(5000)
+    const [selectedQuestions, setSelectedQuestions] = useState(0)
+    const [score, setScore] = useState(0)
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
     const [isRoundTwo, setIsRoundTwo] = useState(false)
@@ -28,9 +28,9 @@ function GameContextProvider({ children }) {
     const [clockStart, setClockStart] = useState(false)
 
     const [player2, setPlayer2] = useState()
-    const [player2Score, setPlayer2Score] = useState(5000)
+    const [player2Score, setPlayer2Score] = useState(0)
     const [player3, setPlayer3] = useState()
-    const [player3Score, setPlayer3Score] = useState(5000)
+    const [player3Score, setPlayer3Score] = useState(0)
 
 
     const [currentTurn, setCurrentTurn] = useState()
@@ -103,6 +103,13 @@ function GameContextProvider({ children }) {
 
     },[selectedQuestions])
 
+
+    function handleEndClick() {
+        setSelectedQuestions(0)
+        localStorage.clear()
+        // forceUpdate()
+    }
+
    
 
    
@@ -110,7 +117,7 @@ function GameContextProvider({ children }) {
 
 
     return (
-        <GameContext.Provider value={{isStart, setIsStart, username, setUsername, selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost, answerResult, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, isRoundTwo, setIsRoundTwo, isRoundThree, setIsRoundThree, showInput, setShowInput, player2, setPlayer2, player3, setPlayer3, player2Score, setPlayer2Score, player3Score, setPlayer3Score, currentTurn, setCurrentTurn, showButtons, setShowButtons, player2Move, setPlayer2Move, player3Move, setPlayer3Move, userMove, setUserMove, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager}}>
+        <GameContext.Provider value={{isStart, setIsStart, username, setUsername, selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost, answerResult, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, isRoundTwo, setIsRoundTwo, isRoundThree, setIsRoundThree, showInput, setShowInput, player2, setPlayer2, player3, setPlayer3, player2Score, setPlayer2Score, player3Score, setPlayer3Score, currentTurn, setCurrentTurn, showButtons, setShowButtons, player2Move, setPlayer2Move, player3Move, setPlayer3Move, userMove, setUserMove, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager, handleEndClick}}>
             { children }
         </GameContext.Provider>
     )

@@ -5,7 +5,7 @@ import useFinalRoundTransitionLogic from '../logic/useFinalRoundTransitionLogic'
 
 export default function FinalScreen() {
 
-    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, setUserMove, setPlayer2Move, setPlayer3Move} = useContext(GameContext)
+    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, setUserMove, setPlayer2Move, setPlayer3Move, handleEndClick} = useContext(GameContext)
 
     const {firstPlace, secondPlace, thirdPlace} = useFinalRoundTransitionLogic()
 
@@ -36,8 +36,12 @@ export default function FinalScreen() {
                         <h2>{thirdPlace?.score === secondPlace?.score ? 'tie' : thirdPlace?.score === firstPlace?.score ? 'tie' : '3rd'}</h2>
                         <h2>{thirdPlace?.playerName}</h2>
                         <h2>{thirdPlace?.score}</h2>
-                     </div>  
+                     </div> 
+
+                    <div className={styles.endLink}><a className={styles.endButton} style={{color: "black"}} onClick={handleEndClick}
+                >End</a></div>  
                 </div>
+                
                
         </div>
     )
