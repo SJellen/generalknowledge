@@ -9,13 +9,17 @@ export default function FinalScreen() {
 
     const {firstPlace, secondPlace, thirdPlace} = useFinalRoundTransitionLogic()
 
+    const finalStatementLose = "I'm sorry, you didn't win this time."
+    const finalStatementWin = "Congrats, you won!"
+    const finalStatementTie = "Well, you've tied for first."
+
 
     return (
         <div  style={{display: selectedQuestions === 64 ? "" : 'none'}} className={styles.container}>
                      <div className={styles.textContainer}>
                      <h1 className={styles.title}>Final Score</h1>
                      <div className={styles.bidBoxTop}>
-                        <h2>Player ones win or lose or tie statement goes here</h2>
+                        <h2>{firstPlace?.playerName === username && firstPlace?.score !== secondPlace?.score ? finalStatementWin : firstPlace?.player === username && firstPlace?.score === secondPlace?.score ? finalStatementTie : finalStatementLose}</h2>
                         
                      </div>
                      <div className={styles.bidBox} style={{color: "gold"}}>

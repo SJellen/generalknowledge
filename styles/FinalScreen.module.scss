@@ -40,7 +40,7 @@
 
 .bidBoxTop {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 90%;
     margin: .5rem auto;
     border: 1px solid gold;
@@ -53,8 +53,7 @@
 
 .bidBoxTop > h2 {
     padding: 0 2rem;
-
-    text-align: left;
+    text-align: center;
 }
 
 .bidBox > h2 {
