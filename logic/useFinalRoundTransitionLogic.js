@@ -96,11 +96,17 @@ export default function useFinalRoundTransitionLogic() {
         setSelectedQuestions(prevState => prevState + 1)
     }
 
+    const sortedArrObject = [ {player: 1, playerName: username, score: score}, {player: 2, playerName: player2, score: player2Score}, {player: 3, playerName: player3, score: player3Score}].sort((a,b) => {
+       
+        return a.score - b.score
+})
+
     useEffect(() => {
         if (selectedQuestions === 64) {
-           console.log(score, player2Score, player3Score, sortedArr)
-           
-
+           console.log(score, player2Score, player3Score, sortedArr, sortedArrObject)
+            setThirdPlace(sortedArrObject[2])
+            setSecondPlace(sortedArrObject[1])
+            setFirstPlace(sortedArrObject[0])
         }
         
  
@@ -108,6 +114,6 @@ export default function useFinalRoundTransitionLogic() {
 
 
 
-    return {handleChange, handleWagerSubmit, showFinalLink, tempWager, handleStartClick}
+    return {handleChange, handleWagerSubmit, showFinalLink, tempWager, handleStartClick, firstPlace, secondPlace, thirdPlace}
     
 }

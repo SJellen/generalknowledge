@@ -1,10 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react'
 import styles from '../styles/FinalScreen.module.scss'
 import {GameContext} from '../context/GameContext'
+import useFinalRoundTransitionLogic from '../logic/useFinalRoundTransitionLogic'
 
 export default function FinalScreen() {
 
     const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, setUserMove, setPlayer2Move, setPlayer3Move} = useContext(GameContext)
+
+    const {firstPlace, secondPlace, thirdPlace} = useFinalRoundTransitionLogic()
 
 
 
