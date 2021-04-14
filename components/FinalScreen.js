@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import styles from '../styles/FinalScreen.module.scss'
 import {GameContext} from '../context/GameContext'
 import useFinalRoundTransitionLogic from '../logic/useFinalRoundTransitionLogic'
+import Link from 'next/link'
 
 export default function FinalScreen() {
 
@@ -38,8 +39,8 @@ export default function FinalScreen() {
                         <h2>{thirdPlace?.score}</h2>
                      </div> 
 
-                    <div className={styles.endLink}><a className={styles.endButton} style={{color: "black"}} onClick={handleEndClick}
-                >End</a></div>  
+                    <div className={styles.endLink}><Link href="/" style={{textDecoration: "none"}}><a className={styles.endButton} style={{color: "black"}} onClick={handleEndClick}
+                >End</a></Link></div>  
                 </div>
                 
                
