@@ -10,10 +10,6 @@ export default function FinalScreen() {
     const {firstPlace, secondPlace, thirdPlace} = useFinalRoundTransitionLogic()
 
 
-
-   //  console.log(firstPlace, secondPlace, thirdPlace)
-
-
     return (
         <div  style={{display: selectedQuestions === 64 ? "" : 'none'}} className={styles.container}>
                      <div className={styles.textContainer}>
@@ -22,24 +18,21 @@ export default function FinalScreen() {
                         <h2>Player ones win or lose or tie statement goes here</h2>
                         
                      </div>
-                     <div className={styles.bidBox}>
-                        <h2>1st</h2>
+                     <div className={styles.bidBox} style={{color: "gold"}}>
+                        <h2>{firstPlace?.score === secondPlace?.score ? "tie" : '1st'}</h2>
                         <h2>{firstPlace?.playerName}</h2>
                         <h2>{firstPlace?.score}</h2>
                      </div>
-                     <div className={styles.bidBox}>
-                        <h2>2nd</h2>
+                     <div className={styles.bidBox} style={{color: firstPlace?.score === secondPlace?.score ? "gold" : ''}}>
+                        <h2>{secondPlace?.score === firstPlace?.score ? "tie" : '2nd'}</h2>
                         <h2>{secondPlace?.playerName}</h2>
                         <h2>{secondPlace?.score}</h2>
                      </div>
-                     <div className={styles.bidBox}>
-                        <h2>3rd</h2>
+                     <div className={styles.bidBox} style={{color: firstPlace?.score === thirdPlace?.score ? "gold" : ''}}>
+                        <h2>{thirdPlace?.score === secondPlace?.score ? 'tie' : thirdPlace?.score === firstPlace?.score ? 'tie' : '3rd'}</h2>
                         <h2>{thirdPlace?.playerName}</h2>
                         <h2>{thirdPlace?.score}</h2>
-
-                     </div>
-                    
-                    
+                     </div>  
                 </div>
                
         </div>
