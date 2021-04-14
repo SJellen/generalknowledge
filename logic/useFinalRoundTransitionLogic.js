@@ -103,10 +103,10 @@ export default function useFinalRoundTransitionLogic() {
 
     useEffect(() => {
         if (selectedQuestions === 64) {
-           console.log(score, player2Score, player3Score, sortedArr, sortedArrObject)
-            setThirdPlace(sortedArrObject[2])
+            
+            setThirdPlace(sortedArrObject[0])
             setSecondPlace(sortedArrObject[1])
-            setFirstPlace(sortedArrObject[0])
+            setFirstPlace(sortedArrObject[2])
         }
         
  

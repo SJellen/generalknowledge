@@ -11,7 +11,7 @@ export default function FinalScreen() {
 
 
 
-    
+   //  console.log(firstPlace, secondPlace, thirdPlace)
 
 
     return (
@@ -24,18 +24,18 @@ export default function FinalScreen() {
                      </div>
                      <div className={styles.bidBox}>
                         <h2>1st</h2>
-                        <h2>Player</h2>
-                        <h2>Score</h2>
+                        <h2>{firstPlace?.playerName}</h2>
+                        <h2>{firstPlace?.score}</h2>
                      </div>
                      <div className={styles.bidBox}>
                         <h2>2nd</h2>
-                        <h2>Player</h2>
-                        <h2>Score</h2>
+                        <h2>{secondPlace?.playerName}</h2>
+                        <h2>{secondPlace?.score}</h2>
                      </div>
                      <div className={styles.bidBox}>
                         <h2>3rd</h2>
-                        <h2>Player</h2>
-                        <h2>Score</h2>
+                        <h2>{thirdPlace?.playerName}</h2>
+                        <h2>{thirdPlace?.score}</h2>
 
                      </div>
                     
