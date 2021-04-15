@@ -23,7 +23,14 @@ function GameContextProvider({ children }) {
     const [isRoundTwo, setIsRoundTwo] = useState(false)
     const [isRoundThree, setIsRoundThree] = useState(false)
 
+
+
     const START_TIME = 11
+    const PASS_PLAY_TIME = 5
+
+    const [passPlayTime, setPassPlayTime] = useState(PASS_PLAY_TIME)
+    const [passPlayStart, setPassPlayStart] = useState(false)
+
     const [timeRemaining, setTimeRemaining]  = useState(START_TIME)
     const [clockStart, setClockStart] = useState(false)
 
