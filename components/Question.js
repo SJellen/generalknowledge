@@ -22,6 +22,9 @@ export default function Question() {
                     <div className={styles.passContainer} style={{visibility: showButtons ? "visible" : 'hidden'}}>
                         <button className={styles.passButton} onClick={handlePassClick}>Pass</button>
                     </div>
+
+                    <div className={styles.timeButton} style={{display: showButtons ? 'block' : 'none', visibility: showButtons ? 'visible' : 'hidden'}}> 5</div>
+                     <div className={styles.timeButton} style={{visibility: timeRemaining <= 5 ? 'visible' : 'hidden', display: timeRemaining <= 5 ? 'block' : 'none' }}>{timeRemaining}</div>
                     <div className={styles.playContainer} style={{visibility: showButtons  ? "visible" : 'hidden'}}>
                         <button className={styles.playButton} onClick={handlePlayClick}>Play</button>
                     </div>
@@ -29,7 +32,7 @@ export default function Question() {
                 </div>
                  <div className={styles.questionContainer} >
                     <h2>{currentQuestion && questionCleaner(currentQuestion.question)}</h2>
-                    <span className={styles.timer} style={{visibility: timeRemaining <= 5 ? "visible" : 'hidden'}}>{timeRemaining}</span>
+                   
                 </div>
             
             <div className={styles.choiceContainer} style={{display: !showButtons && currentTurn === username ? "block" : 'none'}}>
