@@ -9,7 +9,7 @@ const LOCAL_STORAGE_KEY_TURN = 'turn'
 export default function useQuestionLogic() {
 
     const {currentQuestion,  setCurrentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, setSelectedQuestions, setScore, cost, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, currentTurn, setCurrentTurn, player2, player3, setPlayer2Score, setPlayer3Score, username, computerQuestionPicker, setShowButtons, player2Move, setPlayer2Move, player3Move, setPlayer3Move,userMove, setUserMove } = useContext(GameContext)
+    const {selectedQuestions, setSelectedQuestions, setScore, cost, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, currentTurn, setCurrentTurn, player2, player3, setPlayer2Score, setPlayer3Score, username, computerQuestionPicker, setShowButtons, player2Move, setPlayer2Move, player3Move, setPlayer3Move,userMove, setUserMove, passPlayTime, setPassPlayTime, passPlayStart, setPassPlayStart, PASS_PLAY_TIME} = useContext(GameContext)
 
     
 
@@ -67,6 +67,8 @@ export default function useQuestionLogic() {
         setUserMove("Pass")
         setClockStart(false)
         setTimeRemaining(START_TIME)
+        setPassPlayStart(false)
+        setPassPlayTime(PASS_PLAY_TIME)
         setShowButtons(false)
         // setSelectedQuestions(prevCount => prevCount + 1)   
         if (currentTurn !== username) {
@@ -87,6 +89,8 @@ export default function useQuestionLogic() {
         setShowButtons(false)
         setTimeRemaining(START_TIME)
         setClockStart(true)
+        setPassPlayStart(false)
+        setPassPlayTime(PASS_PLAY_TIME)
     }
 
   
@@ -117,7 +121,24 @@ export default function useQuestionLogic() {
     }, [timeRemaining, clockStart])
 
 
-   
+    useEffect(() => {
+        if (currentQuestion && passPlayStart && passPlayTime) {
+            setTimeout(() => {
+                setPassPlayTime(time => time === 0 ? 0 : time -1)
+            }, 1000)
+        } else if (passPlayTime === 0) {
+            
+                passToCurrentTurn()
+           setPassPlayStart(false)
+           setPassPlayTime(PASS_PLAY_TIME)
+        }
+        
+
+
+    }, [passPlayTime, passPlayStart, currentQuestion])
+
+
+   console.log(passPlayStart, passPlayTime)
 
 
 

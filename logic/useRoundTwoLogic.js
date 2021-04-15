@@ -15,7 +15,7 @@ export default function useRoundTwoLogic() {
 
 
     const {secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, fetchSecondRoundQuestions, getShuffledArr,shuffledQuestionsArr, setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, currentTurn, username, setShowButtons, setCurrentTurn, setPlayer2Move, setPlayer3Move, setSelectedQuestions} = useContext(GameContext)
+    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, currentTurn, username, setShowButtons, setCurrentTurn, setPlayer2Move, setPlayer3Move, setSelectedQuestions, setPassPlayStart} = useContext(GameContext)
 
     
     
@@ -25,6 +25,7 @@ export default function useRoundTwoLogic() {
     function handleTileClick2(e, question, questionCost, categoryIndex,index,) {
         
         setShowButtons(true)
+        setPassPlayStart(true)
         setCurrentQuestion(question)
         setCost(questionCost)
         // setSelectedQuestions(prevCount => prevCount + 1)
@@ -126,6 +127,7 @@ export default function useRoundTwoLogic() {
             if (currentQuestion === undefined && currentTurn !== username && selectedQuestions !== 60 && selectedQuestions !== 30) {
             const timeout = setTimeout(() => {
                 setShowButtons(true)
+                setPassPlayStart(true)
                 computerQuestionPicker2()
                 // setSelectedQuestions(prevCount => prevCount + 1)
             }, 1000)

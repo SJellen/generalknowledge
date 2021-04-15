@@ -13,7 +13,7 @@ const LOCAL_STORAGE_KEY_QC = 'qcount'
 export default function useRoundOneLogic() {
 
     const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, getShuffledArr,setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {setCost, currentTurn, username,  setShowButtons, selectedQuestions, setSelectedQuestions} = useContext(GameContext)
+    const {setCost, currentTurn, username,  setShowButtons, selectedQuestions, setSelectedQuestions, setClockStart, setPassPlayStart} = useContext(GameContext)
     const [categoryArr, setCategoryArr] = useState()
     
 
@@ -21,6 +21,7 @@ export default function useRoundOneLogic() {
     // handle click on the board by player1
     function handleTileClick(e, question, questionCost, categoryIndex,index,) {
         setShowButtons(true)
+        setPassPlayStart(true)
         setCurrentQuestion(question)
         setCost(questionCost)
         // setSelectedQuestions(prevCount => prevCount + 1)
@@ -108,7 +109,9 @@ export default function useRoundOneLogic() {
             
             const timeout = setTimeout(() => {
                 setShowButtons(true)
+                setPassPlayStart(true)
                 computerQuestionPicker()
+                
                 // setSelectedQuestions(prevCount => prevCount + 1)
             }, 1000)
 
