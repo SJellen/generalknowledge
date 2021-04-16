@@ -16,7 +16,7 @@ function GameContextProvider({ children }) {
     const [isStart, setIsStart] = useState(true)
     const [showInput, setShowInput] = useState(true)
     const [username, setUsername] = useState('')
-    const [selectedQuestions, setSelectedQuestions] = useState(60)
+    const [selectedQuestions, setSelectedQuestions] = useState(0)
     const [score, setScore] = useState(0)
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
