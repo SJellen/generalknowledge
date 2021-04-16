@@ -8,7 +8,7 @@ export default function useFinalQuestionLogic() {
 
 
     const {finalQuestion, currentQuestion, setCurrentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager, timeRemaining, setSelectedQuestions, setScore, setAnswerResult, setUserMove, setPlayer2Score, setPlayer3Score, setTimeRemaining, clockStart, setClockStart, START_TIME, player2Move, setPlayer2Move, player3Move, setPlayer3Move,userMove,passPlayTime, setPassPlayTime, passPlayStart, setPassPlayStart, PASS_PLAY_TIME} = useContext(GameContext)
+    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager, timeRemaining, setSelectedQuestions, setScore, setAnswerResult, setUserMove, setPlayer2Score, setPlayer3Score, setTimeRemaining, clockStart, setClockStartFinal, START_TIME, player2Move, setPlayer2Move, player3Move, setPlayer3Move,userMove,passPlayTime, setPassPlayTime, passPlayStart, setPassPlayStart, PASS_PLAY_TIME, timeRemainingFinal, clockStartFinal, setTimeRemainingFinal} = useContext(GameContext)
 
 
     function computerAnswersQuestion() {
@@ -57,7 +57,7 @@ export default function useFinalQuestionLogic() {
             setUserMove("Incorrect")
         }
 
-        setClockStart(false)
+        setClockStartFinal(false)
         setTimeRemaining(START_TIME)
         setTimeout(() => {
             setUserMove()
@@ -71,30 +71,30 @@ export default function useFinalQuestionLogic() {
     }
 
 
-    // useEffect(() => {
-    //     if (finalQuestion && timeRemaining && clockStart) {
-    //         setTimeout(() => {
-    //             setTimeRemaining(time => time === 0 ? 0 : time -1)
-    //         }, 1000)
-    //     } else if (timeRemaining === 0) {
-    //         setSelectedQuestions(prevState => prevState + 1)
-    //         computerPlayersAnswers()
-    //         setUserMove("InCorrect")
-    //         setScore(prevScore => prevScore - userWager)
-    //         setClockStart(false)
-    //         setTimeRemaining(START_TIME)
-    //         setTimeout(() => {
-    //             setUserMove()
-    //             setPlayer2Move()
-    //             setPlayer3Move()
+    useEffect(() => {
+        if (finalQuestion && timeRemainingFinal && clockStartFinal) {
+            setTimeout(() => {
+                setTimeRemainingFinal(time => time === 0 ? 0 : time -1)
+            }, 1000)
+        } else if (timeRemainingFinal === 0) {
+            setSelectedQuestions(prevState => prevState + 1)
+            computerPlayersAnswers()
+            setUserMove("InCorrect")
+            setScore(prevScore => prevScore - userWager)
+            setClockStartFinal(false)
+            setTimeRemainingFinal(START_TIME)
+            setTimeout(() => {
+                setUserMove()
+                setPlayer2Move()
+                setPlayer3Move()
 
-    //         }, 3000)
-    //     setTimeout(() => {
-    //         setSelectedQuestions(prevState => prevState + 1)
-    //     }, 2500)
-    //     }
+            }, 3000)
+        setTimeout(() => {
+            setSelectedQuestions(prevState => prevState + 1)
+        }, 2500)
+        }
 
-    // }, [timeRemaining, clockStart])
+    }, [timeRemainingFinal, clockStartFinal])
     
     
     return {handleClick}

@@ -9,7 +9,7 @@ import useFinalRoundTransitionLogic from '../logic/useFinalRoundTransitionLogic'
 
 export default function FinalQuestion() {
      
-    const {selectedQuestions, timeRemaining } = useContext(GameContext)
+    const {selectedQuestions, timeRemainingFinal } = useContext(GameContext)
     const {finalQuestion, questionCleaner, shuffledQuestionsArr, passPlayTime} = useContext(QuestionContext)
 
 
@@ -20,10 +20,10 @@ export default function FinalQuestion() {
         <div>
              <div className={styles.container} style={{display: selectedQuestions === 62 ? "block" : "none"}}>
                 
-             <div className={styles.timeButton} style={{visibility: timeRemaining <= 5 ? 'visible' : 'hidden', display: timeRemaining <= 5 ? 'block' : 'none' }}>{timeRemaining}</div>
+             {/* <div className={styles.timeButton} style={{visibility: timeRemaining <= 5 ? 'visible' : 'hidden', display: timeRemaining <= 5 ? 'block' : 'none' }}>{timeRemaining}</div> */}
                  <div className={styles.questionContainer} >
                     <h2>{finalQuestion && questionCleaner(finalQuestion[0].question)}</h2>
-                    <span className={styles.timer} style={{visibility: timeRemaining <= 5 ? "visible" : 'hidden'}}>{timeRemaining}</span>
+                    <span className={styles.timer} style={{visibility: timeRemainingFinal <= 5 ? "visible" : 'hidden'}}>{timeRemainingFinal}</span>
                 </div>
             
             <div className={styles.choiceContainer} >

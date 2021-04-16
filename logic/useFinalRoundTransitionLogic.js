@@ -6,7 +6,7 @@ import {GameContext} from '../context/GameContext'
 
 export default function useFinalRoundTransitionLogic() {
 
-    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager, setSelectedQuestions, setClockStart, timeRemaining} = useContext(GameContext)
+    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager, setSelectedQuestions, setClockStartFinal, timeRemainingFinal} = useContext(GameContext)
 
     const [showFinalLink, setShowFinalLink] = useState(false)
     const [tempWager, setTempWager] = useState(1)
@@ -70,9 +70,9 @@ export default function useFinalRoundTransitionLogic() {
  
 
    useEffect(() => {
-       console.log(timeRemaining)
+       console.log(timeRemainingFinal)
 
-   }, [timeRemaining])
+   }, [timeRemainingFinal])
 
 
     function handleChange(e) {
@@ -96,7 +96,7 @@ export default function useFinalRoundTransitionLogic() {
 
 
     function handleStartClick() {
-        setClockStart(true)
+        setClockStartFinal(true)
         setSelectedQuestions(prevState => prevState + 1)
         
     }
