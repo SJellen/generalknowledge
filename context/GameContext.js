@@ -16,8 +16,8 @@ function GameContextProvider({ children }) {
     const [isStart, setIsStart] = useState(true)
     const [showInput, setShowInput] = useState(true)
     const [username, setUsername] = useState('')
-    const [selectedQuestions, setSelectedQuestions] = useState(0)
-    const [score, setScore] = useState(0)
+    const [selectedQuestions, setSelectedQuestions] = useState(60)
+    const [score, setScore] = useState(6000)
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
     const [isRoundTwo, setIsRoundTwo] = useState(false)
@@ -35,9 +35,9 @@ function GameContextProvider({ children }) {
     const [clockStart, setClockStart] = useState(false)
 
     const [player2, setPlayer2] = useState()
-    const [player2Score, setPlayer2Score] = useState(0)
+    const [player2Score, setPlayer2Score] = useState(6000)
     const [player3, setPlayer3] = useState()
-    const [player3Score, setPlayer3Score] = useState(0)
+    const [player3Score, setPlayer3Score] = useState(6000)
 
 
     const [currentTurn, setCurrentTurn] = useState()
@@ -120,7 +120,7 @@ function GameContextProvider({ children }) {
    
 
    
-    console.log("question Count",selectedQuestions)
+    
 
 
     return (
