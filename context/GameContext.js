@@ -59,23 +59,31 @@ function GameContextProvider({ children }) {
    
 
     // username storage
+
     useEffect(() => {
-        const path = window.location.pathname
-        if (path !== '/') {
-            const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_USER))
-        if (user) {
-            setUsername(user)
+        const userStorage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_USER))
+        const player2Storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_P2))
+        const player3Storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_P3))
+
+        if (username) {
+            localStorage.setItem(LOCAL_STORAGE_KEY_USER, JSON.stringify(username))
+        } else if (userStorage) {
+            setUsername(userStorage)
         }
-        const player2 = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_P2))
         if (player2) {
-            setPlayer2(player2)
-        }
-        const player3 = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_P3))
+            localStorage.setItem(LOCAL_STORAGE_KEY_P2, JSON.stringify(player2))
+        } else if (player2Storage) {
+            setPlayer2(player2Storage)
+        } 
         if (player3) {
-            setPlayer3(player3)
+            localStorage.setItem(LOCAL_STORAGE_KEY_P3, JSON.stringify(player3))
+        } else if (player3Storage) {
+            setPlayer3(player3Storage)
         }
-        }
-    }, [])
+       
+    }, [username, player2, player3])
+
+   
 
     // selected question count storage
     
