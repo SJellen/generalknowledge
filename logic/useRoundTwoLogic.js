@@ -15,7 +15,7 @@ export default function useRoundTwoLogic() {
 
 
     const {secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, fetchSecondRoundQuestions, getShuffledArr,shuffledQuestionsArr, setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, currentTurn, username, setShowButtons, setCurrentTurn, setPlayer2Move, setPlayer3Move, setSelectedQuestions, setPassPlayStart} = useContext(GameContext)
+    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, currentTurn, username, setShowButtons, setCurrentTurn, setPlayer2Move, setPlayer3Move, setSelectedQuestions, setPassPlayStart, isRoundTwo} = useContext(GameContext)
 
     
     
@@ -39,7 +39,7 @@ export default function useRoundTwoLogic() {
         const questionArr = currentQuestion && [...currentQuestion.incorrect_answers, currentQuestion.correct_answer]
         const shuffledQuestions = questionArr && getShuffledArr(questionArr)
         setShuffledQuestionsArr(shuffledQuestions)
-        setIsRoundTwo(true)
+        // setIsRoundTwo(true)
 
     }, [currentQuestion])
 
@@ -94,6 +94,7 @@ export default function useRoundTwoLogic() {
      // get a random but not selected question by computer
    function computerQuestionPicker2() {
     let category = null, question = null
+    if (!isRoundTwo) return
     do {
          category = Math.floor(Math.random() * 6)
          question = Math.floor(Math.random() * 5) + 1

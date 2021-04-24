@@ -15,14 +15,16 @@ function GameContextProvider({ children }) {
 
     const [isStart, setIsStart] = useState(true)
     const [isRoundOne, setIsRoundOne] = useState(false)
+    const [isRoundTwo, setIsRoundTwo] = useState(false)
+    const [isRoundThree, setIsRoundThree] = useState(false)
+
     const [showInput, setShowInput] = useState(true)
     const [username, setUsername] = useState('')
     const [selectedQuestions, setSelectedQuestions] = useState(0)
     const [score, setScore] = useState(0)
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
-    const [isRoundTwo, setIsRoundTwo] = useState(false)
-    const [isRoundThree, setIsRoundThree] = useState(false)
+    
 
 
 
@@ -133,7 +135,7 @@ function GameContextProvider({ children }) {
 
    
 
-   
+   console.log(isRoundTwo)
     
 
 

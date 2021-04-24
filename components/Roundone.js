@@ -11,7 +11,7 @@ export default function RoundOne() {
     const {categoryArr, handleTileClick} = useRoundOneLogic()
 
     const {categoryCleaner, currentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, currentTurn, username, cost} = useContext(GameContext)
+    const {selectedQuestions, currentTurn, username, cost, isRoundOne} = useContext(GameContext)
 
     useEffect(() => {
     }, [categoryArr])
@@ -61,7 +61,7 @@ export default function RoundOne() {
 
     return (
 
-         <div className={styles.container}>
+         <div className={styles.container} style={{display: isRoundOne ? '' : 'none'}}>
             <div className={styles.parent} style={{display: selectedQuestions === 30 ? "none" : "", pointerEvents: currentQuestion ? "none": ''}}>
                 {categories} 
             </div>

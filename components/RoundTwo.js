@@ -13,7 +13,7 @@ export default function RoundTwo() {
     // const {categoryArr2} = useRoundOneLogic()
 
     const {categoryCleaner, currentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, currentTurn, username, setCurrentTurn} = useContext(GameContext)
+    const {selectedQuestions, currentTurn, username, setCurrentTurn, isRoundTwo} = useContext(GameContext)
 
 
    
@@ -31,7 +31,7 @@ export default function RoundTwo() {
 
 
     const categories = categoryArr2 && categoryArr2.map((cat, index) => (
-        <div key={index}>
+        <div key={index} >
             <div className={styles.gridTitle}>{cat && categoryCleaner(cat[0]?.category)}</div>
             <div 
                 className={styles.gridItem} 
@@ -67,7 +67,7 @@ export default function RoundTwo() {
     ))
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} style={{display: isRoundTwo ? '' : 'none'}}>
         <div className={styles.parent} style={{display: selectedQuestions === 60 ? "none" : "", pointerEvents: currentQuestion ? "none": ''}}>
             {categories} 
         </div>

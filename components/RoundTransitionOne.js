@@ -31,9 +31,9 @@ export default function RoundTransitionOne() {
 
 
 
-                <div className={styles.roundTwoLink}><Link href="/roundtwo" style={{textDecoration: "none"}}><a className={styles.beginButton} style={{color: "black"}}
+                <div className={styles.roundTwoLink}><a className={styles.beginButton} style={{color: "black"}}
                 onClick={handleRoundTwoClick}
-                >Round Two</a></Link></div>
+                >Round Two</a></div>
             </div>
             
         </div>
