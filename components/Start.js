@@ -14,10 +14,10 @@ export default function Start() {
 
     const {handleChange, handleStartSubmit, handleStartGameClick} = useStartLogic()
 
-    const {username, showInput, player2, player3} = useContext(GameContext)
+    const {username, showInput, player2, player3, isStart} = useContext(GameContext)
     
     return (
-             <div className={styles.container}>
+             <div className={styles.container} style={{display: isStart ? '' : "none"}}>
                 { showInput ?
                     <div>
                         <div className={styles.wordbox}>
@@ -45,7 +45,7 @@ export default function Start() {
                         <div className={styles.wordbox2}>
                             <h1 >Welcome <span className={styles.usernames}>{username}</span>.<br></br> Your opponents today are:<br></br> <span className={styles.usernames}>{player2}</span> and <span className={styles.usernames}>{player3}</span>.<br></br>
                              Let's play!</h1>
-                        <Link href="/roundone" style={{textDecoration: "none"}}><a className={styles.beginButton} type="submit" style={{color: "black"}} onClick={handleStartGameClick}>Start</a></Link>
+                        <a className={styles.beginButton} type="submit" style={{color: "black"}} onClick={handleStartGameClick}>Start</a>
                         </div> : ""
                 }   
         </div>   

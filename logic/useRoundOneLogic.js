@@ -13,7 +13,7 @@ const LOCAL_STORAGE_KEY_QC = 'qcount'
 export default function useRoundOneLogic() {
 
     const {firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, currentQuestion, setCurrentQuestion, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, getShuffledArr,setShuffledQuestionsArr} = useContext(QuestionContext)
-    const {setCost, currentTurn, username,  setShowButtons, selectedQuestions, setSelectedQuestions, setClockStart, setPassPlayStart} = useContext(GameContext)
+    const {setCost, currentTurn, username,  setShowButtons, selectedQuestions, setSelectedQuestions, setClockStart, setPassPlayStart, isRoundOne, setIsRoundOne} = useContext(GameContext)
     const [categoryArr, setCategoryArr] = useState()
     
 
@@ -84,6 +84,7 @@ export default function useRoundOneLogic() {
     // get a random but not selected question by computer
    function computerQuestionPicker() {
        let category= null, question = null
+       if (!isRoundOne) return
        do {
             category = Math.floor(Math.random() * 6)
             question = Math.floor(Math.random() * 5) + 1
