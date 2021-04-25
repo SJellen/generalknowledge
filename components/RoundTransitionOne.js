@@ -20,7 +20,7 @@ export default function RoundTransitionOne() {
         setIsRoundOne(false)
     }
 
-   console.log(isRoundTwo)
+ 
 
     return (
         <div  style={{display: selectedQuestions === 30 && !isRoundTwo && score >= 0 ? "block": "none"}} className={styles.container}>

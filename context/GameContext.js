@@ -59,6 +59,8 @@ function GameContextProvider({ children }) {
     const [player2Wager, setPlayer2Wager] = useState()
     const [player3Wager, setPlayer3Wager] = useState()
 
+
+
    
 
     // username storage
@@ -127,15 +129,40 @@ function GameContextProvider({ children }) {
     },[selectedQuestions])
 
 
-    function handleEndClick() {
+    useEffect(() => {
+        if (score < 0 && selectedQuestions === 30 || score < 0 && selectedQuestions === 60) {
+            setIsRoundTwo(false)
+            setIsRoundOne(false)
+        }
+
+    }, [score, selectedQuestions])
+
+
+    function endGameStateReset() {
+
+        setUsername()
+        setScore()
+        setPlayer2()
+        setPlayer2Score()
+        setPlayer3()
+        setPlayer3Score()
+        setIsRoundOne(false)
+        setIsRoundTwo(false)
+        setIsRoundOne(false)
+        setIsStart(true)
         setSelectedQuestions(0)
         localStorage.clear()
-        // forceUpdate()
+        setShowInput(true)
+    }
+
+
+    function handleEndClick() {
+        endGameStateReset()
     }
 
    
 
-   console.log(isRoundTwo)
+   console.log(selectedQuestions)
     
 
 

@@ -10,7 +10,7 @@ const LOCAL_STORAGE_KEY_FR = 'finalround'
 export default function FinalRound() {
 
     const {finalQuestion, categoryCleaner, setCurrentQuestion, currentQuestion, setShuffledQuestionsArr, getShuffledArr} = useContext(QuestionContext)
-    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, setSelectedQuestions} = useContext(GameContext)
+    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, setSelectedQuestions, isRoundThree} = useContext(GameContext)
 
     
 
@@ -19,9 +19,12 @@ export default function FinalRound() {
         
         const shuffledQuestions = questionArr && getShuffledArr(questionArr)
         setShuffledQuestionsArr(shuffledQuestions)
-        setTimeout(() => {
+        if (isRoundThree) {
+            setTimeout(() => {
             setSelectedQuestions(prevState => prevState + 1)
         }, 2500)
+        }
+        
         
 
     }, [finalQuestion])

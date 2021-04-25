@@ -16,9 +16,9 @@ export default function useStartLogic() {
     
     const [tempUser, setTempUser] = useState('')
 
-    useEffect(() => {
-        setIsRoundTwo(false)
-      }, [])
+    // useEffect(() => {
+    //     setIsRoundTwo(false)
+    //   }, [])
 
     
 

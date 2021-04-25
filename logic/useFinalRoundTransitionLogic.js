@@ -69,10 +69,7 @@ export default function useFinalRoundTransitionLogic() {
 
  
 
-   useEffect(() => {
-       console.log(timeRemainingFinal)
-
-   }, [timeRemainingFinal])
+  
 
 
     function handleChange(e) {

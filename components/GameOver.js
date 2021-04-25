@@ -5,17 +5,12 @@ import Link from 'next/link'
 
 export default function GameOver() {
 
-    const {setSelectedQuestions, selectedQuestions, score} = useContext(GameContext)
+    const {setSelectedQuestions, selectedQuestions, score, setIsStart, handleEndClick} = useContext(GameContext)
 
 
-    function handleEndClick() {
-       
-            setSelectedQuestions(0)
-            localStorage.clear()
-            forceUpdate()
-       
-        
-    }
+  
+
+    
 
     return (
         <div className={styles.container} 
@@ -28,9 +23,9 @@ export default function GameOver() {
                 </h1> 
                 </div>
                 
-                <div className={styles.roundTwoLink}><Link href="/" style={{textDecoration: "none"}}><a className={styles.beginButton} style={{color: "black"}}
+                <div className={styles.roundTwoLink}><a className={styles.beginButton} style={{color: "black"}}
                 onClick={handleEndClick}
-                >End Game</a></Link></div>
+                >End Game</a></div>
             </div>
         </div>
     )
