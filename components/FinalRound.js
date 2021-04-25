@@ -36,7 +36,7 @@ export default function FinalRound() {
 
 
     return (
-        <div className={styles.container}style={{display: selectedQuestions === 60 || selectedQuestions === 62  ? "block" : "none", pointerEvents: currentQuestion ? "none": ''}}>
+        <div className={styles.container}style={{display: isRoundThree && selectedQuestions === 60 || isRoundThree && selectedQuestions === 62  ? "block" : "none", pointerEvents: currentQuestion ? "none": ''}}>
             <div className={styles.parent} >
                 <div className={styles.gridTitle} id="finalr" onClick={(e) => handleTileClick(e, finalQuestion[0], 1, "finalr")}>{finalQuestion && categoryCleaner(finalQuestion[0]?.category)}</div>
             </div>
