@@ -5,6 +5,7 @@ import Start from '../components/Start'
 import {GameContext} from '../context/GameContext'
 import RoundOne from '../components/Roundone'
 import RoundTwo from '../components/RoundTwo'
+import FinalRound from '../components/FinalRound'
 
 export default function Home() {
 
@@ -19,6 +20,7 @@ export default function Home() {
      <Start />
      <RoundOne />
      <RoundTwo />
+     <FinalRound />
     
     </div>
   )

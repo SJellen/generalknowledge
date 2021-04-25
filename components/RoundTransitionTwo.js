@@ -22,9 +22,9 @@ export default function RoundTransitionTwo() {
                 <h2>{username}: ${score}</h2>
                 <h2>{player2}: ${player2Score}</h2>
                 <h2>{player3}: ${player3Score}</h2>
-                <div className={styles.roundTwoLink}><Link href="/finalround" style={{textDecoration: "none"}}><a className={styles.beginButton} style={{color: "black"}}
+                <div className={styles.roundTwoLink}><a className={styles.beginButton} style={{color: "black"}}
                 onClick={handleRoundTwoClick}
-                >Final Round</a></Link></div>
+                >Final Round</a></div>
             </div>
             
         </div>
