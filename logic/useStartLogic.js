@@ -14,15 +14,8 @@ export default function useStartLogic() {
     const {setIsStart, setUsername, setShowInput,  setPlayer2, setPlayer3, setCurrentTurn, username,isRoundOne, setIsRoundOne, setIsRoundTwo} = useContext(GameContext)
     const {roundOneCategories, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, roundTwoCategories,fetchSecondRoundQuestions, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, finalRoundCategory, fetchFinalQuestion} = useContext(QuestionContext)
     
-    const [tempUser, setTempUser] = useState('')
+    const [tempUser, setTempUser] = useState('Player 1')
 
-    // useEffect(() => {
-    //     setIsRoundTwo(false)
-    //   }, [])
-
-    
-
-    
 
     function getUniqueUsers() {
         let player2 = computerNamesList[Math.floor(Math.random() * computerNamesList.length)]
@@ -34,13 +27,7 @@ export default function useStartLogic() {
         localStorage.setItem(LOCAL_STORAGE_KEY_P3, JSON.stringify(player3))
         setPlayer2(player2)
         setPlayer3(player3)
-         
-        
     }
-
-    
-
-
 
     function handleChange(e) {
         let user = e.target.value
@@ -74,11 +61,7 @@ export default function useStartLogic() {
         setIsRoundOne(true)
         localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
         setCurrentTurn(username)
-
-        
     }
-
-
 
 
     return {handleChange, handleStartSubmit, handleStartGameClick}
