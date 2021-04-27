@@ -6,6 +6,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #435560;
+  background: #435560;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2c3e50, #435560, #585c5f);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2c3e50, #435560, #585c5f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: auto;
+}
+
+html {
+  background-color: black;
 }
 
 a {
