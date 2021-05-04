@@ -2,7 +2,7 @@
 .container {
     // background-color: silver;
     margin: 7.5rem auto 0 auto;
-    width: 90%;
+    width: 50%;
     height: 75vh;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
     justify-content: center;
 }
 
-.wordbox {
+.wordBox {
     text-shadow: 2px 2px 2px black;
     width: 100%;
     height: auto;
@@ -25,7 +25,7 @@
     color: white;
 }
 
-.wordbox2 {
+.wordBox2 {
     text-shadow: 2px 2px 2px black;
     width: 70%;
     line-height: 1.5;

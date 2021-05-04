@@ -20,7 +20,7 @@ export default function Start() {
              <div className={styles.container} style={{display: isStart ? '' : "none"}}>
                 { showInput ?
                     <div>
-                        <div className={styles.wordbox}>
+                        <div className={styles.wordBox}>
                             <h1>Welcome to General Knowledge</h1>
                         </div> 
                         <div className={styles.inputBox}>
@@ -42,7 +42,7 @@ export default function Start() {
                     : ""} 
                 {
                         !showInput ? 
-                        <div className={styles.wordbox2}>
+                        <div className={styles.wordBox2}>
                             <h1 >Welcome <span className={styles.usernames}>{username}</span>.<br></br> Your opponents today are:<br></br> <span className={styles.usernames}>{player2}</span> and <span className={styles.usernames}>{player3}</span>.<br></br>
                              Let's play!</h1>
                         <a className={styles.beginButton} type="submit" style={{color: "black"}} onClick={handleStartGameClick}>Start</a>
