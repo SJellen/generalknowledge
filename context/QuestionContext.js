@@ -4,6 +4,7 @@ import React, { useEffect, useState} from 'react'
 const LOCAL_STORAGE_KEY = 'categories'
 
 
+
 const QuestionContext = React.createContext()
 
 function QuestionContextProvider({ children }) {
@@ -158,25 +159,15 @@ function QuestionContextProvider({ children }) {
     function questionCleaner(str) {
         if (str !== undefined) {
             return str.replace(/(^\w+:|^)\/\//, '')
-            // .replace('&#039;','\'')
-            // .replace('&#039;','\'')
-            // .replace('&#039;','\'')
             .replaceAll('&#039;','\'')
             .replaceAll('&quot;','"')
-            // .replace('&quot;','"')
-            // .replace('&quot;','"')
-            // .replace('&quot;','"')
             .replaceAll('&uuml;','ü')
             .replaceAll('&eacute;','è')
-            // .replace('&eacute;','è')
             .replaceAll('&rsquo;','\'')
             .replaceAll('&pi;','𝜋 ')
             .replaceAll('&amp;','&')
             .replaceAll('&oacute;','õ')
             .replaceAll('&ldquo;','"')
-            // .replace('&ldquo;','"')
-            // .replace('&rdquo;','"')
-            // .replace('&rdquo;','"')
             .replaceAll('&hellip;','...')
             .replaceAll('&ocirc;','ô')
         }
