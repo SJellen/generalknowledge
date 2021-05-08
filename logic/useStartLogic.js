@@ -3,10 +3,10 @@ import {QuestionContext} from '../context/QuestionContext'
 import {GameContext} from '../context/GameContext'
 import {computerNamesList} from '../data/computerNames'
 
-const LOCAL_STORAGE_KEY_USER = 'username'
-const LOCAL_STORAGE_KEY_P2 = 'player2'
-const LOCAL_STORAGE_KEY_P3 = 'player3'
-const LOCAL_STORAGE_KEY_TURN = 'turn'
+const SESSION_STORAGE_KEY_USER = 'username'
+const SESSION_STORAGE_KEY_P2 = 'player2'
+const SESSION_STORAGE_KEY_P3 = 'player3'
+const SESSION_STORAGE_KEY_TURN = 'turn'
 
 
 export default function useStartLogic() {
@@ -23,8 +23,8 @@ export default function useStartLogic() {
         if (player3 === player2) {
             player3 = computerNamesList[Math.floor(Math.random() * computerNamesList.length)]
         }
-        localStorage.setItem(LOCAL_STORAGE_KEY_P2, JSON.stringify(player2))
-        localStorage.setItem(LOCAL_STORAGE_KEY_P3, JSON.stringify(player3))
+        sessionStorage.setItem(SESSION_STORAGE_KEY_P2, JSON.stringify(player2))
+        sessionStorage.setItem(SESSION_STORAGE_KEY_P3, JSON.stringify(player3))
         setPlayer2(player2)
         setPlayer3(player3)
     }
@@ -37,7 +37,7 @@ export default function useStartLogic() {
     function handleStartSubmit(e) {
         e.preventDefault()
         setUsername(tempUser)
-        localStorage.setItem(LOCAL_STORAGE_KEY_USER, JSON.stringify(tempUser))
+        sessionStorage.setItem(SESSION_STORAGE_KEY_USER, JSON.stringify(tempUser))
         setShowInput(false)
         fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
         fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
@@ -59,7 +59,7 @@ export default function useStartLogic() {
     function handleStartGameClick() {
         setIsStart(false)
         setIsRoundOne(true)
-        localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
+        sessionStorage.setItem(SESSION_STORAGE_KEY_TURN, JSON.stringify(username))
         setCurrentTurn(username)
     }
 

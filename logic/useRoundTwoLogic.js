@@ -5,9 +5,9 @@ import useRoundOneLogic from '../logic/useRoundOneLogic'
 
 
 // localStorage.clear();
-const LOCAL_STORAGE_KEY_SR = 'secondround'
-const LOCAL_STORAGE_KEY_TURN = 'turn'
-const LOCAL_STORAGE_KEY_QC = 'qcount'
+const SESSION_STORAGE_KEY_SR = 'secondround'
+// const LOCAL_STORAGE_KEY_TURN = 'turn'
+// const LOCAL_STORAGE_KEY_QC = 'qcount'
 
 
 
@@ -47,7 +47,7 @@ export default function useRoundTwoLogic() {
 
     // get second round questions from storage
     useEffect(() => {
-        const secondRoundCategories = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_SR))
+        const secondRoundCategories = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_SR))
        
         if (secondRoundCategories) {
             if (secondRoundCategories[0]?.length !== 0) {
@@ -84,7 +84,7 @@ export default function useRoundTwoLogic() {
            
         } else {
             let categoryArr2 = [secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3,secondRoundQuestion4,secondRoundQuestion5,secondRoundQuestion6]
-            localStorage.setItem(LOCAL_STORAGE_KEY_SR, JSON.stringify(categoryArr2))
+            sessionStorage.setItem(SESSION_STORAGE_KEY_SR, JSON.stringify(categoryArr2))
         }
 
     }, [])

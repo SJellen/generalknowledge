@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
 // localStorage.clear();
-const LOCAL_STORAGE_KEY_USER = 'username'
-const LOCAL_STORAGE_KEY_QC = 'qcount'
-const LOCAL_STORAGE_KEY_P2 = 'player2'
-const LOCAL_STORAGE_KEY_P3 = 'player3'
-const LOCAL_STORAGE_KEY_TURN = 'turn'
+// const LOCAL_STORAGE_KEY_USER = 'username'
+const SESSION_STORAGE_KEY_USER = 'username'
+
+const SESSION_STORAGE_KEY_QC = 'qcount'
+const SESSION_STORAGE_KEY_P2 = 'player2'
+const SESSION_STORAGE_KEY_P3 = 'player3'
+const SESSION_STORAGE_KEY_TURN = 'turn'
 
 const GameContext = React.createContext()
 
@@ -66,22 +68,22 @@ function GameContextProvider({ children }) {
     // username storage
 
     useEffect(() => {
-        const userStorage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_USER))
-        const player2Storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_P2))
-        const player3Storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_P3))
+        const userStorage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_USER))
+        const player2Storage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_P2))
+        const player3Storage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_P3))
 
         if (username) {
-            localStorage.setItem(LOCAL_STORAGE_KEY_USER, JSON.stringify(username))
+            sessionStorage.setItem(SESSION_STORAGE_KEY_USER, JSON.stringify(username))
         } else if (userStorage) {
             setUsername(userStorage)
         }
         if (player2) {
-            localStorage.setItem(LOCAL_STORAGE_KEY_P2, JSON.stringify(player2))
+            sessionStorage.setItem(SESSION_STORAGE_KEY_P2, JSON.stringify(player2))
         } else if (player2Storage) {
             setPlayer2(player2Storage)
         } 
         if (player3) {
-            localStorage.setItem(LOCAL_STORAGE_KEY_P3, JSON.stringify(player3))
+            sessionStorage.setItem(SESSION_STORAGE_KEY_P3, JSON.stringify(player3))
         } else if (player3Storage) {
             setPlayer3(player3Storage)
         }
@@ -94,7 +96,7 @@ function GameContextProvider({ children }) {
     
 
     useEffect(() => {
-        const questionCount = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_QC))
+        const questionCount = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_QC))
         if (questionCount) {
             setSelectedQuestions(questionCount)
         }
@@ -110,7 +112,7 @@ function GameContextProvider({ children }) {
 
     // get current turn
     useEffect(() => {
-        const turn = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_TURN))
+        const turn = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_TURN))
         if (currentTurn) {
             setCurrentTurn(turn)
         }
@@ -122,7 +124,7 @@ function GameContextProvider({ children }) {
 
     useEffect(() => {
         if (selectedQuestions === 30 || selectedQuestions === 60) {
-            localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
+            sessionStorage.setItem(SESSION_STORAGE_KEY_TURN, JSON.stringify(username))
             setCurrentTurn(username)
         }
 
@@ -162,7 +164,7 @@ function GameContextProvider({ children }) {
 
    
 
-   console.log(selectedQuestions)
+//    console.log(selectedQuestions)
     
 
 

@@ -4,9 +4,9 @@ import {GameContext} from '../context/GameContext'
 
 
 // localStorage.clear();
-const LOCAL_STORAGE_KEY_FR = 'firstround'
-const LOCAL_STORAGE_KEY_TURN = 'turn'
-const LOCAL_STORAGE_KEY_QC = 'qcount'
+const SESSION_STORAGE_KEY_FR = 'firstround'
+// const LOCAL_STORAGE_KEY_TURN = 'turn'
+// const LOCAL_STORAGE_KEY_QC = 'qcount'
 
 
 
@@ -42,7 +42,7 @@ export default function useRoundOneLogic() {
 
     // keep the questions in local storage
     useEffect(() => {
-        const firstRoundCategories = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_FR))
+        const firstRoundCategories = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_FR))
         if (firstRoundCategories) {
             if (firstRoundCategories[0]?.length !== 0) {
                 setFirstRoundQuestion1(firstRoundCategories[0])
@@ -76,7 +76,7 @@ export default function useRoundOneLogic() {
             }
         } else {
             let categoryArr = [firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3,firstRoundQuestion4,firstRoundQuestion5,firstRoundQuestion6]
-            localStorage.setItem(LOCAL_STORAGE_KEY_FR, JSON.stringify(categoryArr))
+            sessionStorage.setItem(SESSION_STORAGE_KEY_FR, JSON.stringify(categoryArr))
         }
     }, [])
 

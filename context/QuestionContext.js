@@ -1,7 +1,8 @@
 import React, { useEffect, useState} from 'react'
 
 // localStorage.clear();
-const LOCAL_STORAGE_KEY = 'categories'
+// const LOCAL_STORAGE_KEY = 'categories'
+const SESSION_STORAGE_KEY = 'categories'
 
 
 
@@ -15,21 +16,7 @@ function QuestionContextProvider({ children }) {
     const [roundTwoCategories, setRoundTwoCategories] = useState([])
     const [finalRoundCategory, setFinalRoundCategory] = useState([])
 
-    const [finalQuestion, setFinalQuestion] = useState(
-        // [{
-        //     "category": "Entertainment: Books",
-        //     "type": "multiple",
-        //     "difficulty": "hard",
-        //     "question": "In the Harry Potter universe, who does Draco Malfoy end up marrying?",
-        //     "correct_answer": "Astoria Greengrass",
-        //     "incorrect_answers": [
-        //       "Pansy Parkinson",
-        //       "Millicent Bulstrode",
-        //       "Hermione Granger"
-        //     ]
-        //   }]
-    )
-    // const [firstRoundQuestions, setFirstRoundQuestions] = useState()
+    const [finalQuestion, setFinalQuestion] = useState()
 
     const [firstRoundQuestion1, setFirstRoundQuestion1] = useState()
     const [firstRoundQuestion2, setFirstRoundQuestion2] = useState()
@@ -37,8 +24,6 @@ function QuestionContextProvider({ children }) {
     const [firstRoundQuestion4, setFirstRoundQuestion4] = useState()
     const [firstRoundQuestion5, setFirstRoundQuestion5] = useState()
     const [firstRoundQuestion6, setFirstRoundQuestion6] = useState()
-
-    // const [secondRoundQuestions, setSecondRoundQuestions] = useState()
 
     const [secondRoundQuestion1, setSecondRoundQuestion1] = useState()
     const [secondRoundQuestion2, setSecondRoundQuestion2] = useState()
@@ -69,14 +54,14 @@ function QuestionContextProvider({ children }) {
 
     // get categories from storage if exist
     useEffect(() => {
-        localStorage.clear()
-        const randomCategories = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+        sessionStorage.clear()
+        const randomCategories = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY))
         if (randomCategories) {
             setShuffledArr(randomCategories)
         } else if (randomCategories === null ) {
             let shuffle = getShuffledArr(categoryArr)
             setShuffledArr(shuffle)
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(shuffle))
+            sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(shuffle))
         }
     }, [])  
 
