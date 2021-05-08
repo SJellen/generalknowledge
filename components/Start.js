@@ -26,7 +26,7 @@ export default function Start() {
                         <div className={styles.inputBox}>
                             <form className={styles.form} onSubmit={handleStartSubmit}>
                                 <div className={styles.inputContainer}>
-                                    <label>Please Enter Your Name
+                                    <label>Please Enter A Player Name
                                         <input 
                                         type="text" 
                                         name="name" 
