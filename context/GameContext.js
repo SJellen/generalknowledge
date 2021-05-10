@@ -8,6 +8,9 @@ const SESSION_STORAGE_KEY_QC = 'qcount'
 const SESSION_STORAGE_KEY_P2 = 'player2'
 const SESSION_STORAGE_KEY_P3 = 'player3'
 const SESSION_STORAGE_KEY_TURN = 'turn'
+const SESSION_STORAGE_KEY_USER_SCORE = 'score'
+const SESSION_STORAGE_KEY_PLAYER2_SCORE = 'player2score'
+const SESSION_STORAGE_KEY_PLAYER3_SCORE = 'player3score'
 
 const GameContext = React.createContext()
 
@@ -23,7 +26,7 @@ function GameContextProvider({ children }) {
     const [showInput, setShowInput] = useState(true)
     const [username, setUsername] = useState('')
     const [selectedQuestions, setSelectedQuestions] = useState(0)
-    const [score, setScore] = useState(0)
+    const [score, setScore] = useState()
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
     
@@ -45,9 +48,9 @@ function GameContextProvider({ children }) {
 
 
     const [player2, setPlayer2] = useState()
-    const [player2Score, setPlayer2Score] = useState(0)
+    const [player2Score, setPlayer2Score] = useState()
     const [player3, setPlayer3] = useState()
-    const [player3Score, setPlayer3Score] = useState(0)
+    const [player3Score, setPlayer3Score] = useState()
 
 
     const [currentTurn, setCurrentTurn] = useState()
@@ -93,14 +96,45 @@ function GameContextProvider({ children }) {
    
 
     // selected question count storage
-    
-
     useEffect(() => {
         const questionCount = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_QC))
         if (questionCount) {
             setSelectedQuestions(questionCount)
         }
     }, [selectedQuestions])
+
+    // get user score to storage
+    useEffect(() => {
+        
+        const userScore = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_USER_SCORE))
+        const player2ScoreStorage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_PLAYER2_SCORE))
+        const player3ScoreStorage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_PLAYER3_SCORE))
+        if (score) sessionStorage.setItem(SESSION_STORAGE_KEY_USER_SCORE, JSON.stringify(score))
+
+        if (!score) {
+            const userScore = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_USER_SCORE))
+            setScore(userScore)
+        }
+        if (player2Score) sessionStorage.setItem(SESSION_STORAGE_KEY_PLAYER2_SCORE, JSON.stringify(player2Score))
+        if (!player2Score) {
+            const player2ScoreStorage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_PLAYER2_SCORE))
+            setPlayer2Score(player2ScoreStorage)
+        }
+        if (player3Score) sessionStorage.setItem(SESSION_STORAGE_KEY_PLAYER3_SCORE, JSON.stringify(player3Score))
+        if (!player3Score) {
+            const player3ScoreStorage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_PLAYER3_SCORE))
+            setPlayer3Score(player3ScoreStorage)
+        }
+
+
+    },[score, player2Score, player3Score])
+    // set userscore to storage
+    // useEffect(() => {
+    //     const userScore = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_USER_SCORE))
+    //     if (userScore) {
+    //         setScore(userScore)
+    //     }
+    // },[score])
 
 
     // useEffect(() => {
