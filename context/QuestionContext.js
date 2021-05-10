@@ -33,7 +33,7 @@ function QuestionContextProvider({ children }) {
     const [secondRoundQuestion6, setSecondRoundQuestion6] = useState()
 
     const [currentQuestion, setCurrentQuestion] = useState()
-    const [currentQuestionFinal, setCurrentQuestionFinal] = useState()
+    // const [currentQuestionFinal, setCurrentQuestionFinal] = useState()
 
     const [shuffledQuestionsArr, setShuffledQuestionsArr] = useState()
 
@@ -157,6 +157,8 @@ function QuestionContextProvider({ children }) {
             .replaceAll('&ocirc;','ô')
         }
     }
+
+   
 
 
 
