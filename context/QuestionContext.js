@@ -4,13 +4,10 @@ import React, { useEffect, useState} from 'react'
 // const LOCAL_STORAGE_KEY = 'categories'
 const SESSION_STORAGE_KEY = 'categories'
 
-
-
 const QuestionContext = React.createContext()
 
 function QuestionContextProvider({ children }) {
 
-   
     const [shuffledArr, setShuffledArr] = useState([])
     const [roundOneCategories, setRoundOneCategories] = useState([])
     const [roundTwoCategories, setRoundTwoCategories] = useState([])
@@ -33,16 +30,11 @@ function QuestionContextProvider({ children }) {
     const [secondRoundQuestion6, setSecondRoundQuestion6] = useState()
 
     const [currentQuestion, setCurrentQuestion] = useState()
-    // const [currentQuestionFinal, setCurrentQuestionFinal] = useState()
-
     const [shuffledQuestionsArr, setShuffledQuestionsArr] = useState()
 
-    
-    
     const categoryArr = [9,10,11,12, 13,14,15,16,17,18,19,20,21,22,23,24,25,26, 27,28,29,30,31,32]
 
     // shuffle categories
-
     const getShuffledArr = arr => {
             const newArr = arr.slice()
             for (let i = newArr.length - 1; i > 0; i--) {
@@ -101,7 +93,6 @@ function QuestionContextProvider({ children }) {
     }
 
    
-
     const fetchSecondRoundQuestions = async (cat, set) => {
         await fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&type=multiple`)
         .then(res => res.json())
@@ -113,10 +104,7 @@ function QuestionContextProvider({ children }) {
     }
 
 
-    
-
     // sort categories by difficulty
-
     function categoryFilterDifficulty(arr) {
         let easyArr = arr?.filter(x => x.difficulty === "easy")
         let mediumArr = arr?.filter(x => x.difficulty === "medium")
@@ -124,9 +112,7 @@ function QuestionContextProvider({ children }) {
         return [...easyArr, ...mediumArr, ...hardArr]
     }
     
-    
 
-    
     function categoryCleaner(str) {
         if (str !== undefined) {
             return str.replace(/(^\w+:|^)\/\//, '')
@@ -158,18 +144,6 @@ function QuestionContextProvider({ children }) {
         }
     }
 
-   
-
-
-
-    
-
-
-
-
-
-
-    
 
    
     return (
@@ -179,6 +153,5 @@ function QuestionContextProvider({ children }) {
         </QuestionContext.Provider>
     )
 }
-
 
 export { QuestionContextProvider, QuestionContext }

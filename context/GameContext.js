@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 // const LOCAL_STORAGE_KEY_USER = 'username'
 const SESSION_STORAGE_KEY_USER = 'username'
 
-const SESSION_STORAGE_KEY_QC = 'qcount'
+const SESSION_STORAGE_KEY_QC = 'question count'
 const SESSION_STORAGE_KEY_P2 = 'player2'
 const SESSION_STORAGE_KEY_P3 = 'player3'
 const SESSION_STORAGE_KEY_TURN = 'turn'
@@ -26,13 +26,10 @@ function GameContextProvider({ children }) {
     const [showInput, setShowInput] = useState(true)
     const [username, setUsername] = useState('')
     const [selectedQuestions, setSelectedQuestions] = useState(0)
-    const [score, setScore] = useState()
+    const [score, setScore] = useState(0)
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
     
-
-
-
     const START_TIME = 11
     const PASS_PLAY_TIME = 7
 
@@ -44,13 +41,10 @@ function GameContextProvider({ children }) {
     const [timeRemainingFinal, setTimeRemainingFinal]  = useState(START_TIME)
     const [clockStartFinal, setClockStartFinal] = useState(false)
 
-
-
-
     const [player2, setPlayer2] = useState()
-    const [player2Score, setPlayer2Score] = useState()
+    const [player2Score, setPlayer2Score] = useState(0)
     const [player3, setPlayer3] = useState()
-    const [player3Score, setPlayer3Score] = useState()
+    const [player3Score, setPlayer3Score] = useState(0)
 
 
     const [currentTurn, setCurrentTurn] = useState()
@@ -65,11 +59,7 @@ function GameContextProvider({ children }) {
     const [player3Wager, setPlayer3Wager] = useState()
 
 
-
-   
-
-    // username storage
-
+    // username, player2, player3 storage
     useEffect(() => {
         const userStorage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_USER))
         const player2Storage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_P2))
@@ -90,57 +80,36 @@ function GameContextProvider({ children }) {
         } else if (player3Storage) {
             setPlayer3(player3Storage)
         }
-       
     }, [username, player2, player3])
 
-   
 
-    // selected question count storage
-    useEffect(() => {
-        const questionCount = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_QC))
-        if (questionCount) {
-            setSelectedQuestions(questionCount)
-        }
-    }, [selectedQuestions])
-
-    // get user score to storage
+   // get user score to storage
     useEffect(() => {
         
         const userScore = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_USER_SCORE))
         const player2ScoreStorage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_PLAYER2_SCORE))
         const player3ScoreStorage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_PLAYER3_SCORE))
+        
         if (score) sessionStorage.setItem(SESSION_STORAGE_KEY_USER_SCORE, JSON.stringify(score))
-
-        if (!score) {
-            const userScore = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_USER_SCORE))
-            setScore(userScore)
-        }
+        if (!score) setScore(userScore)
         if (player2Score) sessionStorage.setItem(SESSION_STORAGE_KEY_PLAYER2_SCORE, JSON.stringify(player2Score))
-        if (!player2Score) {
-            const player2ScoreStorage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_PLAYER2_SCORE))
-            setPlayer2Score(player2ScoreStorage)
-        }
+        if (!player2Score) setPlayer2Score(player2ScoreStorage)
         if (player3Score) sessionStorage.setItem(SESSION_STORAGE_KEY_PLAYER3_SCORE, JSON.stringify(player3Score))
-        if (!player3Score) {
-            const player3ScoreStorage = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_PLAYER3_SCORE))
-            setPlayer3Score(player3ScoreStorage)
-        }
-
+        if (!player3Score) setPlayer3Score(player3ScoreStorage)
 
     },[score, player2Score, player3Score])
-    // set userscore to storage
-    // useEffect(() => {
-    //     const userScore = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_USER_SCORE))
-    //     if (userScore) {
-    //         setScore(userScore)
-    //     }
-    // },[score])
+
+    // selected question count storage
+    useEffect(() => {
+        const questionCount = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_QC))
+        if (selectedQuestions) sessionStorage.setItem(SESSION_STORAGE_KEY_QC, JSON.stringify(selectedQuestions))
+        if (!selectedQuestions) setSelectedQuestions(questionCount)
+    }, [selectedQuestions])
+
+    
 
 
-    // useEffect(() => {
-    //     localStorage.setItem(LOCAL_STORAGE_KEY_QC, JSON.stringify(selectedQuestions))
-        
-    // }, [selectedQuestions])
+    
 
 
 
@@ -175,7 +144,6 @@ function GameContextProvider({ children }) {
 
 
     function endGameStateReset() {
-
         setUsername()
         setScore()
         setPlayer2()
@@ -187,20 +155,13 @@ function GameContextProvider({ children }) {
         setIsRoundOne(false)
         setIsStart(true)
         setSelectedQuestions(0)
-        localStorage.clear()
+        sessionStorage.clear()
         setShowInput(true)
     }
-
 
     function handleEndClick() {
         endGameStateReset()
     }
-
-   
-
-//    console.log(selectedQuestions)
-    
-
 
     return (
         <GameContext.Provider value={{isStart, setIsStart, username, setUsername, selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost, answerResult, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, isRoundTwo, setIsRoundTwo, isRoundThree, setIsRoundThree, showInput, setShowInput, player2, setPlayer2, player3, setPlayer3, player2Score, setPlayer2Score, player3Score, setPlayer3Score, currentTurn, setCurrentTurn, showButtons, setShowButtons, player2Move, setPlayer2Move, player3Move, setPlayer3Move, userMove, setUserMove, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager, handleEndClick, passPlayTime, setPassPlayTime, passPlayStart, setPassPlayStart, PASS_PLAY_TIME, timeRemainingFinal, setTimeRemainingFinal, clockStartFinal, setClockStartFinal, isRoundOne, setIsRoundOne}}>
