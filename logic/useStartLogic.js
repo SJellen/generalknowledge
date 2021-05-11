@@ -7,11 +7,12 @@ const SESSION_STORAGE_KEY_USER = 'username'
 const SESSION_STORAGE_KEY_P2 = 'player2'
 const SESSION_STORAGE_KEY_P3 = 'player3'
 const SESSION_STORAGE_KEY_TURN = 'turn'
+const SESSION_STORAGE_KEY_IS_START = 'isStart'
 
 
 export default function useStartLogic() {
 
-    const {setIsStart, setUsername, setShowInput,  setPlayer2, setPlayer3, setCurrentTurn, username,isRoundOne, setIsRoundOne, setIsRoundTwo} = useContext(GameContext)
+    const {setIsStart, setUsername, setShowInput,  setPlayer2, setPlayer3, setCurrentTurn, username,isRoundOne, setIsRoundOne, setIsRoundTwo, isStart} = useContext(GameContext)
     const {roundOneCategories, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, roundTwoCategories,fetchSecondRoundQuestions, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, finalRoundCategory, fetchFinalQuestion} = useContext(QuestionContext)
     
     const [tempUser, setTempUser] = useState('Player 1')
@@ -57,7 +58,9 @@ export default function useStartLogic() {
 
     
     function handleStartGameClick() {
+        
         setIsStart(false)
+        sessionStorage.setItem(SESSION_STORAGE_KEY_IS_START, JSON.stringify(false))
         setIsRoundOne(true)
         sessionStorage.setItem(SESSION_STORAGE_KEY_TURN, JSON.stringify(username))
         setCurrentTurn(username)
