@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html >
        <Head>
-        <meta name="description" content="General Knowlodge" />
+        <meta name="description" content="General Knowledge" />
        </Head>
         <body>
           <Main />
