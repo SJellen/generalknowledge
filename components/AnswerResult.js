@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react'
 import {GameContext} from '../context/GameContext'
 import styles from '../styles/AnswerResult.module.scss'
 
-
 export default function AnswerResult() {
 
     const {answerResult,selectedQuestions} = useContext(GameContext)
