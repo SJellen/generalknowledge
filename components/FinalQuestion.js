@@ -1,17 +1,14 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import {GameContext} from '../context/GameContext'
 import {QuestionContext} from '../context/QuestionContext'
 import styles from '../styles/FinalQuestion.module.scss'
-import Link from 'next/link'
 import useFinalQuestionLogic from '../logic/useFinalQuestionLogic'
-import useFinalRoundTransitionLogic from '../logic/useFinalRoundTransitionLogic'
 
 
 export default function FinalQuestion() {
      
     const {selectedQuestions, timeRemainingFinal } = useContext(GameContext)
     const {finalQuestion, questionCleaner, shuffledQuestionsArr, passPlayTime} = useContext(QuestionContext)
-
 
     const {handleClick} = useFinalQuestionLogic()
 
