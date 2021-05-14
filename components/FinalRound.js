@@ -1,18 +1,13 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {QuestionContext} from '../context/QuestionContext'
 import {GameContext} from '../context/GameContext'
-import Link from 'next/link'
-import styles from '../styles/FinalRound.module.scss'
 
-// localStorage.clear();
-const LOCAL_STORAGE_KEY_FR = 'finalround'
+import styles from '../styles/FinalRound.module.scss'
 
 export default function FinalRound() {
 
-    const {finalQuestion, categoryCleaner, setCurrentQuestion, currentQuestion, setShuffledQuestionsArr, getShuffledArr} = useContext(QuestionContext)
-    const {selectedQuestions, cost, setCost, setClockStart, setIsRoundTwo, setSelectedQuestions, isRoundThree} = useContext(GameContext)
-
-    
+    const {finalQuestion, categoryCleaner, currentQuestion, setShuffledQuestionsArr, getShuffledArr} = useContext(QuestionContext)
+    const {selectedQuestions,  setSelectedQuestions, isRoundThree} = useContext(GameContext)
 
     useEffect(() => {
         const questionArr = finalQuestion && [...finalQuestion[0].incorrect_answers, finalQuestion[0].correct_answer]
@@ -24,16 +19,7 @@ export default function FinalRound() {
             setSelectedQuestions(prevState => prevState + 1)
         }, 2500)
         }
-        
-        
-
     }, [finalQuestion])
-
-
-
-   
-
-
 
     return (
         <div className={styles.container}style={{display: isRoundThree && selectedQuestions === 60 || isRoundThree && selectedQuestions === 62  ? "block" : "none", pointerEvents: currentQuestion ? "none": ''}}>
