@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import {GameContext} from '../context/GameContext'
 import styles from '../styles/AnswerResult.module.scss'
 

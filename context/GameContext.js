@@ -67,19 +67,19 @@ function GameContextProvider({ children }) {
 
 
     function endGameStateReset() {
-        setUsername()
-        setScore()
-        setPlayer2()
-        setPlayer2Score()
-        setPlayer3()
-        setPlayer3Score()
-        setIsRoundOne(false)
-        setIsRoundTwo(false)
-        setIsRoundOne(false)
-        setIsStart(true)
-        setSelectedQuestions(0)
-        // sessionStorage.clear()
-        setShowInput(true)
+        setUsername.reset()
+        setScore.reset()
+        setPlayer2.reset()
+        setPlayer2Score.reset()
+        setPlayer3.reset()
+        setPlayer3Score.reset()
+        setIsRoundOne.reset()
+        setIsRoundTwo.reset()
+        setIsRoundOne.reset()
+        setIsStart.reset()
+        setSelectedQuestions.reset()
+        
+        setShowInput(false)
     }
 
     function handleEndClick() {

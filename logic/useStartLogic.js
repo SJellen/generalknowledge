@@ -30,7 +30,6 @@ export default function useStartLogic() {
     function handleStartSubmit(e) {
         e.preventDefault()
         setUsername(tempUser)
-        // sessionStorage.setItem(SESSION_STORAGE_KEY_USER, JSON.stringify(tempUser))
         setShowInput(false)
         fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
         fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
