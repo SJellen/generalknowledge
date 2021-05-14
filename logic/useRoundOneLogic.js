@@ -3,12 +3,6 @@ import {QuestionContext} from '../context/QuestionContext'
 import {GameContext} from '../context/GameContext'
 
 
-// localStorage.clear();
-const SESSION_STORAGE_KEY_FR = 'firstround'
-// const LOCAL_STORAGE_KEY_TURN = 'turn'
-// const LOCAL_STORAGE_KEY_QC = 'qcount'
-
-
 
 export default function useRoundOneLogic() {
 
@@ -39,46 +33,6 @@ export default function useRoundOneLogic() {
         setShuffledQuestionsArr(shuffledQuestions)
     }, [currentQuestion])
 
-
-    // keep the questions in local storage
-    useEffect(() => {
-        const firstRoundCategories = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY_FR))
-        if (firstRoundCategories) {
-            if (firstRoundCategories[0]?.length !== 0) {
-                setFirstRoundQuestion1(firstRoundCategories[0])
-            } else {
-                fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
-            }
-            if (firstRoundCategories[1]?.length !== 0) {
-                setFirstRoundQuestion2(firstRoundCategories[1])
-            } else {
-                fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
-            }
-            if (firstRoundCategories[2]?.length !== 0) {
-                setFirstRoundQuestion3(firstRoundCategories[2])
-            } else {
-                fetchFirstRoundQuestions(roundOneCategories[2], setFirstRoundQuestion3)
-            }
-            if (firstRoundCategories[3]?.length !== 0) {
-                setFirstRoundQuestion4(firstRoundCategories[3])
-            } else {
-                fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
-            }
-            if (firstRoundCategories[4]?.length !== 0) {
-                setFirstRoundQuestion5(firstRoundCategories[4])
-            } else {
-                fetchFirstRoundQuestions(roundOneCategories[4], setFirstRoundQuestion5) 
-            }
-            if (firstRoundCategories[4]?.length !== 0) {
-                 setFirstRoundQuestion6(firstRoundCategories[5])
-            } else {
-                fetchFirstRoundQuestions(roundOneCategories[5], setFirstRoundQuestion6)
-            }
-        } else {
-            let categoryArr = [firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3,firstRoundQuestion4,firstRoundQuestion5,firstRoundQuestion6]
-            sessionStorage.setItem(SESSION_STORAGE_KEY_FR, JSON.stringify(categoryArr))
-        }
-    }, [])
 
 
     // get a random but not selected question by computer
@@ -120,26 +74,6 @@ export default function useRoundOneLogic() {
         }
         
     }, [currentTurn, currentQuestion])
-
-    // useEffect(() => {
-    //     if (selectedQuestions === 30 || selectedQuestions === 60) {
-    //         localStorage.setItem(LOCAL_STORAGE_KEY_TURN, JSON.stringify(username))
-    //         setCurrentTurn(username)
-    //     }
-
-    // },[selectedQuestions])
-
-    // useEffect(() => {
-    //     const questionCount = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_QC))
-    //     if (questionCount) {
-    //         setSelectedQuestions(questionCount)
-    //     }
-    // }, [selectedQuestions])
-
-
-   
-
-  
 
 
     return {categoryArr,handleTileClick}

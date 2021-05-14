@@ -1,7 +1,6 @@
 import React, {useContext, useEffect} from 'react'
 import {GameContext} from '../context/GameContext'
 import styles from '../styles/Start.module.scss'
-import Link from 'next/link'
 import useStartLogic from '../logic/useStartLogic'
 
 
@@ -11,7 +10,7 @@ export default function Start() {
     const {username, showInput, player2, player3, isStart, isRoundOne, isRoundTwo, isRoundThree} = useContext(GameContext)
     
     return (
-             <div className={styles.container} style={{display: isStart && !isRoundOne && !isRoundTwo && !isRoundThree ? '' : "none"}}>
+             <div className={styles.container} style={{display: isStart && !isRoundOne || isStart && !isRoundTwo || isStart && !isRoundThree ? '' : "none"}}>
                 { showInput ?
                     <div>
                         <div className={styles.wordBox}>

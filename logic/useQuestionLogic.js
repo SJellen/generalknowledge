@@ -4,7 +4,7 @@ import {GameContext} from '../context/GameContext'
 
 
 // const LOCAL_STORAGE_KEY_QC = 'qcount'
-const SESSION_STORAGE_KEY_TURN = 'turn'
+// const SESSION_STORAGE_KEY_TURN = 'turn'
 
 export default function useQuestionLogic() {
 
@@ -18,7 +18,7 @@ export default function useQuestionLogic() {
     // setturn to localstorage 
     
     function turnStorageSetter(player) {
-        sessionStorage.setItem(SESSION_STORAGE_KEY_TURN, JSON.stringify(player))
+        // sessionStorage.setItem(SESSION_STORAGE_KEY_TURN, JSON.stringify(player))
         setCurrentTurn(player)
     }
 

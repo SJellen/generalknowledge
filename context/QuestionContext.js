@@ -1,33 +1,31 @@
 import React, { useEffect, useState} from 'react'
+import useLocalStorageState from 'use-local-storage-state'
 
-// localStorage.clear();
-// const LOCAL_STORAGE_KEY = 'categories'
-const SESSION_STORAGE_KEY = 'categories'
 
 const QuestionContext = React.createContext()
 
 function QuestionContextProvider({ children }) {
 
-    const [shuffledArr, setShuffledArr] = useState([])
+    const [shuffledArr, setShuffledArr] = useLocalStorageState('categories',[])
     const [roundOneCategories, setRoundOneCategories] = useState([])
     const [roundTwoCategories, setRoundTwoCategories] = useState([])
     const [finalRoundCategory, setFinalRoundCategory] = useState([])
 
     const [finalQuestion, setFinalQuestion] = useState()
 
-    const [firstRoundQuestion1, setFirstRoundQuestion1] = useState()
-    const [firstRoundQuestion2, setFirstRoundQuestion2] = useState()
-    const [firstRoundQuestion3, setFirstRoundQuestion3] = useState()
-    const [firstRoundQuestion4, setFirstRoundQuestion4] = useState()
-    const [firstRoundQuestion5, setFirstRoundQuestion5] = useState()
-    const [firstRoundQuestion6, setFirstRoundQuestion6] = useState()
+    const [firstRoundQuestion1, setFirstRoundQuestion1] = useLocalStorageState('firstRoundQuestion1',)
+    const [firstRoundQuestion2, setFirstRoundQuestion2] = useLocalStorageState('firstRoundQuestion2',)
+    const [firstRoundQuestion3, setFirstRoundQuestion3] = useLocalStorageState('firstRoundQuestion3',)
+    const [firstRoundQuestion4, setFirstRoundQuestion4] = useLocalStorageState('firstRoundQuestion4',)
+    const [firstRoundQuestion5, setFirstRoundQuestion5] = useLocalStorageState('firstRoundQuestion5',)
+    const [firstRoundQuestion6, setFirstRoundQuestion6] = useLocalStorageState('firstRoundQuestion6',)
 
-    const [secondRoundQuestion1, setSecondRoundQuestion1] = useState()
-    const [secondRoundQuestion2, setSecondRoundQuestion2] = useState()
-    const [secondRoundQuestion3, setSecondRoundQuestion3] = useState()
-    const [secondRoundQuestion4, setSecondRoundQuestion4] = useState()
-    const [secondRoundQuestion5, setSecondRoundQuestion5] = useState()
-    const [secondRoundQuestion6, setSecondRoundQuestion6] = useState()
+    const [secondRoundQuestion1, setSecondRoundQuestion1] = useLocalStorageState('secondRoundQuestion1',)
+    const [secondRoundQuestion2, setSecondRoundQuestion2] = useLocalStorageState('secondRoundQuestion2',)
+    const [secondRoundQuestion3, setSecondRoundQuestion3] = useLocalStorageState('secondRoundQuestion3',)
+    const [secondRoundQuestion4, setSecondRoundQuestion4] = useLocalStorageState('secondRoundQuestion4',)
+    const [secondRoundQuestion5, setSecondRoundQuestion5] = useLocalStorageState('secondRoundQuestion5',)
+    const [secondRoundQuestion6, setSecondRoundQuestion6] = useLocalStorageState('secondRoundQuestion6',)
 
     const [currentQuestion, setCurrentQuestion] = useState()
     const [shuffledQuestionsArr, setShuffledQuestionsArr] = useState()
@@ -44,19 +42,14 @@ function QuestionContextProvider({ children }) {
             return newArr
         }
 
-    // get categories from storage if exist
-    useEffect(() => {
-        sessionStorage.clear()
-        const randomCategories = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY))
-        if (randomCategories) {
-            setShuffledArr(randomCategories)
-        } else if (randomCategories === null ) {
-            let shuffle = getShuffledArr(categoryArr)
-            setShuffledArr(shuffle)
-            sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(shuffle))
-        }
-    }, [])  
+  
 
+    useEffect(() => {
+        let shuffle = getShuffledArr(categoryArr)
+            setShuffledArr(shuffle)
+    }, [])
+    
+  
     // get categories for each round
     function categoryCreator() {
         let tempArr = shuffledArr
