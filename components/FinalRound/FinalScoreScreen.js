@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
-import styles from '../styles/FinalScoreScreen.module.scss'
-import {GameContext} from '../context/GameContext'
+import styles from '../../styles//FinalScoreScreen.module.scss'
+import {GameContext} from '../../context/GameContext'
 
 
 

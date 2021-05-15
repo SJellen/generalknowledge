@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {GameContext} from '../context/GameContext'
-import styles from '../styles/FinalRoundTransition.module.scss'
+import {GameContext} from '../../context/GameContext'
+import styles from '../../styles/FinalRoundTransition.module.scss'
 import Link from 'next/link'
-import useFinalRoundTransitionLogic from '../logic/useFinalRoundTransitionLogic'
+import useFinalRoundTransitionLogic from '../../logic/useFinalRoundTransitionLogic'
 
 export default function FinalRoundTransition() {
 

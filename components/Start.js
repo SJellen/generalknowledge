@@ -10,7 +10,7 @@ export default function Start() {
     const {username, showInput, player2, player3, isStart, isRoundOne, isRoundTwo, isRoundThree, selectedQuestions} = useContext(GameContext)
     
     return (
-             <div className={styles.container} style={{display: isStart && selectedQuestions === 0 ? '' : "none"}}>
+             <div className={styles.container} style={{display: isStart && !isRoundOne && !isRoundTwo && !isRoundThree ? '' : "none"}}>
                 { showInput ?
                     <div>
                         <div className={styles.wordBox}>

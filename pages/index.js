@@ -1,8 +1,8 @@
 import React from 'react'
 import Start from '../components/Start'
-import RoundOne from '../components/Roundone'
-import RoundTwo from '../components/RoundTwo'
-import FinalRound from '../components/FinalRound'
+import RoundOne from '../components/Roundone/Roundone'
+import RoundTwo from '../components/RoundTwo/RoundTwo'
+import FinalRound from '../components/FinalRound/FinalRound'
 
 export default function Home() {
 

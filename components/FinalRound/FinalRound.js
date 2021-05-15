@@ -1,8 +1,8 @@
 import React, {useContext, useEffect} from 'react'
-import {QuestionContext} from '../context/QuestionContext'
-import {GameContext} from '../context/GameContext'
+import {QuestionContext} from '../../context/QuestionContext'
+import {GameContext} from '../../context/GameContext'
 
-import styles from '../styles/FinalRound.module.scss'
+import styles from '../../styles/FinalRound.module.scss'
 
 export default function FinalRound() {
 

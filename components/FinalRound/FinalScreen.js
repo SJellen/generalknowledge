@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react'
-import styles from '../styles/FinalScreen.module.scss'
-import {GameContext} from '../context/GameContext'
-import useFinalRoundTransitionLogic from '../logic/useFinalRoundTransitionLogic'
+import styles from '../../styles/FinalScreen.module.scss'
+import {GameContext} from '../../context/GameContext'
+import useFinalRoundTransitionLogic from '../../logic/useFinalRoundTransitionLogic'
 import Link from 'next/link'
 
 export default function FinalScreen() {

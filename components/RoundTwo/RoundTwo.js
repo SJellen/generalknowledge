@@ -1,9 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {QuestionContext} from '../context/QuestionContext'
-import {GameContext} from '../context/GameContext'
-import useRoundTwoLogic from '../logic/useRoundTwoLogic'
+import {QuestionContext} from '../../context/QuestionContext'
+import {GameContext} from '../../context/GameContext'
+import useRoundTwoLogic from '../../logic/useRoundTwoLogic'
 // import useRoundOneLogic from '../logic/useRoundOneLogic'
-import styles from '../styles/RoundTwo.module.scss'
+import styles from '../../styles/RoundTwo.module.scss'
 
 
 

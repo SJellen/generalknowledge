@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {GameContext} from '../context/GameContext'
-import styles from '../styles/RoundTransition.module.scss'
+import {GameContext} from '../../context/GameContext'
+import styles from '../../styles/RoundTransition.module.scss'
 import Link from 'next/link'
 
 export default function RoundTransitionTwo() {

@@ -1,8 +1,8 @@
 import React, {useContext} from 'react'
-import {GameContext} from '../context/GameContext'
-import {QuestionContext} from '../context/QuestionContext'
-import styles from '../styles/FinalQuestion.module.scss'
-import useFinalQuestionLogic from '../logic/useFinalQuestionLogic'
+import {GameContext} from '../../context/GameContext'
+import {QuestionContext} from '../../context/QuestionContext'
+import styles from '../../styles/FinalQuestion.module.scss'
+import useFinalQuestionLogic from '../../logic/useFinalQuestionLogic'
 
 
 export default function FinalQuestion() {

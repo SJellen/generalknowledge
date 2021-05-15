@@ -1,10 +1,8 @@
-import React, {useContext, useEffect, useImperativeHandle, useState} from 'react'
-import {QuestionContext} from '../context/QuestionContext'
-import {GameContext} from '../context/GameContext'
-import Link from 'next/link'
-import styles from '../styles/RoundOne.module.scss'
-import useRoundOneLogic from '../logic/useRoundOneLogic'
-
+import React, {useContext, useEffect} from 'react'
+import {QuestionContext} from '../../context/QuestionContext'
+import {GameContext} from '../../context/GameContext'
+import styles from '../../styles/RoundOne.module.scss'
+import useRoundOneLogic from '../../logic/useRoundOneLogic'
 
 export default function RoundOne() {
 
@@ -15,10 +13,6 @@ export default function RoundOne() {
 
     useEffect(() => {
     }, [categoryArr])
-
-
-
-
 
     const categories = categoryArr && categoryArr.map((cat, index) => (
         <div key={index}>
@@ -55,9 +49,6 @@ export default function RoundOne() {
             </div>
         </div>
     ))
-
-    
-    
 
     return (
 
