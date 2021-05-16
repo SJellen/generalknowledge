@@ -65,6 +65,20 @@ function GameContextProvider({ children }) {
 
     }, [score, selectedQuestions])
 
+    useEffect(() => {
+        setUsername.reset()
+        setScore.reset()
+        setPlayer2.reset()
+        setPlayer2Score.reset()
+        setPlayer3.reset()
+        setPlayer3Score.reset()
+        setIsRoundOne.reset()
+        setIsRoundTwo.reset()
+        setIsRoundOne.reset()
+        setIsStart.reset()
+        setSelectedQuestions.reset()
+    }, [])
+
 
     function endGameStateReset() {
         setUsername.reset()

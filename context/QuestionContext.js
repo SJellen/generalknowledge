@@ -123,17 +123,17 @@ function QuestionContextProvider({ children }) {
     function questionCleaner(str) {
         if (str !== undefined) {
             return str.replace(/(^\w+:|^)\/\//, '')
-            // .replaceAll('&#039;','\'')
-            // .replaceAll('&quot;','"')
-            // .replaceAll('&uuml;','ü')
-            // .replaceAll('&eacute;','è')
-            // .replaceAll('&rsquo;','\'')
-            // .replaceAll('&pi;','𝜋 ')
-            // .replaceAll('&amp;','&')
-            // .replaceAll('&oacute;','õ')
-            // .replaceAll('&ldquo;','"')
-            // .replaceAll('&hellip;','...')
-            // .replaceAll('&ocirc;','ô')
+            .replaceAll('&#039;','\'')
+            .replaceAll('&quot;','"')
+            .replaceAll('&uuml;','ü')
+            .replaceAll('&eacute;','è')
+            .replaceAll('&rsquo;','\'')
+            .replaceAll('&pi;','𝜋 ')
+            .replaceAll('&amp;','&')
+            .replaceAll('&oacute;','õ')
+            .replaceAll('&ldquo;','"')
+            .replaceAll('&hellip;','...')
+            .replaceAll('&ocirc;','ô')
         }
     }
 
