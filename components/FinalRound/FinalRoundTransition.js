@@ -1,19 +1,14 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import {GameContext} from '../../context/GameContext'
 import styles from '../../styles/FinalRoundTransition.module.scss'
-import Link from 'next/link'
 import useFinalRoundTransitionLogic from '../../logic/useFinalRoundTransitionLogic'
 
 export default function FinalRoundTransition() {
 
-    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager} = useContext(GameContext)
+    const {selectedQuestions, score, player2Score, player3Score, username,player2, player3, userWager, player2Wager, player3Wager} = useContext(GameContext)
 
     const {handleChange, handleWagerSubmit, showFinalLink, tempWager, handleStartClick} = useFinalRoundTransitionLogic()
     
-
-
-
-
 
     return (
         <div  style={{display: selectedQuestions === 61 ? "block" : "none"}} className={styles.container}>
@@ -33,7 +28,6 @@ export default function FinalRoundTransition() {
                        <input type="range" id="wager" name="wager" min="1"  max={score} onChange={(e) => handleChange(e)}/>
                        <input type="submit" className={styles.submitButton}></input>
                    </form>
-
                    }
                   
                 </div>
@@ -51,13 +45,9 @@ export default function FinalRoundTransition() {
                 
                { showFinalLink ? 
                 <div className={styles.roundTwoLink}><a className={styles.beginButton} style={{color: "black"}} onClick={handleStartClick}
-                // onClick={handleRoundTwoClick}
                 >Start Final</a></div> : ""
-               }
-                
-            </div>
-            
+               }  
+            </div> 
         </div>
-    )
-    
+    )  
 }

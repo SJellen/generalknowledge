@@ -5,12 +5,15 @@ import Link from 'next/link'
 
 export default function RoundTransitionTwo() {
 
-    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree} = useContext(GameContext)
+    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, setSelectedQuestions} = useContext(GameContext)
 
 
     function handleRoundTwoClick() {
         setIsRoundTwo(false)
         setIsRoundThree(true)
+        setTimeout(() => {
+            setSelectedQuestions(prevState => prevState + 1)
+        }, 3000)
     }    
 
 
