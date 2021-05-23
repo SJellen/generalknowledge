@@ -4,18 +4,12 @@ import {GameContext} from '../context/GameContext'
 import styles from '../styles/Question.module.scss'
 import useQuestionLogic from '../logic/useQuestionLogic'
 
-
 export default function Question() {
 
     const {currentQuestion, questionCleaner, shuffledQuestionsArr} = useContext(QuestionContext)
     const {timeRemaining, username, currentTurn, showButtons, player2Move, setPlayer2Move, player3Move, setPlayer3Move, player2, player3, userMove, passPlayTime} = useContext(GameContext)
-
     const {handleClick, handlePassClick, handlePlayClick} = useQuestionLogic()
 
-    
-
-    
-    
     return (
         <div>
              { currentQuestion  ?
@@ -49,8 +43,5 @@ export default function Question() {
         </div> : ''
         }
         </div>
-       
-       
-    )
-    
+    ) 
 }

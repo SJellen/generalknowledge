@@ -1,18 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import styles from '../styles/Header.module.scss'
 import {GameContext} from '../context/GameContext'
-
-
 
 export default function Header() {
     
     const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, isStart} = useContext(GameContext)
-
-
-   
-       
-    
-
 
     return (
         <div className={styles.container} style={{display: selectedQuestions >= 63 ? "none" : ''}}>
@@ -68,9 +60,7 @@ export default function Header() {
                 </div>
             </div>
             
-            
             <span className={styles.title} style={{display: currentTurn !== undefined ? 'none' : ''}}>General Knowledge</span>
         </div>
-    )
-    
+    )  
 }

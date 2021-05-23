@@ -1,8 +1,7 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import {GameContext} from '../context/GameContext'
 import styles from '../styles/Start.module.scss'
 import useStartLogic from '../logic/useStartLogic'
-
 
 export default function Start() {
 

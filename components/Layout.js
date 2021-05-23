@@ -17,16 +17,12 @@ export default function Layout({children}) {
           <title>General Knowledge</title>
           <link rel="icon" href="/favicon.ico" />
           <meta name="Description" content="A general knowledge trivia game." />
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-           
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" /> 
         </Head>
         <Header />
-       
-        
-
-        <main>
-          {children}
-        </main>
+          <main>
+            {children}
+          </main>
         <AnswerResult />
         <Question />
         <RoundTransitionOne />
