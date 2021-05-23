@@ -23,6 +23,5 @@ export default function RoundTransitionOne() {
                 >Round Two</a></div>
             </div> 
         </div>
-    )
-    
+    )  
 }

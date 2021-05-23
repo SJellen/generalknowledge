@@ -1,9 +1,7 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import {QuestionContext} from '../../context/QuestionContext'
 import {GameContext} from '../../context/GameContext'
 import styles from '../../styles/RoundOne.module.scss'
-import useRoundOneLogic from '../../logic/useRoundOneLogic'
-
 import RoundOneBoard from '../../components/RoundOne/RoundOneBoard'
 
 export default function RoundOne() {

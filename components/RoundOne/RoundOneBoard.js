@@ -4,13 +4,12 @@ import {QuestionContext} from '../../context/QuestionContext'
 import styles from '../../styles/RoundOne.module.scss'
 import useRoundOneLogic from '../../logic/useRoundOneLogic'
 
-
 export default function RoundOneBoard() {
 
     const {categoryArr, handleTileClick} = useRoundOneLogic()
 
-    const {categoryCleaner, currentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, currentTurn, username, cost, isRoundOne} = useContext(GameContext)
+    const {categoryCleaner} = useContext(QuestionContext)
+    const {currentTurn, username} = useContext(GameContext)
     const categories = categoryArr && categoryArr.map((cat, index) => (
         <div key={index}>
             <div className={styles.gridTitle}>{cat && categoryCleaner(cat[0]?.category)}</div>
