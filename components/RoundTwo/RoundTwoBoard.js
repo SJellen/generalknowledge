@@ -4,13 +4,12 @@ import {GameContext} from '../../context/GameContext'
 import useRoundTwoLogic from '../../logic/useRoundTwoLogic'
 import styles from '../../styles/RoundTwo.module.scss'
 
-
 export default function RoundTwoBoard() {
 
     const {handleTileClick2, categoryArr2} = useRoundTwoLogic()
 
-    const {categoryCleaner, currentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, currentTurn, username, setCurrentTurn, isRoundTwo} = useContext(GameContext)
+    const {categoryCleaner} = useContext(QuestionContext)
+    const {currentTurn, username} = useContext(GameContext)
 
      const categories = categoryArr2 && categoryArr2.map((cat, index) => (
         <div key={index} >
@@ -48,6 +47,5 @@ export default function RoundTwoBoard() {
         </div>
     ))
    
-
     return {categories}
 }

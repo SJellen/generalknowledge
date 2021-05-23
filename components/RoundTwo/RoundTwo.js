@@ -1,10 +1,8 @@
 import React, {useContext} from 'react'
 import {QuestionContext} from '../../context/QuestionContext'
 import {GameContext} from '../../context/GameContext'
-import useRoundTwoLogic from '../../logic/useRoundTwoLogic'
 import styles from '../../styles/RoundTwo.module.scss'
 import RoundTwoBoard from '../RoundTwo/RoundTwoBoard'
-
 
 export default function RoundTwo() {
 
@@ -18,6 +16,5 @@ export default function RoundTwo() {
             {categories} 
         </div>
     </div>
-    )
-    
+    )  
 }
