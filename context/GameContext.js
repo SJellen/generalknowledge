@@ -35,7 +35,6 @@ function GameContextProvider({ children }) {
     const [player3, setPlayer3] = useLocalStorageState('player3', )
     const [player3Score, setPlayer3Score] = useLocalStorageState('player3score', 0)
 
-
     const [currentTurn, setCurrentTurn] = useLocalStorageState('turn',)
     const [showButtons, setShowButtons] = useState(true)
 

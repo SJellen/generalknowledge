@@ -141,13 +141,12 @@ function QuestionContextProvider({ children }) {
         }
     }
 
+
+    // final question set and cleanup
     useEffect(() => {
-        
         const questionArr = finalQuestion && [...finalQuestion[0]?.incorrect_answers, finalQuestion[0].correct_answer]
         const shuffledQuestions = questionArr && getShuffledArr(questionArr)
         setFinalQuestionShuffledArr(shuffledQuestions)  
-   
-    
 }, [finalQuestion])
 
 
