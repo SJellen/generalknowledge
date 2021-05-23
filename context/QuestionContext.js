@@ -30,6 +30,8 @@ function QuestionContextProvider({ children }) {
     const [currentQuestion, setCurrentQuestion] = useState()
     const [shuffledQuestionsArr, setShuffledQuestionsArr] = useState()
 
+    const [finalQuestionShuffledArr, setFinalQuestionShuffledArr] = useState()
+
     const categoryArr = [9,10,11,12, 13,14,15,16,17,18,19,20,21,22,23,24,25,26, 27,28,29,30,31,32]
 
     // shuffle categories
@@ -63,7 +65,9 @@ function QuestionContextProvider({ children }) {
 
     useEffect(() => {
             categoryCreator()
-    }, [shuffledArr])     
+    }, [shuffledArr])  
+    
+    
 
      
     const fetchFinalQuestion = async (cat) => {
@@ -137,11 +141,20 @@ function QuestionContextProvider({ children }) {
         }
     }
 
+    useEffect(() => {
+        
+        const questionArr = finalQuestion && [...finalQuestion[0]?.incorrect_answers, finalQuestion[0].correct_answer]
+        const shuffledQuestions = questionArr && getShuffledArr(questionArr)
+        setFinalQuestionShuffledArr(shuffledQuestions)  
+   
+    
+}, [finalQuestion])
+
 
    
     return (
         <QuestionContext.Provider value={{firstRoundQuestion1, firstRoundQuestion2, firstRoundQuestion3, firstRoundQuestion4, firstRoundQuestion5, firstRoundQuestion6, categoryCleaner, currentQuestion, setCurrentQuestion,setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, getShuffledArr, roundOneCategories,
-        fetchFirstRoundQuestions, questionCleaner, categoryFilterDifficulty, shuffledQuestionsArr, setShuffledQuestionsArr, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, roundTwoCategories, fetchSecondRoundQuestions, finalRoundCategory, fetchFinalQuestion, secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6, finalQuestion}}>
+        fetchFirstRoundQuestions, questionCleaner, categoryFilterDifficulty, shuffledQuestionsArr, setShuffledQuestionsArr, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, roundTwoCategories, fetchSecondRoundQuestions, finalRoundCategory, fetchFinalQuestion, secondRoundQuestion1, secondRoundQuestion2, secondRoundQuestion3, secondRoundQuestion4, secondRoundQuestion5, secondRoundQuestion6, finalQuestion, finalQuestionShuffledArr, setFinalQuestionShuffledArr}}>
             { children }
         </QuestionContext.Provider>
     )

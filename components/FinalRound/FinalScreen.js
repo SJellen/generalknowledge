@@ -1,12 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import styles from '../../styles/FinalScreen.module.scss'
 import {GameContext} from '../../context/GameContext'
 import useFinalRoundTransitionLogic from '../../logic/useFinalRoundTransitionLogic'
-import Link from 'next/link'
 
 export default function FinalScreen() {
 
-    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, setUserMove, setPlayer2Move, setPlayer3Move, handleEndClick} = useContext(GameContext)
+    const {username, selectedQuestions, handleEndClick} = useContext(GameContext)
 
     const {firstPlace, secondPlace, thirdPlace} = useFinalRoundTransitionLogic()
 
@@ -14,14 +13,12 @@ export default function FinalScreen() {
     const finalStatementWin = "Congrats, you won!"
     const finalStatementTie = "Well, you've tied for first."
 
-
     return (
         <div  style={{display: selectedQuestions === 64 ? "" : 'none'}} className={styles.container}>
                      <div className={styles.textContainer}>
                      <h1 className={styles.title}>Final Score</h1>
                      <div className={styles.bidBoxTop}>
                         <h2>{firstPlace?.playerName === username && firstPlace?.score !== secondPlace?.score ? finalStatementWin : firstPlace?.player === username && firstPlace?.score === secondPlace?.score ? finalStatementTie : finalStatementLose}</h2>
-                        
                      </div>
                      <div className={styles.bidBox} style={{color: "gold"}}>
                         <h2>{firstPlace?.score === secondPlace?.score ? "tie" : '1st'}</h2>
@@ -38,12 +35,9 @@ export default function FinalScreen() {
                         <h2>{thirdPlace?.playerName}</h2>
                         <h2>{thirdPlace?.score}</h2>
                      </div> 
-
-                    <div className={styles.endLink}><a className={styles.endButton} style={{color: "black"}} onClick={handleEndClick}
-                >End</a></div>  
+                    <div className={styles.endLink}><a className={styles.endButton} style={{color: "black"}} onClick={handleEndClick}>End</a>
+                    </div>  
                 </div>
-                
-               
         </div>
     )
 }

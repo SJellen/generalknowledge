@@ -6,10 +6,8 @@ import useFinalRoundTransitionLogic from '../../logic/useFinalRoundTransitionLog
 export default function FinalRoundTransition() {
 
     const {selectedQuestions, score, player2Score, player3Score, username,player2, player3, userWager, player2Wager, player3Wager} = useContext(GameContext)
-
     const {handleChange, handleWagerSubmit, showFinalLink, tempWager, handleStartClick} = useFinalRoundTransitionLogic()
     
-
     return (
         <div  style={{display: selectedQuestions === 61 ? "block" : "none"}} className={styles.container}>
             <div className={styles.textContainer}>
@@ -28,8 +26,7 @@ export default function FinalRoundTransition() {
                        <input type="range" id="wager" name="wager" min="1"  max={score} onChange={(e) => handleChange(e)}/>
                        <input type="submit" className={styles.submitButton}></input>
                    </form>
-                   }
-                  
+                   }   
                 </div>
                 <div className={styles.bidBox}>
                     <h2>{player2}</h2>
@@ -41,8 +38,6 @@ export default function FinalRoundTransition() {
                      <h2>${player3Score}</h2>
                      <h2>{player3Wager ? `$${player3Wager}` : "Bidding..."}</h2>
                 </div>
-                
-                
                { showFinalLink ? 
                 <div className={styles.roundTwoLink}><a className={styles.beginButton} style={{color: "black"}} onClick={handleStartClick}
                 >Start Final</a></div> : ""

@@ -1,13 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import styles from '../../styles//FinalScoreScreen.module.scss'
 import {GameContext} from '../../context/GameContext'
-
-
 
 export default function FinalScoreScreen() {
     
     const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, setUserMove, setPlayer2Move, setPlayer3Move} = useContext(GameContext)
-
 
     return (
         <div className={styles.container} style={{display: selectedQuestions === 63 ? "" : 'none'}}>
@@ -24,7 +21,6 @@ export default function FinalScoreScreen() {
                     {userMove && userMove}
                 </div>
             </div>
-           
             <div className={styles.playerContainer} >
                 <div 
                     className={styles.playerTile} >
@@ -32,8 +28,7 @@ export default function FinalScoreScreen() {
                     className={styles.username}>{player2 && player2}</span>
                 <span 
                     className={styles.score}>
-                    ${player2Score ? player2Score : 0}</span> 
-                    
+                    ${player2Score ? player2Score : 0}</span>  
                 </div>
                 <div className={styles.playerMove}>
                     {player2Move && player2Move}
@@ -52,10 +47,7 @@ export default function FinalScoreScreen() {
                     {player3Move && player3Move}
                 </div>
             </div>
-            
-            
             <span className={styles.title} style={{display: currentTurn !== undefined ? 'none' : ''}}>General Knowledge</span>
         </div>
-    )
-    
+    ) 
 }
