@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import {QuestionContext} from '../../context/QuestionContext'
 import {GameContext} from '../../context/GameContext'
 import styles from '../../styles/RoundOne.module.scss'
-import RoundOneBoard from '../../components/RoundOne/RoundOneBoard'
+import RoundOneBoard from './RoundOneBoard'
 
 export default function RoundOne() {
 
