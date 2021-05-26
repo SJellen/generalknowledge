@@ -146,6 +146,8 @@ function QuestionContextProvider({ children }) {
         setRoundOneCategories.reset()
         setRoundTwoCategories.reset()
         setFinalRoundCategory.reset()
+        let shuffle = getShuffledArr(categoryArr)
+            setShuffledArr(shuffle)
     }
 
 
