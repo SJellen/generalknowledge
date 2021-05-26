@@ -1,10 +1,17 @@
 import React, {useContext} from 'react'
 import {GameContext} from '../context/GameContext'
+import {QuestionContext} from '../context/QuestionContext'
 import styles from '../styles/GameOver.module.scss'
 
 export default function GameOver() {
 
-    const {selectedQuestions, score, handleEndClick} = useContext(GameContext)
+    const {selectedQuestions, score, endGameStateResetGameContext} = useContext(GameContext)
+    const {endGameStateResetQuestionContext} = useContext(QuestionContext)
+
+    function handleEndGameClick() {
+        endGameStateResetGameContext()
+        endGameStateResetQuestionContext()
+    }
 
     return (
         <div className={styles.container} 
@@ -16,7 +23,7 @@ export default function GameOver() {
                 </h1> 
                 </div>
                 <div className={styles.roundTwoLink}><a className={styles.beginButton} style={{color: "black"}}
-                onClick={handleEndClick}
+                onClick={() => handleEndGameClick()}
                 >End Game</a></div>
             </div>
         </div>

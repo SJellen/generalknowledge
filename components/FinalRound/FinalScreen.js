@@ -1,13 +1,19 @@
 import React, {useContext} from 'react'
 import styles from '../../styles/FinalScreen.module.scss'
 import {GameContext} from '../../context/GameContext'
+import {QuestionContext} from '../../context/QuestionContext'
 import useFinalRoundTransitionLogic from '../../logic/useFinalRoundTransitionLogic'
 
 export default function FinalScreen() {
 
-    const {username, selectedQuestions, handleEndClick} = useContext(GameContext)
-
+    const {username, selectedQuestions, endGameStateResetGameContext} = useContext(GameContext)
+    const {endGameStateResetQuestionContext} = useContext(QuestionContext)
     const {firstPlace, secondPlace, thirdPlace} = useFinalRoundTransitionLogic()
+
+    function handleEndGameClick() {
+      endGameStateResetGameContext()
+      endGameStateResetQuestionContext()
+    }
 
     const finalStatementLose = "I'm sorry, you didn't win this time."
     const finalStatementWin = "Congrats, you won!"
@@ -35,7 +41,7 @@ export default function FinalScreen() {
                         <h2>{thirdPlace?.playerName}</h2>
                         <h2>{thirdPlace?.score}</h2>
                      </div> 
-                    <div className={styles.endLink}><a className={styles.endButton} style={{color: "black"}} onClick={handleEndClick}>End</a>
+                    <div className={styles.endLink}><a className={styles.endButton} style={{color: "black"}} onClick={handleEndGameClick}>End</a>
                     </div>  
                 </div>
         </div>
