@@ -20,14 +20,14 @@ function GameContextProvider({ children }) {
     const [answerResult, setAnswerResult] = useState()
     
     const START_TIME = 11
-    const PASS_PLAY_TIME = 2
+    const PASS_PLAY_TIME = 7
 
     const [passPlayTime, setPassPlayTime] = useState(PASS_PLAY_TIME)
     const [passPlayStart, setPassPlayStart] = useState(false)
 
     const [timeRemaining, setTimeRemaining]  = useState(START_TIME)
     const [clockStart, setClockStart] = useState(false)
-    const [timeRemainingFinal, setTimeRemainingFinal]  = useState(5000)
+    const [timeRemainingFinal, setTimeRemainingFinal]  = useState(START_TIME)
     const [clockStartFinal, setClockStartFinal] = useState(false)
 
     const [player2, setPlayer2] = useLocalStorageState('player2', )

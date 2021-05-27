@@ -44,7 +44,7 @@ export default function useRoundOneLogic() {
             question = Math.floor(Math.random() * 5) + 1
        }
        while (categoryArr?.[category][question] === "")
-       setCurrentQuestion(categoryArr[category][question])
+       setCurrentQuestion(categoryArr?.[category][question])
        categoryArr[category][question] = ""
        setCategoryArr([...categoryArr])
        setCost(question === 1 ? 200 : question === 2 ? 400 : question === 3 ? 600 : question === 4 ? 800 : 1000)
