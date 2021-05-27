@@ -20,11 +20,11 @@ export default function Start() {
                                 <div className={styles.inputContainer}>
                                     <label>Please Enter A Player Name
                                         <input 
-                                        type="text" 
-                                        name="name" 
-                                        maxLength="20"
-                                        onChange={handleChange} 
-                                        className={styles.input}/> 
+                                            type="text" 
+                                            name="name" 
+                                            maxLength="20"
+                                            onChange={handleChange} 
+                                            className={styles.input}/> 
                                     </label>
                                 </div>
                                 <button type="submit" className={styles.startButton}>Enter</button>
