@@ -4,7 +4,7 @@ import RoundOne from '../components/RoundOne/RoundOne'
 import RoundTwo from '../components/RoundTwo/RoundTwo'
 import FinalRound from '../components/FinalRound/FinalRound'
 
-export default function Index() {
+export default function Home() {
 
   return (
     <div >
