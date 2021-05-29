@@ -1,21 +1,35 @@
 import React, { useEffect, useState } from 'react'
-import useLocalStorageState from 'use-local-storage-state'
+// import useLocalStorageState from 'use-local-storage-state'
 
 const GameContext = React.createContext()
 
 
 function GameContextProvider({ children }) {
 
-    const [isStart, setIsStart] = useLocalStorageState('isStart', true)
-    const [isRoundOne, setIsRoundOne] = useLocalStorageState('isRoundOne', false)
-    const [isRoundTwo, setIsRoundTwo] = useLocalStorageState('isRoundTwo', false)
-    const [isRoundThree, setIsRoundThree] = useLocalStorageState('isRoundThree', false)
+    // const [isStart, setIsStart] = useLocalStorageState('isStart', true)
+    const [isStart, setIsStart] = useState(true)
     
+    // const [isRoundOne, setIsRoundOne] = useLocalStorageState('isRoundOne', false)
+    const [isRoundOne, setIsRoundOne] = useState(false)
+
+    // const [isRoundTwo, setIsRoundTwo] = useLocalStorageState('isRoundTwo', false)
+    const [isRoundTwo, setIsRoundTwo] = useState(false)
+
+    // const [isRoundThree, setIsRoundThree] = useLocalStorageState('isRoundThree', false)
+    const [isRoundThree, setIsRoundThree] = useState(false)
+
     const [showInput, setShowInput] = useState(true)
-    const [username, setUsername] = useLocalStorageState('username')
-    const [selectedQuestions, setSelectedQuestions] = useLocalStorageState('question count', 0)
-    
-    const [score, setScore] = useLocalStorageState('score', 0)
+
+    // const [username, setUsername] = useLocalStorageState('username')
+    const [username, setUsername] = useState()
+
+    // const [selectedQuestions, setSelectedQuestions] = useLocalStorageState('question count', 0)
+    const [selectedQuestions, setSelectedQuestions] = useState(0)
+
+    // const [score, setScore] = useLocalStorageState('score', 0)
+    const [score, setScore] = useState(0)
+
+
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
     
@@ -30,12 +44,24 @@ function GameContextProvider({ children }) {
     const [timeRemainingFinal, setTimeRemainingFinal]  = useState(START_TIME)
     const [clockStartFinal, setClockStartFinal] = useState(false)
 
-    const [player2, setPlayer2] = useLocalStorageState('player2', )
-    const [player2Score, setPlayer2Score] = useLocalStorageState('player2score', 0)
-    const [player3, setPlayer3] = useLocalStorageState('player3', )
-    const [player3Score, setPlayer3Score] = useLocalStorageState('player3score', 0)
+    // const [player2, setPlayer2] = useLocalStorageState('player2', )
+    const [player2, setPlayer2] = useState()
 
-    const [currentTurn, setCurrentTurn] = useLocalStorageState('turn',)
+    // const [player2Score, setPlayer2Score] = useLocalStorageState('player2score', 0)
+    const [player2Score, setPlayer2Score] = useState(0)
+
+    // const [player3, setPlayer3] = useLocalStorageState('player3', )
+    const [player3, setPlayer3] = useState()
+
+
+    // const [player3Score, setPlayer3Score] = useLocalStorageState('player3score', 0)
+    const [player3Score, setPlayer3Score] = useState(0)
+
+
+    // const [currentTurn, setCurrentTurn] = useLocalStorageState('turn',)
+    const [currentTurn, setCurrentTurn] = useState()
+
+    
     const [showButtons, setShowButtons] = useState(true)
 
     const [userMove, setUserMove] = useState()
@@ -65,17 +91,17 @@ function GameContextProvider({ children }) {
     }, [score, selectedQuestions])
 
     useEffect(() => {
-        setUsername.reset()
-        setScore.reset()
-        setPlayer2.reset()
-        setPlayer2Score.reset()
-        setPlayer3.reset()
-        setPlayer3Score.reset()
-        setIsRoundOne.reset()
-        setIsRoundTwo.reset()
-        setIsRoundOne.reset()
-        setIsStart.reset()
-        setSelectedQuestions.reset()
+        // setUsername.reset()
+        // setScore.reset()
+        // setPlayer2.reset()
+        // setPlayer2Score.reset()
+        // setPlayer3.reset()
+        // setPlayer3Score.reset()
+        // setIsRoundOne.reset()
+        // setIsRoundTwo.reset()
+        // setIsRoundOne.reset()
+        // setIsStart.reset()
+        // setSelectedQuestions.reset()
     }, [])
 
     
