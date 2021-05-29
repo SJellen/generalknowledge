@@ -1,22 +1,15 @@
 import React, { useEffect, useState} from 'react'
-// import useLocalStorageState from 'use-local-storage-state'
+import useLocalStorageState from 'use-local-storage-state'
 
 
 const QuestionContext = React.createContext()
 
 function QuestionContextProvider({ children }) {
 
-    // const [shuffledArr, setShuffledArr] = useLocalStorageState('categories',[])
-    const [shuffledArr, setShuffledArr] = useState([])
-
-    // const [roundOneCategories, setRoundOneCategories] = useLocalStorageState('roundOneCategories',[])
-    const [roundOneCategories, setRoundOneCategories] = useState([])
-
-    // const [roundTwoCategories, setRoundTwoCategories] = useLocalStorageState('roundTwoCategories',[])
-    const [roundTwoCategories, setRoundTwoCategories] = useState([])
-
-    // const [finalRoundCategory, setFinalRoundCategory] = useLocalStorageState('finalRoundCategories',[])
-    const [finalRoundCategory, setFinalRoundCategory] = useState([])
+    const [shuffledArr, setShuffledArr] = useLocalStorageState('categories',[])
+    const [roundOneCategories, setRoundOneCategories] = useLocalStorageState('roundOneCategories',[])
+    const [roundTwoCategories, setRoundTwoCategories] = useLocalStorageState('roundTwoCategories',[])
+    const [finalRoundCategory, setFinalRoundCategory] = useLocalStorageState('finalRoundCategories',[])
 
 
 
@@ -151,10 +144,10 @@ function QuestionContextProvider({ children }) {
     }
 
     function endGameStateResetQuestionContext() {
-        // setShuffledArr.reset()
-        // setRoundOneCategories.reset()
-        // setRoundTwoCategories.reset()
-        // setFinalRoundCategory.reset()
+        setShuffledArr.reset()
+        setRoundOneCategories.reset()
+        setRoundTwoCategories.reset()
+        setFinalRoundCategory.reset()
         let shuffle = getShuffledArr(categoryArr)
             setShuffledArr(shuffle)
     }
