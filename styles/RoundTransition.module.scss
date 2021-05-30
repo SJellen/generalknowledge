@@ -1,19 +1,15 @@
 
-
 .container {
     margin: 7.5rem auto 0 auto;
     width: 90%;
     height: auto;
     background: rgb(0,0,255);
     background: radial-gradient(circle, rgba(0,0,255,1) 0%, rgba(27,18,218,1) 34%, rgba(28,21,189,1) 68%, rgba(14,8,153,1) 95%);
-    
     color: white;
     border-radius: 25px;
     display: flex;
     text-align: center;
     justify-content: center;
-    
-    
 }
 
 .textContainer {
@@ -29,7 +25,6 @@
     flex-direction: column;
     align-items: center;
 }
-
 
 .beginButton {
     background-color: gold;
@@ -55,5 +50,4 @@
     justify-content: center;
     align-items: center;
     color: white;
-    
 }

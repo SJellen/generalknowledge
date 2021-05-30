@@ -1,20 +1,15 @@
 
-
 .container {
     margin: 7.5rem auto 0 auto;
     width: 90%;
-    
     height: auto;
     background: rgb(0,0,255);
     background: radial-gradient(circle, rgba(0,0,255,1) 0%, rgba(27,18,218,1) 34%, rgba(28,21,189,1) 68%, rgba(14,8,153,1) 95%);
-   
     color: white;
     border-radius: 25px;
     display: flex;
     text-align: center;
     justify-content: center;
-    
-    
 }
 
 .textContainer {
@@ -30,7 +25,6 @@
     flex-direction: column;
     align-items: center;
 }
-
 
 .beginButton {
     background-color: gold;
@@ -50,15 +44,11 @@
     cursor: pointer;
 }
 
-
 .submitButton {
     background-color: gold;
     border: none;
     border-radius: 5px;
     padding: .25rem 1rem;
-    // margin-top: 1rem;
-    // width: 100px;
-    // height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,16 +60,12 @@
     cursor: pointer;
 }
 
-
-
-
 .roundTwoLink {
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    
 }
 
 .title {
@@ -110,15 +96,12 @@
 }
 
 .bidBox > h2, .bidBoxTop > h2 {
-    // border: 1px solid green;
     width: 33%;
 }
 
 .bidBox > form {
     display: flex;
-    // flex-direction: column;
     justify-content: space-evenly;
     align-items: center ;
-    // border: 1px solid green;
     width: 33%;
 }
