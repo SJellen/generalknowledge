@@ -1,4 +1,4 @@
-import {useContext, useEffect, useImperativeHandle, useState} from 'react'
+import {useContext, useEffect,useState} from 'react'
 import {QuestionContext} from '../context/QuestionContext'
 import {GameContext} from '../context/GameContext'
 

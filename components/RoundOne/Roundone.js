@@ -10,7 +10,6 @@ export default function RoundOne() {
     const {selectedQuestions,isRoundOne} = useContext(GameContext)
     const {categories} = RoundOneBoard()
 
-    // testing if this will replace remote file
 
     return (
          <div className={styles.container} style={{display: isRoundOne ? '' : 'none'}}>

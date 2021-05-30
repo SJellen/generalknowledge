@@ -6,8 +6,6 @@ import FinalRound from '../components/FinalRound/FinalRound'
 
 export default function Home() {
 
-  // testing build error
-
   return (
     <div >
       <Start />
