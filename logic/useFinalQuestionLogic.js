@@ -1,15 +1,11 @@
-import {useContext, useEffect, useState} from 'react'
+import {useContext, useEffect} from 'react'
 import {QuestionContext} from '../context/QuestionContext'
 import {GameContext} from '../context/GameContext'
 
-
-
 export default function useFinalQuestionLogic() {
 
-
-    const {finalQuestion, currentQuestion, setCurrentQuestion} = useContext(QuestionContext)
-    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager, timeRemaining, setSelectedQuestions, setScore, setAnswerResult, setUserMove, setPlayer2Score, setPlayer3Score, setTimeRemaining, clockStart, setClockStartFinal, START_TIME, player2Move, setPlayer2Move, player3Move, setPlayer3Move,userMove,passPlayTime, setPassPlayTime, passPlayStart, setPassPlayStart, PASS_PLAY_TIME, timeRemainingFinal, clockStartFinal, setTimeRemainingFinal} = useContext(GameContext)
-
+    const {finalQuestion} = useContext(QuestionContext)
+    const {userWager, player2Wager, player3Wager, setSelectedQuestions, setScore, setUserMove, setPlayer2Score, setPlayer3Score, setTimeRemaining, setClockStartFinal, START_TIME, setPlayer2Move, setPlayer3Move, timeRemainingFinal, clockStartFinal, setTimeRemainingFinal} = useContext(GameContext)
 
     function computerAnswersQuestion() {
         let move = Math.floor(Math.random() * 1000)
@@ -30,7 +26,6 @@ export default function useFinalQuestionLogic() {
                     }
         }, 750)
         
-
         setTimeout(() => {
             if (player3Answer === "Correct") {
                         setPlayer3Score(prevScore => prevScore + player3Wager)
@@ -53,17 +48,14 @@ export default function useFinalQuestionLogic() {
         } else {
             setUserMove("InCorrect")
             setScore(prevScore => prevScore - userWager)
-            // setAnswerResult("Incorrect")
             setUserMove("Incorrect")
         }
-
         setClockStartFinal(false)
         setTimeRemaining(START_TIME)
         setTimeout(() => {
             setUserMove()
             setPlayer2Move()
             setPlayer3Move()
-
         }, 3000)
         setTimeout(() => {
             setSelectedQuestions(prevState => prevState + 1)
@@ -87,16 +79,12 @@ export default function useFinalQuestionLogic() {
                 setUserMove()
                 setPlayer2Move()
                 setPlayer3Move()
-
             }, 3000)
         setTimeout(() => {
             setSelectedQuestions(prevState => prevState + 1)
         }, 2500)
         }
-
     }, [timeRemainingFinal, clockStartFinal])
     
-    
     return {handleClick}
-
 }

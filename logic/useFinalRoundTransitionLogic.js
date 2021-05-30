@@ -1,11 +1,9 @@
 import {useContext, useEffect, useState} from 'react'
 import {GameContext} from '../context/GameContext'
 
-
-
 export default function useFinalRoundTransitionLogic() {
 
-    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager, setSelectedQuestions, setClockStartFinal, timeRemainingFinal} = useContext(GameContext)
+    const {selectedQuestions, score, player2Score, player3Score, username,player2, player3, setUserWager, setPlayer2Wager, setPlayer3Wager, setSelectedQuestions, setClockStartFinal} = useContext(GameContext)
 
     const [showFinalLink, setShowFinalLink] = useState(false)
     const [tempWager, setTempWager] = useState(1)
@@ -66,10 +64,6 @@ export default function useFinalRoundTransitionLogic() {
 
     }
 
- 
-
-  
-
 
     function handleChange(e) {
         let wager = parseInt(e.target.value)
@@ -94,26 +88,19 @@ export default function useFinalRoundTransitionLogic() {
     function handleStartClick() {
         setClockStartFinal(true)
         setSelectedQuestions(prevState => prevState + 1)
-        
     }
 
     const sortedArrObject = [ {player: 1, playerName: username, score: score}, {player: 2, playerName: player2, score: player2Score}, {player: 3, playerName: player3, score: player3Score}].sort((a,b) => {
-       
         return a.score - b.score
-})
+    })
 
     useEffect(() => {
         if (selectedQuestions === 64) {
-            
             setThirdPlace(sortedArrObject[0])
             setSecondPlace(sortedArrObject[1])
             setFirstPlace(sortedArrObject[2])
         }
-        
- 
      }, [selectedQuestions])
-
-
 
     return {handleChange, handleWagerSubmit, showFinalLink, tempWager, handleStartClick, firstPlace, secondPlace, thirdPlace}
     
