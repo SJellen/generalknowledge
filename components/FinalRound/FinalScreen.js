@@ -11,8 +11,9 @@ export default function FinalScreen() {
     const {firstPlace, secondPlace, thirdPlace} = useFinalRoundTransitionLogic()
 
     function handleEndGameClick() {
-      endGameStateResetGameContext()
       endGameStateResetQuestionContext()
+      endGameStateResetGameContext()
+      
     }
 
     const finalStatementLose = "I'm sorry, you didn't win this time."
