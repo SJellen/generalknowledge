@@ -90,11 +90,14 @@ function GameContextProvider({ children }) {
         setPlayer3Score.reset()
         setIsRoundOne.reset()
         setIsRoundTwo.reset()
-        setIsRoundOne.reset()
+        setIsRoundThree.reset()
         setIsStart(true)
         setSelectedQuestions.reset()
         setShowInput(true)
     }
+
+
+    console.log(isStart)
 
     
 
