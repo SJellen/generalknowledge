@@ -128,3 +128,63 @@
     cursor: pointer;
     background-color: rgba(255, 215, 0, .8);
 }
+
+@media only screen and (max-width: 1150px){
+    .container {
+        width: 95%;
+    }
+    
+}
+
+@media only screen and (max-width: 1000px){
+    .container {
+        width: 95%;
+        top: 7rem;
+    }
+    
+}
+
+@media only screen and (max-width: 800px){
+    .container {
+        top: 6rem;
+        width: 97.5%;
+        height: 85vh;
+    }
+
+    .questionContainer {
+        width: 90%;
+        h2 {
+            font-size: 1.25rem;
+        }
+    }
+
+    .choiceContainer {
+        width: 90%;
+        border: 1px solid green;
+
+    }
+
+    .list {
+        border: 1px solid red;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .list > li {
+        font-size: 1rem;
+        text-align: center;
+        border: 1px solid orange;
+        margin: 1rem auto;
+        
+    }
+
+    .buttonContainer {
+        width: 90%;
+    }
+
+    .passButton, .playButton {
+        width: 100px;
+        font-size: 1rem;
+    }
+    
+}
