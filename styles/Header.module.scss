@@ -45,12 +45,54 @@
 @media only screen and (max-width: 1150px){
     .title {
        display: none;
+    }  
+}
+
+@media only screen and (max-width: 1000px){
+    .playerTile {
+        font-size: .75rem;
     }
-    
+    .playerMove {
+        font-size: .75rem;
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 750px){
+    .container {
+        height: 6rem;
+    }
+    .playerTile {
+        font-size: .5rem;
+        margin: 1rem auto 0 auto;
+    }
+    .playerMove {
+        font-size: .5rem;
+        width: auto;
+        margin: .5rem auto;
+    }
+
+    .playerContainer {
+        flex-direction: column;
+        height: 80%;
+    }
+    .score {
+        margin-left: .5rem;
+    }
 }
 
 @media only screen and (max-width: 500px){
+    .container {
+        justify-content: space-evenly;
+    }
+
+    .playerTile {
+        padding: 0;
+    } 
     .title {
         display: none;
+    }
+    .score {
+        margin-left: .25rem;
     }
 }
