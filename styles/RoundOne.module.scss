@@ -111,8 +111,48 @@
     }
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 450px){
     .container {
         width: 99%;
+    }
+    .parent {
+        height: 272px;
+        border: 1px solid black;
+        grid-column-gap: 1px;
+        grid-row-gap: 1px;
+    }
+    .gridItem {
+        height: 45px;
+        font-size: .75rem;
+        border-bottom: 1px solid black;
+    }
+    .gridTitle {
+        font-size: .5rem;
+        height: 45px;
+        border-bottom: 1px solid black;
+    }
+}
+
+@media only screen and (max-width: 350px){
+    .container {
+        width: 99%;
+    }
+    .parent {
+        height: 242px;
+        border: 1px solid black;
+        grid-column-gap: 1px;
+        grid-row-gap: 1px;
+    }
+    .gridItem {
+        height: 40px;
+        font-size: .5rem;
+        border-bottom: 1px solid black;
+        text-shadow: 1px 1px 1px black;
+    }
+    .gridTitle {
+        font-size: .4rem;
+        height: 40px;
+        border-bottom: 1px solid black;
+        text-shadow: 1px 1px 1px black;
     }
 }

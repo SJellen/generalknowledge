@@ -87,13 +87,31 @@
         height: 7rem;
     }
 
-    .playerTile {
-        
-    } 
     .title {
         display: none;
     }
     .score {
         margin-left: .25rem;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .container {
+        height: 6rem;
+    }
+    .playerTile {
+        font-size: .5rem;
+    }
+    .playerMove {
+        font-size: .5rem;
+    }
+}
+
+@media only screen and (max-width: 300px){
+    .playerTile {
+        font-size: .4rem;
+    }
+    .playerMove {
+        font-size: .4rem;
     }
 }
