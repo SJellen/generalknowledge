@@ -51,3 +51,45 @@
     align-items: center;
     color: white;
 }
+
+@media only screen and (max-width: 500px) {
+    .textContainer {
+        h1 {
+        font-size: 1.5rem;
+        } 
+        h2 {
+            font-size: 1.25rem;
+        }
+    } 
+}
+
+@media only screen and (max-width: 375px) {
+    .textContainer {
+        h1 {
+        font-size: 1.25rem;
+        } 
+        h2 {
+            font-size: 1.05rem;
+        }
+    }
+    .beginButton {
+        font-size: .75rem;
+        width: 80px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .textContainer {
+        h1 {
+        font-size: 1rem;
+        } 
+        h2 {
+            font-size: .75rem;
+        }
+    }
+    .beginButton {
+        font-size: .55rem;
+        width: 70px;
+        height: 20px;
+    }
+}
