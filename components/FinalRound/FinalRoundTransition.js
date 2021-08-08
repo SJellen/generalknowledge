@@ -23,7 +23,7 @@ export default function FinalRoundTransition() {
                    { userWager ? <h2>{`$${userWager}`}</h2> : 
                     <form onSubmit={handleWagerSubmit}>
                        <label htmlFor="bid" >Wager ${tempWager}</label>
-                       <input type="range" id="wager" name="wager" min="1"  max={score} onChange={(e) => handleChange(e)}/>
+                       <input type="range" id="wager" name="wager" min="1" className={styles.wager} max={score} onChange={(e) => handleChange(e)}/>
                        <input type="submit" className={styles.submitButton}></input>
                    </form>
                    }   
