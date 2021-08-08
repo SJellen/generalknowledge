@@ -97,7 +97,6 @@
 
 .bidBox > h2, .bidBoxTop > h2 {
     width: 33%;
-    border: 1px solid red;
 }
 
 .bidBox > form {
@@ -105,7 +104,6 @@
     justify-content: space-evenly;
     align-items: center ;
     width: 33%;
-    border: 1px solid purple;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -114,14 +112,12 @@
     }
     .bidBox > h2:last-child, .bidBoxTop > h2:last-child {
         width: 40%;
-        border: 1px solid green;
     }
     .bidBox > form {
         display: flex;
         justify-content: space-evenly;
         align-items: center ;
         width: 40%;
-        border: 1px solid purple;
     }
     .submitButton {
         padding: .25rem .5rem;
@@ -180,5 +176,20 @@
 }
 
 @media only screen and (max-width: 500px) {
-
+    .title {
+        font-size: 1rem;
+    }
+    .bidBoxTop {
+        font-size: .5rem;
+    }
+    .bidBox {
+        font-size: .5rem;
+    }
+    .submitButton {
+        font-size: .5rem;
+    }
+    .wager {
+        width: 75%;
+    }
 }
+

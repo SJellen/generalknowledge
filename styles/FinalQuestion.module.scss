@@ -2,11 +2,11 @@
 .container {
     z-index: 99;
     position: absolute;
-    top: 8rem;
+    top: 5rem;
     left: 0;
     right: 0;
-    height: 76vh;
-    width: 90%;
+    height: 100%;
+    width: 100%;
     margin: 0 auto;
     background-color: rgba(0, 0, 0, .9);
     color: white;
@@ -59,7 +59,8 @@
 
 .list > li {
     width: 250px;
-    margin: 0 auto;
+    padding: 0 1.5rem;
+    margin: 1rem auto;
     line-height: 1.5;
     display: flex;
     justify-content: center;
@@ -133,4 +134,121 @@
 .timeButton:hover {
     cursor: pointer;
     background-color: rgba(255, 215, 0, .8);
+}
+
+@media only screen and (max-width: 1150px){
+    .container {
+        top: 5rem;
+        height: 100%;
+    }
+
+    .choiceContainer {
+        width: 100%;
+        
+        text-align: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+}
+
+@media only screen and (max-width: 1000px){
+    .choiceContainer {
+        width: 90%;
+    }
+    .list {
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .list > li {
+        font-size: 1rem;
+        margin: 1rem auto;
+    } 
+
+    .passButton {
+        width: 100px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .playButton {
+        width: 100px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .timeButton {
+        width: 50px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 750px){
+    .container {
+        top: 6rem;
+    }
+
+    .list > li {
+        border: 1px solid gold;
+    }
+
+    .questionContainer {
+        width: 85%;
+        h2 {
+            font-size: 1rem;
+        }
+    }
+
+    .choiceContainer {
+        width: 80%;
+    }
+
+    .timeButton {
+        width: 50px;
+        height: 30px;
+        font-size: .75rem;
+    }
+
+    .buttonContainer {
+        width: 85%;
+        
+    }
+
+    .passButton, .playButton {
+        width: 75px;
+        height: 30px;
+        font-size: .9rem;
+    }
+    
+}
+
+@media only screen and (max-width: 500px) {
+
+    .container {
+        top: 6rem;
+    }
+
+    .buttonContainer {
+        top: 3rem;
+    }
+
+    .questionContainer {
+        margin-top: 8rem;
+    }
+
+    .choiceContainer {
+        margin-top: 2.5rem;
+    }
+
+    .list {
+        margin-right: 10%;
+    }
+
+    .list > li {
+        font-size: .75rem;
+        width: 100%;
+        margin: .5rem auto;
+    } 
 }
