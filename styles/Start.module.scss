@@ -153,6 +153,7 @@
 @media only screen and (max-width: 500px){
     .container {
         width: 90%;
+        border: 5px solid rgb(0, 0, 0);
     }
     .wordBox {
         width: 90%;
@@ -161,5 +162,20 @@
     .wordBox2 {
         width: 90%;
         font-size: .75rem;
+    }
+}
+
+@media only screen and (max-width: 375px){
+    .container {
+        width: 95%;
+        border: 2px solid rgb(0, 0, 0);
+    }
+    .wordBox {
+        width: 95%;
+        font-size: .65rem;
+    }
+    .wordBox2 {
+        width: 95%;
+        font-size: .65rem;
     }
 }
