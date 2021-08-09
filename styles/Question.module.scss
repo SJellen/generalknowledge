@@ -187,12 +187,19 @@
         top: 6rem;
     }
 
+    .list {
+        margin-right: 10%;
+    }
+
     .list > li {
         border: 1px solid gold;
+        padding: .5rem 0;
+        width: 100%;
     }
 
     .questionContainer {
         width: 85%;
+        margin-top: 8rem;
         h2 {
             font-size: 1rem;
         }
@@ -200,7 +207,7 @@
 
     .choiceContainer {
         width: 80%;
-        border: 1px solid green;
+        margin-top: 1rem;
     }
 
     .timeButton {
@@ -211,7 +218,7 @@
 
     .buttonContainer {
         width: 85%;
-        
+        top: 3rem;
     }
 
     .passButton, .playButton {
@@ -228,27 +235,69 @@
         top: 6rem;
     }
 
-    .buttonContainer {
-        top: 3rem;
-    }
-
-    .questionContainer {
-        margin-top: 8rem;
-    }
-
-    .choiceContainer {
-        margin-top: 2.5rem;
-    }
-
-    .list {
-        margin-right: 10%;
-    }
-
     .list > li {
         font-size: .75rem;
         width: 100%;
         margin: .5rem auto;
     } 
+}
+
+@media only screen and (max-width: 375px) {
+
+    .container {
+        top: 6rem;
+    }
+
+    .buttonContainer {
+        top: 1rem;
+    }
+
+    .questionContainer {
+        margin-top: 5rem;
+        padding: 1rem;
+        h2 {
+            font-size: .85rem;
+        }
+    }
+
+    .timeButton {
+        width: 30px;
+        height: 25px;
+        font-size: .65rem;
+        line-height: 2;
+    }
+
+    .buttonContainer {
+        width: 85%;
+        
+    }
+
+    .passButton, .playButton {
+        width: 50px;
+        height: 25px;
+        font-size: .75rem;
+    }
+}
+
+@media only screen and (max-width: 325px) {
+    .questionContainer {
+        margin-top: 5rem;
+        h2 {
+            font-size: .65rem;
+        }
+    }
+    .passButton, .playButton {
+        width: 50px;
+        height: 20px;
+        font-size: .65rem;
+    }
+    .timeButton {
+        width: 30px;
+        height: 20px;
+        font-size: .5rem;
+        line-height: 2;
+    }
+    
 }
 
 
