@@ -116,3 +116,31 @@
         font-size: .4rem;
     }
 }
+
+@media only screen and (max-height: 650px) and (orientation : landscape) {
+    .container {
+        height: 2.5rem;
+        flex-direction: row;
+    }
+
+    .playerContainer {
+        width: 33%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .playerTile {
+        align-items: center;
+        font-size: .5rem;
+        padding: .5rem;
+        margin: 0 auto 0 auto;
+    }
+
+    .score {
+        margin-left: .5rem;
+    }
+
+    .playerMove {
+        font-size: .5rem;
+        margin: 0 auto 0 auto;
+    }
+}
