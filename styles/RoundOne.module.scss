@@ -163,3 +163,23 @@
         text-shadow: 1px 1px 1px black;
     }
 }
+
+@media only screen and (max-height: 650px) and (orientation : landscape) {
+    .container {
+        width: 100%;
+        margin: 3rem auto 0 auto;
+    }
+
+    .parent {
+        height: 305px;
+    }
+    .gridTitle {
+        height: 50px;
+        font-size: .75rem;
+    }
+
+    .gridItem {
+        font-size: .75rem;
+        height: 50px;
+    }
+}
