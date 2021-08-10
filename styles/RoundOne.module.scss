@@ -172,15 +172,20 @@
 
     .parent {
         height: 305px;
+        border: 1px solid black;
+        grid-column-gap: 1px;
+        grid-row-gap: 1px;
     }
     .gridTitle {
         height: 50px;
         font-size: .75rem;
+        border-bottom: 1px solid black;
     }
 
     .gridItem {
         font-size: .75rem;
         height: 50px;
+        border-bottom: 1px solid black;
     }
 }
 
