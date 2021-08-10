@@ -186,10 +186,6 @@
 }
 
 @media only screen and (max-height: 350px) and (orientation : landscape) {
-    .container {
-        width: 99%;
-        margin: 2.5rem auto 0 auto;
-    }
 
     .parent {
         height: 90vh;
@@ -206,10 +202,6 @@
 }
 
 @media only screen and (max-height: 300px) and (orientation : landscape) {
-    .container {
-        width: 99%;
-        margin: 2.5rem auto 0 auto;
-    }
 
     .parent {
         height: 90vh;

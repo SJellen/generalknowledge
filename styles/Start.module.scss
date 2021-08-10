@@ -179,3 +179,52 @@
         font-size: .65rem;
     }
 }
+
+@media only screen and (max-height: 650px) and (orientation : landscape) {
+    .container {
+        margin: 3.5rem auto 0 auto;
+        width: 99%;
+        height: 80vh;
+        border: 5px solid rgb(0, 0, 0);
+    }
+
+    .wordBox {
+        font-size: .75rem;
+    }
+    .wordBox2 {
+        font-size: .75rem;
+    }
+}
+
+@media only screen and (max-height: 350px) and (orientation : landscape) {
+    .container {
+        margin: 3.5rem auto 0 auto;
+        width: 99%;
+        height: 80vh;
+        border: 5px solid rgb(0, 0, 0);
+    }
+
+    .wordBox {
+        font-size: .5rem;
+    }
+
+    .form {
+        height: auto;
+        font-size: .75rem;
+    }
+
+    .startButton {
+       font-size: .75rem;
+       width: auto;
+       height: 20px;
+    }
+    .wordBox2 {
+        font-size: .5rem;
+    }
+
+    .beginButton {
+        font-size: .75rem;
+        width: auto;
+        height: 20px;
+     }
+}
