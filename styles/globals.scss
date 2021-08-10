@@ -24,3 +24,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@media only screen and (max-height: 650px) and (orientation : landscape)  {
+  html, body {
+    background: black;
+  }
+}
