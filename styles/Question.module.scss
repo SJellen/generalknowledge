@@ -300,4 +300,49 @@
     
 }
 
+@media only screen and (max-height: 650px) and (orientation : landscape) {
+    .container {
+        top: 2.5rem;
+    }
+    .buttonContainer {
+        top: 2rem;
+    }
+
+    .passButton, .playButton {
+        width: 55px;
+        height: 20px;
+        font-size: .65rem;
+    }
+    .timeButton {
+        width: 45px;
+        height: 20px;
+        font-size: .65rem;
+        line-height: 1.75;
+    }
+
+    .questionContainer {
+        width: 85%;
+        margin-top: 5rem;
+        padding: .5rem;
+        h2 {
+            font-size: .65rem;
+        }
+    }
+
+    .choiceContainer {
+    }
+
+    .list {
+        width: 100%;
+        
+    }
+
+    .list > li {
+        padding: .5rem 0;
+        width: auto;
+        font-size: .5rem;
+        border: none;
+    }
+}
+
 
