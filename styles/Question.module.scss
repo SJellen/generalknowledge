@@ -335,10 +335,11 @@
     }
 
     .list > li {
-        padding: .5rem 0;
+        padding: .5rem;
         width: auto;
         font-size: .5rem;
         border: none;
+        border: 1px solid gold;
     }
 }
 

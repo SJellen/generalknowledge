@@ -100,3 +100,49 @@
         height: 20px;
     }
 }
+
+@media only screen and (max-height: 650px) and (orientation : landscape) {
+    .container {
+        margin: 3.5rem auto 0 auto; 
+    }
+
+    .textContainer {
+        height: 80vh;
+        h1 {
+        font-size: 1.25rem;
+        } 
+        h2 {
+            font-size: .9rem;
+        }
+    }
+
+    .beginButton {
+        font-size: .65rem;
+        margin-top: .75rem;
+        width: 80px;
+        height: 20px;
+    }
+}
+
+@media only screen and (max-height: 350px) and (orientation : landscape) {
+    .container {
+        margin: 0 auto 0 auto; 
+    }
+
+    .textContainer {
+        height: 80vh;
+        h1 {
+        font-size: .9rem;
+        } 
+        h2 {
+            font-size: .65rem;
+        }
+    }
+
+    .beginButton {
+        font-size: .5rem;
+        margin-top: .75rem;
+        width: 60px;
+        height: 20px;
+    }
+}
