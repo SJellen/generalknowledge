@@ -2,7 +2,7 @@
 .container {
     z-index: 99;
     position: absolute;
-    top: 5rem;
+    top: 0rem;
     left: 0;
     right: 0;
     height: 100%;
@@ -144,18 +144,16 @@
 
 @media only screen and (max-width: 1150px){
     .container {
-        top: 5rem;
-        height: 100%;
+        width: 101.5%;
+        height: 101.5%;
     }
 
     .choiceContainer {
         width: 100%;
-        
         text-align: center;
         flex-direction: row;
         flex-wrap: wrap;
     }
-    
 }
 
 @media only screen and (max-width: 1000px){
@@ -192,9 +190,6 @@
 }
 
 @media only screen and (max-width: 750px){
-    .container {
-        top: 6rem;
-    }
 
     .list > li {
         border: 1px solid gold;
@@ -232,16 +227,14 @@
 
 @media only screen and (max-width: 500px) {
 
-    .container {
-        top: 6rem;
-    }
-
     .buttonContainer {
-        top: 3rem;
+        top: 1.5rem;
+        width: 100%;
     }
 
     .questionContainer {
-        margin-top: 8rem;
+        margin-top: 5rem;
+        padding: 1rem;
     }
 
     .choiceContainer {
@@ -259,10 +252,15 @@
     } 
 }
 
+@media only screen and (max-width: 350px) {
+        .questionContainer {
+            h2 {
+                font-size: .8rem;
+            }
+        }
+}
+
 @media only screen and (max-height: 650px) and (orientation : landscape) {
-    .container {
-        top: 2.5rem;
-    }
     
     .timeButton {
         width: 45px;

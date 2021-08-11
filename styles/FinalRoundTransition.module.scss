@@ -182,6 +182,11 @@
 }
 
 @media only screen and (max-width: 500px) {
+    .container {
+        margin: -7.5rem auto 0 auto;
+        width: 100%;
+        height: 100vh;
+    }
     .title {
         font-size: 1rem;
     }
@@ -201,7 +206,7 @@
 
 @media only screen and (max-height: 650px) and (orientation : landscape) {
     .container {
-        margin: 0 auto 0 auto;
+        margin: -3rem auto 0 auto;
     }
     .textContainer {
         background: none;
@@ -243,7 +248,7 @@
 
 @media only screen and (max-height: 350px) and (orientation: landscape) {
     .container {
-        margin: 0 auto 0 auto;
+        margin: -2.5rem auto 0 auto;
     }
     .textContainer {
         height: auto;
