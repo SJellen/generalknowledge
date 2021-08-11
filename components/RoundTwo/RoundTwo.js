@@ -12,7 +12,7 @@ export default function RoundTwo() {
 
     return (
         <div className={styles.container} style={{display: isRoundTwo ? '' : 'none'}}>
-        <div className={styles.parent} style={{display: selectedQuestions === 60 ? "none" : "", pointerEvents: currentQuestion ? "none": ''}}>
+        <div className={styles.parent} style={{display: selectedQuestions >= 60 ? "none" : "", pointerEvents: currentQuestion ? "none": ''}}>
             {categories} 
         </div>
     </div>

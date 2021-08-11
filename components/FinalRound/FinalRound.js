@@ -9,14 +9,16 @@ export default function FinalRound() {
     const {selectedQuestions,  setSelectedQuestions, isRoundThree} = useContext(GameContext)
 
     useEffect(() => {
-        if (isRoundThree) {
+        if (isRoundThree && selectedQuestions === 60) {
             const timer = setTimeout(() => {
             setSelectedQuestions(prevState => prevState + 1)
         }, 2500)
         return () => clearTimeout(timer)
             
         }
-    }, [])
+    }, [selectedQuestions, isRoundThree])
+
+    
 
     return (
         <div className={styles.container}style={{display: isRoundThree && selectedQuestions === 60 || isRoundThree && selectedQuestions === 62  ? "block" : "none", pointerEvents: currentQuestion ? "none": ''}}>

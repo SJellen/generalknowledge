@@ -96,3 +96,77 @@
         max-width: 1440px;
     }
 }
+
+@media only screen and (max-width: 500px) {
+    .title {
+        font-size: 1rem;
+    }
+    .container {
+        height: 100%;
+        margin: -5rem auto 0 auto;
+    }
+    .textContainer {
+        height: max-content;
+        padding: 2rem .5rem;
+        border: 1px solid black;
+    }
+
+    .bidBoxTop {
+        font-size: .5rem;
+    }
+
+    .bidBox {
+        font-size: .5rem;
+    }
+
+    .endButton {
+        margin-top: 1rem;
+        width: 50px;
+        height: 20px;
+        font-size: .5rem;
+    }
+}
+
+@media only screen and (max-height: 650px) and (orientation : landscape) {
+    .title {
+        font-size: 1rem;
+    }
+    .container {
+        height: 100%;
+        width: 100%;
+        margin: -3rem auto 0 auto;
+    }
+    .textContainer {
+
+        height:100vh;
+        padding: 2rem .5rem;
+        border: 1px solid black;
+    }
+
+    .bidBoxTop {
+        font-size: .5rem;
+    }
+
+    .bidBox {
+        font-size: .5rem;
+    }
+
+    .endButton {
+        margin-top: 1rem;
+        width: 50px;
+        height: 20px;
+        font-size: .5rem;
+    }
+}
+
+@media only screen and (max-height: 350px) and (orientation : landscape) {
+
+    .bidBoxTop {
+        margin: 0 auto;
+    }
+
+    .bidBox {
+        margin: 0 auto;
+        border-top: none;
+    }
+}
