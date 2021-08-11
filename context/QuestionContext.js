@@ -129,6 +129,7 @@ function QuestionContextProvider({ children }) {
     function questionCleaner(str) {
         if (str !== undefined) {
             return str.replace(/(^\w+:|^)\/\//, '')
+            .replaceAll('&rdquo;', "'")
             .replaceAll('&#039;','\'')
             .replaceAll('&quot;','"')
             .replaceAll('&uuml;','ü')
@@ -140,6 +141,7 @@ function QuestionContextProvider({ children }) {
             .replaceAll('&ldquo;','"')
             .replaceAll('&hellip;','...')
             .replaceAll('&ocirc;','ô')
+            .replaceAll('&oumlo;','ö')
         }
     }
 
