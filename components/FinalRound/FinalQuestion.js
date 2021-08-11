@@ -13,7 +13,7 @@ export default function FinalQuestion() {
 
     return (
         <div>
-             <div className={styles.container} style={{display: selectedQuestions === 62 ? "block" : "none"}}>
+             <div className={styles.container} style={{display: selectedQuestions === 62 ? "" : "none"}}>
              <div className={styles.buttonContainer} >
                   <span className={styles.timeButton} style={{visibility: timeRemainingFinal <= 5 ? "visible" : 'hidden'}}>{timeRemainingFinal}</span>
              </div>  

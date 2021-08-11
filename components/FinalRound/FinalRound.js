@@ -13,15 +13,14 @@ export default function FinalRound() {
             const timer = setTimeout(() => {
             setSelectedQuestions(prevState => prevState + 1)
         }, 2500)
-        return () => clearTimeout(timer)
-            
+        return () => clearTimeout(timer) 
         }
-    }, [selectedQuestions, isRoundThree])
+    }, [])
 
     
 
     return (
-        <div className={styles.container}style={{display: isRoundThree && selectedQuestions === 60 || isRoundThree && selectedQuestions === 62  ? "block" : "none", pointerEvents: currentQuestion ? "none": ''}}>
+        <div className={styles.container}style={{display: isRoundThree && selectedQuestions === 60  ? "block" : "none", pointerEvents: currentQuestion ? "none": ''}}>
             <div className={styles.parent} >
                 <div className={styles.gridTitle} id="finalr" onClick={(e) => handleTileClick(e, finalQuestion[0], 1, "finalr")}>{finalQuestion && categoryCleaner(finalQuestion[0]?.category)}</div>
             </div>
