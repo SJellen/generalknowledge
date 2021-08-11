@@ -152,7 +152,11 @@
 
 @media only screen and (max-width: 500px){
     .container {
+        position: relative;
+        z-index: 9;
+        margin: 1rem auto 0 auto;
         width: 90%;
+        height: 95vh;
         border: 5px solid rgb(0, 0, 0);
     }
     .wordBox {
@@ -183,7 +187,7 @@
 @media only screen and (max-height: 650px) and (orientation : landscape) {
     .container {
         position: relative;
-        z-index: 99;
+        z-index: 9;
         margin: 1rem auto 0 auto;
         width: 90%;
         height: 90vh;
