@@ -196,9 +196,21 @@
 
     .wordBox {
         font-size: .75rem;
+        text-shadow: 1px 1px 1px black;
     }
     .wordBox2 {
         font-size: .75rem;
+        text-shadow: 1px 1px 1px black;
+    }
+    .beginButton {
+        font-size: .75rem;
+        width: auto;
+        height: 20px;
+     }
+     .startButton {
+       font-size: .75rem;
+       width: auto;
+       height: 20px;
     }
 }
 
@@ -212,19 +224,9 @@
         height: auto;
         font-size: .75rem;
     }
-
-    .startButton {
-       font-size: .75rem;
-       width: auto;
-       height: 20px;
-    }
+    
     .wordBox2 {
         font-size: .5rem;
     }
 
-    .beginButton {
-        font-size: .75rem;
-        width: auto;
-        height: 20px;
-     }
 }
