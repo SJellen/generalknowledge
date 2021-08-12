@@ -21,8 +21,8 @@ function GameContextProvider({ children }) {
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
     
-    const START_TIME = 700
-    const PASS_PLAY_TIME = 700
+    const START_TIME = 11
+    const PASS_PLAY_TIME = 7
 
     const [passPlayTime, setPassPlayTime] = useState(PASS_PLAY_TIME)
     const [passPlayStart, setPassPlayStart] = useState(false)
