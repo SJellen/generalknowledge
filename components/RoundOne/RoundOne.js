@@ -10,7 +10,6 @@ export default function RoundOne() {
     const {selectedQuestions,isRoundOne} = useContext(GameContext)
     const {categories} = RoundOneBoard()
 
-
     return (
          <div className={styles.container} style={{display: isRoundOne ? '' : 'none'}}>
             <div className={styles.parent} style={{display: selectedQuestions === 30 ? "none" : "", pointerEvents: currentQuestion ? "none": ''}}>

@@ -6,7 +6,7 @@ import useStartLogic from '../logic/useStartLogic'
 export default function Start() {
 
     const {handleChange, handleStartSubmit, handleStartGameClick} = useStartLogic()
-    const {username, showInput, player2, player3, isStart, isRoundOne, isRoundTwo, isRoundThree, selectedQuestions} = useContext(GameContext)
+    const {username, showInput, player2, player3, isStart} = useContext(GameContext)
     
     return (
              <div className={styles.container} style={{display: isStart  ? '' : "none"}}>

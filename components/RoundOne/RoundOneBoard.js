@@ -45,6 +45,6 @@ export default function RoundOneBoard() {
             </div>
         </div> ))
 
-    return {categories}
-       
+    return {categories}    
+    
 }

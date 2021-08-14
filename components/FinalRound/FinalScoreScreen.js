@@ -4,7 +4,7 @@ import {GameContext} from '../../context/GameContext'
 
 export default function FinalScoreScreen() {
     
-    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, setUserMove, setPlayer2Move, setPlayer3Move} = useContext(GameContext)
+    const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions} = useContext(GameContext)
 
     return (
         <div className={styles.container} style={{display: selectedQuestions === 63 ? "" : 'none'}}>

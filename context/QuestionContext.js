@@ -69,9 +69,6 @@ function QuestionContextProvider({ children }) {
             categoryCreator()
     }, [shuffledArr])  
     
-    
-
-     
     const fetchFinalQuestion = async (cat) => {
         await fetch(`https://opentdb.com/api.php?amount=1&category=${cat}&difficulty=hard&type=multiple`)
             .then(res => res.json())

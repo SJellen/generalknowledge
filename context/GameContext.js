@@ -17,7 +17,6 @@ function GameContextProvider({ children }) {
 
     const [score, setScore] = useLocalStorageState('score', 0)
 
-
     const [cost, setCost] = useState(0)
     const [answerResult, setAnswerResult] = useState()
     
@@ -52,7 +51,6 @@ function GameContextProvider({ children }) {
     // round over and reset turn to user
     useEffect(() => {
         if (selectedQuestions === 30 || selectedQuestions === 60) {
-            // sessionStorage.setItem(SESSION_STORAGE_KEY_TURN, JSON.stringify(username))
             setCurrentTurn(username)
         }
     },[selectedQuestions])
@@ -95,9 +93,6 @@ function GameContextProvider({ children }) {
         setSelectedQuestions.reset()
         setShowInput(true)
     }
-
-    console.log(selectedQuestions)
-
 
     return (
         <GameContext.Provider value={{isStart, setIsStart, username, setUsername, selectedQuestions, setSelectedQuestions, score, setScore, cost, setCost, answerResult, setAnswerResult, timeRemaining, setTimeRemaining, clockStart, setClockStart, START_TIME, isRoundTwo, setIsRoundTwo, isRoundThree, setIsRoundThree, showInput, setShowInput, player2, setPlayer2, player3, setPlayer3, player2Score, setPlayer2Score, player3Score, setPlayer3Score, currentTurn, setCurrentTurn, showButtons, setShowButtons, player2Move, setPlayer2Move, player3Move, setPlayer3Move, userMove, setUserMove, userWager, setUserWager, player2Wager, setPlayer2Wager, player3Wager, setPlayer3Wager, passPlayTime, setPassPlayTime, passPlayStart, setPassPlayStart, PASS_PLAY_TIME, timeRemainingFinal, setTimeRemainingFinal, clockStartFinal, setClockStartFinal, isRoundOne, setIsRoundOne, endGameStateResetGameContext}}>

@@ -5,7 +5,7 @@ import styles from '../../styles/FinalRound.module.scss'
 
 export default function FinalRound() {
 
-    const {finalQuestion, categoryCleaner, currentQuestion, setShuffledQuestionsArr, getShuffledArr} = useContext(QuestionContext)
+    const {finalQuestion, categoryCleaner, currentQuestion} = useContext(QuestionContext)
     const {selectedQuestions,  setSelectedQuestions, isRoundThree} = useContext(GameContext)
 
     useEffect(() => {

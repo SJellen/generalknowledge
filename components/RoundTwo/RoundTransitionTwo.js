@@ -2,10 +2,9 @@ import React, {useContext} from 'react'
 import {GameContext} from '../../context/GameContext'
 import styles from '../../styles/RoundTransition.module.scss'
 
-
 export default function RoundTransitionTwo() {
 
-    const {selectedQuestions, score, isRoundTwo,player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, setSelectedQuestions} = useContext(GameContext)
+    const {selectedQuestions, score, player2Score, player3Score, username,player2, player3, setIsRoundTwo, isRoundThree, setIsRoundThree, setSelectedQuestions} = useContext(GameContext)
 
     function handleRoundTwoClick() {
         setIsRoundTwo(false)

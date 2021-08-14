@@ -13,7 +13,6 @@ export default function FinalScreen() {
     function handleEndGameClick() {
       endGameStateResetQuestionContext()
       endGameStateResetGameContext()
-      
     }
 
     const finalStatementLose = "I'm sorry, you didn't win this time."
