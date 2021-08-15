@@ -11,14 +11,22 @@
 ### Screenshots
 
 ![](screenshots/desktop.png)
+  
+
 
 ![](screenshots/tablet.png)
+  
+
 
 ![](screenshots/moblie.png)
+  
 
 ![](screenshots/question.png)
+  
+
 
 ![](screenshots/answer.png)
+  
 
 
 
