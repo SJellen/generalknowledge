@@ -6,6 +6,8 @@ export default function Header() {
     
     const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, isStart} = useContext(GameContext)
 
+    console.log(currentTurn)
+
     return (
         <div className={styles.container} style={{display: selectedQuestions >= 61 ? "none" : ''}}>
             <div className={styles.playerContainer} >
@@ -14,10 +16,10 @@ export default function Header() {
                     style={{visibility: username && !isStart ? "visible" : "hidden"}}>
                 <span 
                     className={styles.username} 
-                    style={{color: currentTurn === username ? "rgb(235, 214, 94)" : ""}}>{username && username}</span>
+                    style={{color: currentTurn === username ? "rgb(235, 214, 94)" : "white"}}>{username && username}</span>
                 <span 
                     className={styles.score} 
-                    style={{color: currentTurn === username ? "rgb(235, 214, 94)" : ""}}>
+                    style={{color: currentTurn === username ? "rgb(235, 214, 94)" : "white"}}>
                     ${score ? score : 0}</span>  
                 </div>
                 <div className={styles.playerMove}>
@@ -31,10 +33,10 @@ export default function Header() {
                     style={{visibility: player2 && !isStart ? "visible" : "hidden"}}>
                 <span 
                     className={styles.username} 
-                    style={{color: currentTurn === player2 ? "rgb(235, 214, 94)" : ""}}>{player2 && player2}</span>
+                    style={{color: currentTurn === player2 ? "rgb(235, 214, 94)" : "white"}}>{player2 && player2}</span>
                 <span 
                     className={styles.score} 
-                    style={{color: currentTurn === player2 ? "rgb(235, 214, 94)" : ""}}>
+                    style={{color: currentTurn === player2 ? "rgb(235, 214, 94)" : "white"}}>
                     ${player2Score ? player2Score : 0}</span> 
                     
                 </div>
@@ -49,10 +51,10 @@ export default function Header() {
                     style={{visibility: player3 && !isStart ? "visible" : "hidden"}}>
                     <span 
                         className={styles.username} 
-                        style={{color: currentTurn === player3 ? "rgb(235, 214, 94)" : ""}}>{player3 && player3}</span>
+                        style={{color: currentTurn === player3 ? "rgb(235, 214, 94)" : "white"}}>{player3 && player3}</span>
                     <span 
                         className={styles.score} 
-                        style={{color: currentTurn === player3 ? "rgb(235, 214, 94)" : ""}}>
+                        style={{color: currentTurn === player3 ? "rgb(235, 214, 94)" : "white"}}>
                         ${player3Score ? player3Score : 0}</span>
                 </div>
                 <div className={styles.playerMove}>
