@@ -12,24 +12,20 @@
 
 ![](screenshots/desktop.png)
   
-
-
+  
 ![](screenshots/tablet.png)
   
-
-
+  
 ![](screenshots/moblie.png)
   
-
+  
 ![](screenshots/question.png)
   
-
-
+  
 ![](screenshots/answer.png)
   
-
-
-
+  
+  
 ### 🏠 [Homepage](https://generalknowledge.vercel.app/)
 
 ### ✨ [Demo](https://generalknowledge.vercel.app/)
