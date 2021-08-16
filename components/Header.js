@@ -6,8 +6,6 @@ export default function Header() {
     
     const {username, score, player2, player3, player2Score, player3Score, currentTurn, player2Move, player3Move, userMove, selectedQuestions, isStart} = useContext(GameContext)
 
-    console.log(currentTurn)
-
     return (
         <div className={styles.container} style={{display: selectedQuestions >= 61 ? "none" : ''}}>
             <div className={styles.playerContainer} >
