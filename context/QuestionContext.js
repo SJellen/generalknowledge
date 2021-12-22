@@ -1,7 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import useLocalStorageState from 'use-local-storage-state'
 
-
 const QuestionContext = React.createContext()
 
 function QuestionContextProvider({ children }) {
@@ -10,8 +9,6 @@ function QuestionContextProvider({ children }) {
     const [roundOneCategories, setRoundOneCategories] = useLocalStorageState('roundOneCategories',[])
     const [roundTwoCategories, setRoundTwoCategories] = useLocalStorageState('roundTwoCategories',[])
     const [finalRoundCategory, setFinalRoundCategory] = useLocalStorageState('finalRoundCategories',[])
-
-
 
     const [finalQuestion, setFinalQuestion] = useState()
 
@@ -45,8 +42,6 @@ function QuestionContextProvider({ children }) {
             }
             return newArr
         }
-
-  
 
     useEffect(() => {
         let shuffle = getShuffledArr(categoryArr)

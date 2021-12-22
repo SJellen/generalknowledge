@@ -7,7 +7,6 @@ import useRoundOneLogic from '../../logic/useRoundOneLogic'
 export default function RoundOneBoard() {
 
     const {categoryArr, handleTileClick} = useRoundOneLogic()
-
     const {categoryCleaner} = useContext(QuestionContext)
     const {currentTurn, username} = useContext(GameContext)
     const categories = categoryArr && categoryArr.map((cat, index) => (
@@ -46,5 +45,4 @@ export default function RoundOneBoard() {
         </div> ))
 
     return {categories}    
-    
 }

@@ -28,7 +28,6 @@ export default function Question() {
                 </div>
                  <div className={styles.questionContainer} >
                     <h2>{currentQuestion && questionCleaner(currentQuestion.question)}</h2>
-                   
                 </div>
             
             <div className={styles.choiceContainer} style={{display: !showButtons && currentTurn === username ? "block" : 'none'}}>

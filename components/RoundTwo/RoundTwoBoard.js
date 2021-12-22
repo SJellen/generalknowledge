@@ -7,7 +7,6 @@ import styles from '../../styles/RoundTwo.module.scss'
 export default function RoundTwoBoard() {
 
     const {handleTileClick2, categoryArr2} = useRoundTwoLogic()
-
     const {categoryCleaner} = useContext(QuestionContext)
     const {currentTurn, username} = useContext(GameContext)
 

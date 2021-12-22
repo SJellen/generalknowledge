@@ -17,8 +17,6 @@ export default function FinalRound() {
         }
     }, [])
 
-    
-
     return (
         <div className={styles.container}style={{display: isRoundThree && selectedQuestions === 60  ? "block" : "none", pointerEvents: currentQuestion ? "none": ''}}>
             <div className={styles.parent} >

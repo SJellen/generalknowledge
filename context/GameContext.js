@@ -3,7 +3,6 @@ import useLocalStorageState from 'use-local-storage-state'
 
 const GameContext = React.createContext()
 
-
 function GameContextProvider({ children }) {
 
     const [isStart, setIsStart] = useLocalStorageState('isStart', true)
