@@ -26,27 +26,6 @@ export default function useStartLogic() {
         setTempUser(user)
     }
 
-    // function handleStartSubmit(e) {
-    //     e.preventDefault()
-    //     setUsername(tempUser)
-    //     setShowInput(false)
-    //     fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
-    //     fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
-    //     fetchFirstRoundQuestions(roundOneCategories[2], setFirstRoundQuestion3)
-    //     fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
-    //     fetchFirstRoundQuestions(roundOneCategories[4], setFirstRoundQuestion5)
-    //     fetchFirstRoundQuestions(roundOneCategories[5], setFirstRoundQuestion6)
-    //     fetchSecondRoundQuestions(roundTwoCategories[0], setSecondRoundQuestion1)
-    //     fetchSecondRoundQuestions(roundTwoCategories[1], setSecondRoundQuestion2)
-    //     fetchSecondRoundQuestions(roundTwoCategories[2], setSecondRoundQuestion3)
-    //     fetchSecondRoundQuestions(roundTwoCategories[3], setSecondRoundQuestion4)
-    //     fetchSecondRoundQuestions(roundTwoCategories[4], setSecondRoundQuestion5)
-    //     fetchSecondRoundQuestions(roundTwoCategories[5], setSecondRoundQuestion6)
-    //     fetchFinalQuestion(finalRoundCategory[0])
-    //     getUniqueUsers()
-    // }
-
-
     async function handleStartSubmit(e) {
         setLoading(true)
         e.preventDefault()
