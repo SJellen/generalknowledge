@@ -5,7 +5,7 @@ import useStartLogic from '../logic/useStartLogic'
 
 export default function Start() {
 
-    const {handleChange, handleStartSubmit, handleStartGameClick} = useStartLogic()
+    const {handleChange, handleStartSubmit, handleStartGameClick, loading} = useStartLogic()
     const {username, showInput, player2, player3, isStart} = useContext(GameContext)
     
     return (
@@ -37,7 +37,10 @@ export default function Start() {
                         <div className={styles.wordBox2}>
                             <h1 >Welcome <span className={styles.usernames}>{username}</span>.<br></br> Your opponents today are:<br></br> <span className={styles.usernames}>{player2}</span> and <span className={styles.usernames}>{player3}</span>.<br></br>
                              Let's play!</h1>
-                        <a className={styles.beginButton} type="submit" style={{color: "black"}} onClick={handleStartGameClick}>Start</a>
+                             {
+                                loading ? <div className={styles.loader}>Loading Categories... please be patient. </div> :  <a className={styles.beginButton} type="submit" style={{color: "black"}} onClick={handleStartGameClick}>Start</a>
+                             }
+                       
                         </div> : ""
                 }   
         </div>   

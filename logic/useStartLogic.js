@@ -9,6 +9,7 @@ export default function useStartLogic() {
     const {roundOneCategories, setFirstRoundQuestion1, setFirstRoundQuestion2, setFirstRoundQuestion3, setFirstRoundQuestion4, setFirstRoundQuestion5, setFirstRoundQuestion6, fetchFirstRoundQuestions, roundTwoCategories,fetchSecondRoundQuestions, setSecondRoundQuestion1, setSecondRoundQuestion2, setSecondRoundQuestion3, setSecondRoundQuestion4, setSecondRoundQuestion5, setSecondRoundQuestion6, finalRoundCategory, fetchFinalQuestion} = useContext(QuestionContext)
     
     const [tempUser, setTempUser] = useState('Player 1')
+    const [loading, setLoading] = useState(false)
 
     function getUniqueUsers() {
         let player2 = computerNamesList[Math.floor(Math.random() * computerNamesList.length)]
@@ -25,25 +26,62 @@ export default function useStartLogic() {
         setTempUser(user)
     }
 
-    function handleStartSubmit(e) {
+    // function handleStartSubmit(e) {
+    //     e.preventDefault()
+    //     setUsername(tempUser)
+    //     setShowInput(false)
+    //     fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
+    //     fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
+    //     fetchFirstRoundQuestions(roundOneCategories[2], setFirstRoundQuestion3)
+    //     fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
+    //     fetchFirstRoundQuestions(roundOneCategories[4], setFirstRoundQuestion5)
+    //     fetchFirstRoundQuestions(roundOneCategories[5], setFirstRoundQuestion6)
+    //     fetchSecondRoundQuestions(roundTwoCategories[0], setSecondRoundQuestion1)
+    //     fetchSecondRoundQuestions(roundTwoCategories[1], setSecondRoundQuestion2)
+    //     fetchSecondRoundQuestions(roundTwoCategories[2], setSecondRoundQuestion3)
+    //     fetchSecondRoundQuestions(roundTwoCategories[3], setSecondRoundQuestion4)
+    //     fetchSecondRoundQuestions(roundTwoCategories[4], setSecondRoundQuestion5)
+    //     fetchSecondRoundQuestions(roundTwoCategories[5], setSecondRoundQuestion6)
+    //     fetchFinalQuestion(finalRoundCategory[0])
+    //     getUniqueUsers()
+    // }
+
+
+    async function handleStartSubmit(e) {
+        setLoading(true)
         e.preventDefault()
+    
         setUsername(tempUser)
         setShowInput(false)
-        fetchFirstRoundQuestions(roundOneCategories[0], setFirstRoundQuestion1)
-        fetchFirstRoundQuestions(roundOneCategories[1], setFirstRoundQuestion2)
-        fetchFirstRoundQuestions(roundOneCategories[2], setFirstRoundQuestion3)
-        fetchFirstRoundQuestions(roundOneCategories[3], setFirstRoundQuestion4)
-        fetchFirstRoundQuestions(roundOneCategories[4], setFirstRoundQuestion5)
-        fetchFirstRoundQuestions(roundOneCategories[5], setFirstRoundQuestion6)
-        fetchSecondRoundQuestions(roundTwoCategories[0], setSecondRoundQuestion1)
-        fetchSecondRoundQuestions(roundTwoCategories[1], setSecondRoundQuestion2)
-        fetchSecondRoundQuestions(roundTwoCategories[2], setSecondRoundQuestion3)
-        fetchSecondRoundQuestions(roundTwoCategories[3], setSecondRoundQuestion4)
-        fetchSecondRoundQuestions(roundTwoCategories[4], setSecondRoundQuestion5)
-        fetchSecondRoundQuestions(roundTwoCategories[5], setSecondRoundQuestion6)
-        fetchFinalQuestion(finalRoundCategory[0])
-        getUniqueUsers()
+    
+        // Helper function to delay execution
+        const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+    
+        // Define a function to handle fetching questions with a delay
+        const fetchQuestionWithDelay = async (category, setQuestion) => {
+            await fetchFirstRoundQuestions(category, setQuestion);
+            await delay(5000); // Delay for 1 second
+        };
+    
+        // Fetch questions for the first round with delays
+        for (let i = 0; i < roundOneCategories.length; i++) {
+            await fetchQuestionWithDelay(roundOneCategories[i], eval(`setFirstRoundQuestion${i + 1}`))
+        }
+    
+        // Fetch questions for the second round with delays
+        for (let i = 0; i < roundTwoCategories.length; i++) {
+            await fetchQuestionWithDelay(roundTwoCategories[i], eval(`setSecondRoundQuestion${i + 1}`))
+        }
+    
+        // Fetch the final question with a delay
+        await fetchFinalQuestion(finalRoundCategory[0])
+    
+        // Get unique users with a delay
+        await delay(1000); // Add an extra delay before fetching unique users
+        await getUniqueUsers()
+        setLoading(false)
     }
+    
 
     
     function handleStartGameClick() {
@@ -52,6 +90,6 @@ export default function useStartLogic() {
         setCurrentTurn(username)
     }
 
-    return {handleChange, handleStartSubmit, handleStartGameClick}
+    return {handleChange, handleStartSubmit, handleStartGameClick, loading}
     
 }
