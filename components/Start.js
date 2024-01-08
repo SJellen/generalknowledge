@@ -38,7 +38,8 @@ export default function Start() {
                             <h1 >Welcome <span className={styles.usernames}>{username}</span>.<br></br> Your opponents today are:<br></br> <span className={styles.usernames}>{player2}</span> and <span className={styles.usernames}>{player3}</span>.<br></br>
                              Let's play!</h1>
                              {
-                                loading ? <div className={styles.loader}>Loading Categories... please be patient. </div> :  <a className={styles.beginButton} type="submit" style={{color: "black"}} onClick={handleStartGameClick}>Start</a>
+                                loading ? <div className={styles.loader}>Loading Categories... please be patient. API limits have been added. I'm working on a fix.
+                                 </div> :  <a className={styles.beginButton} type="submit" style={{color: "black"}} onClick={handleStartGameClick}>Start</a>
                              }
                        
                         </div> : ""

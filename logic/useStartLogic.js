@@ -32,14 +32,14 @@ export default function useStartLogic() {
     
         setUsername(tempUser)
         setShowInput(false)
-    
+        await getUniqueUsers()
         // Helper function to delay execution
         const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
     
         // Define a function to handle fetching questions with a delay
         const fetchQuestionWithDelay = async (category, setQuestion) => {
             await fetchFirstRoundQuestions(category, setQuestion);
-            await delay(5000); // Delay for 1 second
+            await delay(5000); // Delay for 5 seconds
         };
     
         // Fetch questions for the first round with delays
@@ -55,9 +55,7 @@ export default function useStartLogic() {
         // Fetch the final question with a delay
         await fetchFinalQuestion(finalRoundCategory[0])
     
-        // Get unique users with a delay
-        await delay(1000); // Add an extra delay before fetching unique users
-        await getUniqueUsers()
+
         setLoading(false)
     }
     
