@@ -33,20 +33,24 @@ export default function useStartLogic() {
         setUsername(tempUser)
         setShowInput(false)
         await getUniqueUsers()
-        // Helper function to delay execution
+        // Helper function to delay execution because of API call limits
         const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
     
         // Define a function to handle fetching questions with a delay
         const fetchQuestionWithDelay = async (category, setQuestion) => {
             await fetchFirstRoundQuestions(category, setQuestion);
             await delay(5000); // Delay for 5 seconds
-        };
+        }
+        
     
         // Fetch questions for the first round with delays
         for (let i = 0; i < roundOneCategories.length; i++) {
             await fetchQuestionWithDelay(roundOneCategories[i], eval(`setFirstRoundQuestion${i + 1}`))
         }
-    
+
+        // set loading to false to display the start game button
+        setLoading(false)
+
         // Fetch questions for the second round with delays
         for (let i = 0; i < roundTwoCategories.length; i++) {
             await fetchQuestionWithDelay(roundTwoCategories[i], eval(`setSecondRoundQuestion${i + 1}`))
@@ -54,11 +58,8 @@ export default function useStartLogic() {
     
         // Fetch the final question with a delay
         await fetchFinalQuestion(finalRoundCategory[0])
-    
 
-        setLoading(false)
     }
-    
 
     
     function handleStartGameClick() {
