@@ -48,7 +48,6 @@ npm run start
 
 * Website: [ScottJellen.com](https://scottjellen.com/)
 * Github: [SJellen](https://github.com/SJellen)
-* LinkedIn: [scottjellen](https://linkedin.com/in/scottjellen)
 
 ## Show your support
 
