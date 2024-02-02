@@ -24,6 +24,7 @@ export default function Start() {
                                             type="text" 
                                             name="name" 
                                             maxLength="20"
+                                            placeholder="Player 1"
                                             onChange={handleChange} 
                                             className={styles.input}/> 
                                     </label>
