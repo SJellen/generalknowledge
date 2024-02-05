@@ -8,6 +8,10 @@ export default function Start() {
 
     const {handleChange, handleStartSubmit, handleStartGameClick, loading} = useStartLogic()
     const {username, showInput, player2, player3, isStart} = useContext(GameContext)
+
+    // to todo
+    // i need to load the categories and questions here on load ans try to negate the load times
+    // there are style changes that I can make to clean this up
     
     return (
              <div className={styles.container} style={{display: isStart  ? '' : "none"}}>
