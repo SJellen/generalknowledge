@@ -6,6 +6,7 @@ export default function Spinner() {
     <div className={styles.container}>
         <div className={styles.loadingContainer}>
             <h2 className={styles.loading}>Gathering categories and questions..</h2>
+            <p>Please be patient</p>
             <div className={styles.spinner}></div>
         </div>
       
