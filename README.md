@@ -1,9 +1,6 @@
 <h1 align="center">Welcome to General Knowledge 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
-  <!-- <a href="https://twitter.com/ScottJellen" target="_blank">
-    <img alt="Twitter: ScottJellen" src="https://img.shields.io/twitter/follow/ScottJellen.svg?style=social" />
-  </a> -->
 </p>
 
 > A multi round trivia game with random computer player names and computer intelligence.
